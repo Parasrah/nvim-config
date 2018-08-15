@@ -1,41 +1,45 @@
 call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/syntastic'
 Plug 'ayu-theme/ayu-vim'
 Plug 'elmcast/elm-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'valloric/youcompleteme'
 Plug 'mhinz/vim-startify'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'pangloss/vim-javascript'
+Plug 'w0rp/ale'
+Plug 'yggdroot/indentline'
 call plug#end()
 
+" Themes
 set termguicolors     " enable true colors support
 " let ayucolor="light"  " for light version of theme
-let ayucolor="mirage" " for mirage version of theme
-" let ayucolor="dark"   " for dark version of theme
+" let ayucolor="mirage" " for mirage version of theme
+let ayucolor="dark"   " for dark version of theme
 colorscheme ayu
 
-autocmd VimEnter * NERDTree
 
+" Javascript
 let g:javascript_plugin_jsdoc = 1
 
-" Linting
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = 'yarn lint'
-
 " Line numbers
-
 set number
 
+" IndentLine {{
+let g:indentLine_char = ''
+let g:indentLine_first_char = ''
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_setColors = 0
+" }}
+
+" NERDTree
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+autocmd VimEnter * nested split term://bash
+autocmd VimEnter * wincmd x 
+autocmd VimEnter * res +10
+
 " -- END --
+
