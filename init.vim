@@ -20,6 +20,8 @@ set termguicolors     " enable true colors support
 let ayucolor="dark"   " for dark version of theme
 colorscheme ayu
 
+" File plugin
+filetype plugin indent on
 
 " Javascript
 let g:javascript_plugin_jsdoc = 1
@@ -35,6 +37,10 @@ let g:indentLine_setColors = 0
 " }}
 
 " NERDTree
+let g:NERDTreeDirArrowExpandable = '>'
+let g:NERDTreeDirArrowCollapsible = 'v'
+
+" Startup layout
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 autocmd VimEnter * nested split term://bash
