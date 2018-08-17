@@ -11,7 +11,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'pangloss/vim-javascript'
 Plug 'w0rp/ale'
 Plug 'yggdroot/indentline'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
+
+" Custom commands
+
+command Config vs ~/.config/nvim/init.vim
 
 " Themes
 set termguicolors     " enable true colors support
