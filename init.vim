@@ -1,17 +1,22 @@
 call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'ayu-theme/ayu-vim'
 Plug 'elmcast/elm-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'valloric/youcompleteme'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'pangloss/vim-javascript'
 Plug 'w0rp/ale'
 Plug 'yggdroot/indentline'
 Plug 'jiangmiao/auto-pairs'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/denite.nvim'
+Plug 'joshdick/onedark.vim'
 call plug#end()
 
 " Custom commands
@@ -20,10 +25,11 @@ command Config vs ~/.config/nvim/init.vim
 
 " Themes
 set termguicolors     " enable true colors support
-" let ayucolor="light"  " for light version of theme
-" let ayucolor="mirage" " for mirage version of theme
-let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
+syntax on
+colorscheme onedark
+
+" Deopletu
+let g:deoplete#enable_at_startup = 1
 
 " File plugin
 filetype plugin indent on
