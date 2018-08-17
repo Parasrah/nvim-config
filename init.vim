@@ -19,8 +19,25 @@ Plug 'joshdick/onedark.vim'
 call plug#end()
 
 " Custom commands
+command! Config vs ~/.config/nvim/init.vim
 
-command Config vs ~/.config/nvim/init.vim
+" Keymappings
+nnoremap <silent> <Up> :res +3<CR>
+nnoremap <silent> <Down> :res -3<CR>
+nnoremap <silent> <Left> :3winc <<CR>
+nnoremap <silent> <Right> :3winc ><CR>
+nnoremap <silent> <C-Right> <c-w>l
+nnoremap <silent> <C-Left> <c-w>h
+nnoremap <silent> <C-Up> <c-w>k
+nnoremap <silent> <C-Down> <c-w>j
+
+" Macro trick https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
 
 " Themes
 
