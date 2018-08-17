@@ -22,6 +22,7 @@ call plug#end()
 command! Config vs ~/.config/nvim/init.vim
 
 " Keymappings
+" -- Window Management
 nnoremap <silent> <Up> :res +3<CR>
 nnoremap <silent> <Down> :res -3<CR>
 nnoremap <silent> <Left> :3winc <<CR>
@@ -30,6 +31,9 @@ nnoremap <silent> <C-Right> <c-w>l
 nnoremap <silent> <C-Left> <c-w>h
 nnoremap <silent> <C-Up> <c-w>k
 nnoremap <silent> <C-Down> <c-w>j
+" -- Ale linting
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " Macro trick https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
@@ -63,12 +67,24 @@ let g:airline_theme='onedark'
 
 " Airline
 let g:airline_powerline_fonts=1
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+
+" Ale
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+
+" YouCompleteMe
+let g:ycm_filetype_blacklist = { 'javascript': 1, 'typescript': 1 }
 
 " Deopletu
 let g:deoplete#enable_at_startup = 1
 
 " File plugin
 filetype plugin indent on
+
+" NeoVim Typescript
+let g:nvim_typescript#javascript_support = 1
 
 " Javascript
 let g:javascript_plugin_jsdoc = 1
