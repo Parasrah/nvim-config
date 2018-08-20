@@ -11,8 +11,8 @@ call minpac#add('k-takata/minpac', { 'type': 'opt' })
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-repeat')
+call minpac#add('tpope/vim-obsession')
 call minpac#add('nelstrom/vim-visual-star-search')
-call minpac#add('vim-scripts/AutoClose')
 
 " File Management
 call minpac#add('scrooloose/nerdtree')
@@ -37,9 +37,10 @@ call minpac#add('elmcast/elm-vim')
 call minpac#add('tpope/vim-markdown')
 
 " Javascript/Typescript
-" TODO: Fix nvim-typescript install.sh
 call minpac#add('mhartington/nvim-typescript', { 'type': 'opt' , 'do': jobstart('./install.sh') })
 call minpac#add('Shougo/deoplete.nvim')
 call minpac#add('Shougo/denite.nvim')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('HerringtonDarkholme/yats.vim')
+
+" -- END
