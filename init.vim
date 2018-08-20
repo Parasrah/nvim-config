@@ -1,39 +1,51 @@
-call plug#begin()
+command! PackUpdate packadd minpac | source $MYVIMRC | redraw | call minpac#update()
+command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
+
+if !exists('*minpac#init')
+  " Abstract into another file so loading this makes sense
+  finish
+endif
+
+call minpac#init({ 'verbose': 0 })
+
+call minpac#add('k-takata/minpac', { 'type': 'opt' })
 
 " General
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
-Plug 'nelstrom/vim-visual-star-search'
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('tpope/vim-surround')
+call minpac#add('tpope/vim-repeat')
+call minpac#add('nelstrom/vim-visual-star-search')
 
 " File Management
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'junegunn/fzf'
+call minpac#add('scrooloose/nerdtree')
+call minpac#add('junegunn/fzf')
 
 " General Linting/Autocompletion
-Plug 'valloric/youcompleteme'
-Plug 'w0rp/ale'
+call minpac#add('valloric/youcompleteme')
+call minpac#add('w0rp/ale')
 
 " Themes
-Plug 'joshdick/onedark.vim'
+call minpac#add('joshdick/onedark.vim', { 'type': 'opt' })
 
 " Interface
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'mhinz/vim-startify'
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-airline/vim-airline-themes')
+call minpac#add('mhinz/vim-startify')
 
 " Elm
-Plug 'elmcast/elm-vim'
+call minpac#add('elmcast/elm-vim')
+
+" Markdown
+call minpac#add('tpope/vim-markdown')
 
 " Javascript/Typescript
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/denite.nvim'
-Plug 'pangloss/vim-javascript'
-Plug 'HerringtonDarkholme/yats.vim'
+call minpac#add('mhartington/nvim-typescript', { 'do': './install.sh' })
+call minpac#add('Shougo/deoplete.nvim')
+call minpac#add('Shougo/denite.nvim')
+call minpac#add('pangloss/vim-javascript')
+call minpac#add('HerringtonDarkholme/yats.vim')
 
-call plug#end()
+" -- Configuration --
 
 " Custom commands
 command! Config vs ~/.config/nvim/init.vim
