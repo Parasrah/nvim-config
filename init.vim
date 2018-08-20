@@ -1,42 +1,26 @@
-call plug#begin()
+command! PackUpdate packadd minpac | source $NVIMCONFIG/init.vim | redraw | call minpac#update()
+command! PackClean  packadd minpac | source $NVIMCONFIG/init.vim | call minpac#clean()
 
-" General
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
-Plug 'nelstrom/vim-visual-star-search'
+source $NVIMCONFIG/packages.vim
 
-" File Management
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'junegunn/fzf'
+" For a paranoia.
+" Normally `:set nocp` is not needed, because it is done automatically
+" when .vimrc is found.
+if &compatible
+  " `:set nocp` has many side effects. Therefore this should be done
+  " only when 'compatible' is set.
+  set nocompatible
+endif
 
-" General Linting/Autocompletion
-Plug 'valloric/youcompleteme'
-Plug 'w0rp/ale'
+" -- Configuration --
 
-" Themes
-Plug 'joshdick/onedark.vim'
-
-" Interface
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'mhinz/vim-startify'
-
-" Elm
-Plug 'elmcast/elm-vim'
-
-" Javascript/Typescript
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/denite.nvim'
-Plug 'pangloss/vim-javascript'
-Plug 'HerringtonDarkholme/yats.vim'
-
-call plug#end()
+" Add Packages
+packadd! onedark.vim
+packadd! nvim-typescript
 
 " Custom commands
-command! Config vs ~/.config/nvim/init.vim
+command! Config e $NVIMCONFIG/init.vim
+command! Packages e $NVIMCONFIG/packages.vim
 
 " Keymappings
 " -- Window Management
@@ -56,29 +40,27 @@ nnoremap <C-p> :<C-u>FZF<CR>
 
 " Macro trick https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-
 function! ExecuteMacroOverVisualRange()
   echo "@".getcmdline()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
-" Themes
-
+" -- True Colors --
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (empty($TMUX))
-  if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
+if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
+"For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+"Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+" < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+" -- Themes
 let g:onedark_terminal_italics = 1
 syntax on
 colorscheme onedark
@@ -89,9 +71,13 @@ let g:airline_powerline_fonts=1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 
+" Fuzzy Search
+let $FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git"'
+
 " Ale
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
+let g:ale_completion_enabled = 0
 
 " YouCompleteMe
 let g:ycm_filetype_blacklist = { 'javascript': 1, 'typescript': 1 }
@@ -115,7 +101,7 @@ set number
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 autocmd VimEnter * nested split term://bash
-autocmd VimEnter * wincmd x 
+autocmd VimEnter * wincmd x
 autocmd VimEnter * res +10
 
 " -- END --
