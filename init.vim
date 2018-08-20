@@ -1,54 +1,26 @@
-command! PackUpdate packadd minpac | source $MYVIMRC | redraw | call minpac#update()
-command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
+command! PackUpdate packadd minpac | source $NVIMCONFIG/init.vim | redraw | call minpac#update()
+command! PackClean  packadd minpac | source $NVIMCONFIG/init.vim | call minpac#clean()
 
-if !exists('*minpac#init')
-  " Abstract into another file so loading this makes sense
-  finish
+source $NVIMCONFIG/packages.vim
+
+" For a paranoia.
+" Normally `:set nocp` is not needed, because it is done automatically
+" when .vimrc is found.
+if &compatible
+  " `:set nocp` has many side effects. Therefore this should be done
+  " only when 'compatible' is set.
+  set nocompatible
 endif
-
-call minpac#init({ 'verbose': 0 })
-
-call minpac#add('k-takata/minpac', { 'type': 'opt' })
-
-" General
-call minpac#add('tpope/vim-fugitive')
-call minpac#add('tpope/vim-surround')
-call minpac#add('tpope/vim-repeat')
-call minpac#add('nelstrom/vim-visual-star-search')
-
-" File Management
-call minpac#add('scrooloose/nerdtree')
-call minpac#add('junegunn/fzf')
-
-" General Linting/Autocompletion
-call minpac#add('valloric/youcompleteme')
-call minpac#add('w0rp/ale')
-
-" Themes
-call minpac#add('joshdick/onedark.vim', { 'type': 'opt' })
-
-" Interface
-call minpac#add('vim-airline/vim-airline')
-call minpac#add('vim-airline/vim-airline-themes')
-call minpac#add('mhinz/vim-startify')
-
-" Elm
-call minpac#add('elmcast/elm-vim')
-
-" Markdown
-call minpac#add('tpope/vim-markdown')
-
-" Javascript/Typescript
-call minpac#add('mhartington/nvim-typescript', { 'do': './install.sh' })
-call minpac#add('Shougo/deoplete.nvim')
-call minpac#add('Shougo/denite.nvim')
-call minpac#add('pangloss/vim-javascript')
-call minpac#add('HerringtonDarkholme/yats.vim')
 
 " -- Configuration --
 
+" Add Packages
+packadd! onedark.vim
+packadd! nvim-typescript
+
 " Custom commands
-command! Config vs ~/.config/nvim/init.vim
+command! Config e $NVIMCONFIG/init.vim
+command! Packages e $NVIMCONFIG/packages.vim
 
 " Keymappings
 " -- Window Management
@@ -127,7 +99,7 @@ set number
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 autocmd VimEnter * nested split term://bash
-autocmd VimEnter * wincmd x 
+autocmd VimEnter * wincmd x
 autocmd VimEnter * res +10
 
 " -- END --
