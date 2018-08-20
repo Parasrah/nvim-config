@@ -1,21 +1,38 @@
 call plug#begin()
+
+" General
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'elmcast/elm-vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'nelstrom/vim-visual-star-search'
+
+" File Management
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'junegunn/fzf'
+
+" General Linting/Autocompletion
 Plug 'valloric/youcompleteme'
-Plug 'mhinz/vim-startify'
+Plug 'w0rp/ale'
+
+" Themes
+Plug 'joshdick/onedark.vim'
+
+" Interface
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'pangloss/vim-javascript'
-Plug 'w0rp/ale'
-Plug 'jiangmiao/auto-pairs'
-Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhinz/vim-startify'
+
+" Elm
+Plug 'elmcast/elm-vim'
+
+" Javascript/Typescript
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/denite.nvim'
-Plug 'joshdick/onedark.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'HerringtonDarkholme/yats.vim'
+
 call plug#end()
 
 " Custom commands
@@ -34,6 +51,8 @@ nnoremap <silent> <C-Down> <c-w>j
 " -- Ale linting
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" -- Fuzzy File Search
+nnoremap <C-p> :<C-u>FZF<CR>
 
 " Macro trick https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
