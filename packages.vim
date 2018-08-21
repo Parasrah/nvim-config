@@ -28,7 +28,6 @@ call minpac#add('joshdick/onedark.vim', { 'type': 'opt' })
 " Interface
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
-call minpac#add('mhinz/vim-startify')
 
 " Elm
 call minpac#add('elmcast/elm-vim')
@@ -38,9 +37,11 @@ call minpac#add('tpope/vim-markdown')
 
 " Javascript/Typescript
 call minpac#add('mhartington/nvim-typescript', { 'type': 'opt' , 'do': jobstart('./install.sh') })
-call minpac#add('Shougo/deoplete.nvim')
-call minpac#add('Shougo/denite.nvim')
-call minpac#add('pangloss/vim-javascript')
-call minpac#add('HerringtonDarkholme/yats.vim')
+call minpac#add('Shougo/deoplete.nvim', { 'type': 'opt' })
+call minpac#add('Shougo/denite.nvim', { 'type': 'opt' })
+call minpac#add('pangloss/vim-javascript', { 'type': 'opt' })
+call minpac#add('HerringtonDarkholme/yats.vim', { 'type': 'opt' })
+call minpac#add('quramy/tsuquyomi', { 'type': 'opt' })
+call minpac#add('Shougo/vimproc.vim', { 'type': 'opt' }, { 'do': jobstart('make') })
 
 " -- END

@@ -1,8 +1,6 @@
 command! PackUpdate packadd minpac | source $NVIMCONFIG/init.vim | redraw | call minpac#update()
 command! PackClean  packadd minpac | source $NVIMCONFIG/init.vim | call minpac#clean()
 
-source $NVIMCONFIG/packages.vim
-
 " For a paranoia.
 " Normally `:set nocp` is not needed, because it is done automatically
 " when .vimrc is found.
@@ -16,11 +14,17 @@ endif
 
 " Add Packages
 packadd! onedark.vim
-packadd! nvim-typescript
+source $NVIMCONFIG/packages.vim
+source $NVIMCONFIG/packages-tui.vim
+source $NVIMCONFIG/packages-gui.vim
+
 
 " Custom commands
 command! Config e $NVIMCONFIG/init.vim
 command! Packages e $NVIMCONFIG/packages.vim
+command! ConfigGui e $NVIMCONFIG/packages-gui.vim
+command! ConfigTui e $NVIMCONFIG/packages-tui.vim
+command! Term below :20sp term://bash
 
 " Keymappings
 " -- Window Management
@@ -69,7 +73,13 @@ let g:airline_theme='onedark'
 " Airline
 let g:airline_powerline_fonts=1
 let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#show_tab_nr = 0
+let g:airline#extensions#tabline#show_tab_type = 0
 
 " Fuzzy Search
 let $FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git"'
@@ -97,12 +107,4 @@ let g:javascript_plugin_jsdoc = 1
 " Line numbers
 set number
 
-" Startup layout
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
-autocmd VimEnter * nested split term://bash
-autocmd VimEnter * wincmd x
-autocmd VimEnter * res +10
-
 " -- END --
-
