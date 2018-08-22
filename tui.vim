@@ -8,6 +8,11 @@ let g:onedark_terminal_italics = 1
 syntax on
 colorscheme onedark
 
+" Keymappings
+" -- Typescript
+autocmd FileType typescript nnoremap <buffer> <silent> K :TSType<CR>
+autocmd FileType typescriptreact nnoremap <buffer> <silent> K :TSType<CR>
+
 " -- Ale linting
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
@@ -33,11 +38,13 @@ let $FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git"'
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:ale_completion_enabled = 0
+" TODO: Move into ftplugin files
+" ex: let b:ale_fixers = ['eslint']
+let g:ale_linters = { 'typescript': ['tslint'], 'javascript': 'eslint' }
 
 " NeoVim Typescript
 let g:nvim_typescript#javascript_support = 1
-let g:nvim_typescript#type_info_on_hold = 1
-let g:echodoc#enable_at_startup = 1
+let g:nvim_typescript#default_mappings = 0
 
 " Javascript
 let g:javascript_plugin_jsdoc = 1
@@ -45,10 +52,11 @@ let g:javascript_plugin_jsdoc = 1
 " YouCompleteMe
 let g:ycm_filetype_blacklist = { 'javascript': 1, 'typescript': 1 }
 
-" Deopletu
+" Deoplete
 let g:deoplete#enable_at_startup = 1
+let g:echodoc#enable_at_startup = 1
 
 " Workspace
-autocmd VimEnter * set cmdheight=2
+autocmd VimEnter * set noshowmode
 
 " -- End --

@@ -9,7 +9,7 @@ command! Packages tabnew $NVIMCONFIG/packages.vim
       \ | :below :vs $NVIMCONFIG/packages-gui.vim
       \ | :wincmd k
 
-command! Term below :20sp term://bash
+command! Term bottom :20sp term://bash
 
 " Keymappings
 " -- Window Management

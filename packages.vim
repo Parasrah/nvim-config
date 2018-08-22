@@ -14,6 +14,13 @@ call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-obsession')
 call minpac#add('nelstrom/vim-visual-star-search')
 call minpac#add('jiangmiao/auto-pairs')
+call minpac#add('tpope/vim-commentary')
+
+" Text Objects
+call minpac#add('kana/vim-textobj-entire')
+call minpac#add('kana/vim-textobj-user')
+call minpac#add('kana/vim-textobj-indent')
+call minpac#add('kana/vim-textobj-line')
 
 " File Management
 call minpac#add('scrooloose/nerdtree', { 'type': 'opt' })

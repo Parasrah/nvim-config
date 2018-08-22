@@ -19,8 +19,8 @@ source $NVIMCONFIG/packages-tui.vim
 source $NVIMCONFIG/packages-gui.vim
 
 " Load configs
+source $NVIMCONFIG/shared.vim
 source $NVIMCONFIG/gui.vim
 source $NVIMCONFIG/tui.vim
-source $NVIMCONFIG/shared.vim
 
 " -- END --
