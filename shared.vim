@@ -9,7 +9,8 @@ command! Packages tabnew $NVIMCONFIG/packages.vim
       \ | :below :vs $NVIMCONFIG/packages-gui.vim
       \ | :wincmd k
 
-command! Term bottom :20sp term://bash
+command! Term bo :20sp term://bash
+command! Done w | :bdelete
 
 " Keymappings
 " -- Window Management
@@ -35,6 +36,12 @@ endif
 " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
 if (has("termguicolors"))
   set termguicolors
+endif
+
+" Hack for nvr
+if has('nvim')
+  let $NVIM_TERMINAL = 1
+  let $VISUAL = 'nvr -cc vsplit --remote-wait'
 endif
 
 " Default indentation
