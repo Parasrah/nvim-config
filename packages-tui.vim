@@ -13,15 +13,15 @@ packadd! vim-javascript
 packadd! yats.vim
 packadd! nvim-typescript
 packadd! echodoc
-" packadd! tsuquyomi
-" packadd! vimproc.vim
+
+" Elm
+packadd! deoplete-elm
+packadd! elm-vim
 
 " Other languages
 packadd! fzf
 packadd! nerdtree
-packadd! youcompleteme
 packadd! ale
-packadd! elm-vim
 
 " File Management
 

@@ -62,4 +62,7 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
+" ELm
+let g:elm_setup_keybindings = 1
+
 " -- End --
