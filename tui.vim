@@ -9,6 +9,9 @@ syntax on
 colorscheme onedark
 
 " Keymappings
+" -- Deoplete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
 " -- Typescript
 "  TODO: Create function for this
 autocmd FileType typescript nnoremap <buffer> <silent> K :TSType<CR>

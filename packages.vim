@@ -52,4 +52,7 @@ call minpac#add('elmcast/elm-vim', { 'type': 'opt' })
 " Markdown
 call minpac#add('tpope/vim-markdown')
 
+" JSON
+call minpac#add('elzr/vim-json', { 'type': 'opt' })
+
 " -- END
