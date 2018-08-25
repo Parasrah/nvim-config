@@ -58,4 +58,7 @@ call minpac#add('elzr/vim-json', { 'type': 'opt' })
 " Rust
 call minpac#add('rust-lang/rust.vim', { 'type': 'opt' })
 
+" GDScript
+call minpac#add('quabug/vim-gdscript', { 'type': 'opt' })
+
 " -- END

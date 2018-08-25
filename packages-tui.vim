@@ -28,6 +28,9 @@ packadd! vim-json
 " Rust
 packadd! rust.vim
 
+" GDScript
+packadd! vim-gdscript
+
 " Other languages
 " TODO Same format as main packages file
 packadd! fzf
