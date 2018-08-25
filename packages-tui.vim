@@ -25,6 +25,9 @@ packadd! elm-vim
 " JSON
 packadd! vim-json
 
+" Rust
+packadd! rust.vim
+
 " Other languages
 " TODO Same format as main packages file
 packadd! fzf
