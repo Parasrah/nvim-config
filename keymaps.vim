@@ -25,5 +25,7 @@ autocmd FileType typescriptreact nnoremap <buffer> <silent> K :TSType<CR>
 autocmd FileType javascript nnoremap <buffer> <silent> K :TSType<CR>
 autocmd FileType javascriptreact nnoremap <buffer> <silent> K :TSType<CR>
 
-" -- Deoplete
+" Rust
+
+" Deoplete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"

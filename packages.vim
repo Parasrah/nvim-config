@@ -57,6 +57,7 @@ call minpac#add('elzr/vim-json')
 
 " Rust
 call minpac#add('rust-lang/rust.vim')
+call minpac#add('racer-rust/vim-racer')
 
 " GDScript
 call minpac#add('quabug/vim-gdscript')
