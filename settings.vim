@@ -1,32 +1,6 @@
-" Commands
-command! Config tabnew $NVIMCONFIG/shared.vim
-      \ | :below :sp $NVIMCONFIG/tui.vim
-      \ | :below :vs $NVIMCONFIG/gui.vim
-      \ | :wincmd k
+" -- Settings -- "
 
-command! Packages tabnew $NVIMCONFIG/packages.vim
-      \ | :below :sp $NVIMCONFIG/packages-tui.vim
-      \ | :below :vs $NVIMCONFIG/packages-gui.vim
-      \ | :wincmd k
-
-command! Term bo :20sp term://bash
-command! Done w | :bdelete
-
-" Keymappings
-" -- Window Management
-nnoremap <silent> <Up> :res +3<CR>
-nnoremap <silent> <Down> :res -3<CR>
-nnoremap <silent> <Left> :3winc <<CR>
-nnoremap <silent> <Right> :3winc ><CR>
-nnoremap <silent> <C-Right> <c-w>l
-nnoremap <silent> <C-Left> <c-w>h
-nnoremap <silent> <C-Up> <c-w>k
-nnoremap <silent> <C-Down> <c-w>j
-
-" -- Highlight
-nnoremap <silent> <esc> :noh<cr><esc>
-
-" -- True Colors --
+" True Colors
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
@@ -40,6 +14,11 @@ endif
 if (has("termguicolors"))
   set termguicolors
 endif
+
+" Themes
+let g:onedark_terminal_italics = 1
+syntax on
+colorscheme onedark
 
 " Hack for nvr
 if has('nvim')
@@ -68,4 +47,40 @@ endfunction
 " ELm
 let g:elm_setup_keybindings = 1
 
-" -- End --
+" Airline
+let g:airline_powerline_fonts=1
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_splits = 1
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#show_tab_nr = 0
+let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#formatter = 'jsformatter'
+let g:airline_theme='onedark'
+
+" Ale
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+let g:ale_completion_enabled = 0
+" TODO: Move into ftplugin files
+" ex: let b:ale_fixers = ['eslint']
+let g:ale_linters = { 'typescript': ['tslint'], 'javascript': ['eslint'] }
+
+" NeoVim Typescript
+let g:nvim_typescript#javascript_support = 1
+let g:nvim_typescript#default_mappings = 0
+
+" Javascript
+let g:javascript_plugin_jsdoc = 1
+
+" YouCompleteMe
+let g:ycm_filetype_blacklist = { 'javascript': 1, 'typescript': 1 }
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+let g:echodoc#enable_at_startup = 1
+
+" Fuzzy Search
+let $FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git"'

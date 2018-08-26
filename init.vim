@@ -13,14 +13,12 @@ endif
 " -- Configuration --
 
 " Add Packages
-packadd! onedark.vim
 source $NVIMCONFIG/packages.vim
-source $NVIMCONFIG/packages-tui.vim
-source $NVIMCONFIG/packages-gui.vim
+source $NVIMCONFIG/load.vim
 
 " Load configs
-source $NVIMCONFIG/shared.vim
-source $NVIMCONFIG/gui.vim
-source $NVIMCONFIG/tui.vim
+source $NVIMCONFIG/settings.vim
+source $NVIMCONFIG/keymaps.vim
+source $NVIMCONFIG/commands.vim
 
 " -- END --
