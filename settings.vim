@@ -75,6 +75,9 @@ let g:nvim_typescript#default_mappings = 0
 " Javascript
 let g:javascript_plugin_jsdoc = 1
 
+" Rust
+let g:racer_cmd = "racer"
+
 " YouCompleteMe
 let g:ycm_filetype_blacklist = { 'javascript': 1, 'typescript': 1 }
 
