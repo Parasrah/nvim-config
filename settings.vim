@@ -44,6 +44,9 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
+" Vimgrep
+set wildignore=node_modules/**,elm-stuff/**,.git/**,build/**,dist/**,*.temp
+
 " ELm
 let g:elm_setup_keybindings = 1
 
