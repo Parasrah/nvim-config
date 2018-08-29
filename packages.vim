@@ -22,44 +22,51 @@ call minpac#add('kana/vim-textobj-user')
 call minpac#add('kana/vim-textobj-indent')
 call minpac#add('kana/vim-textobj-line')
 
+" -- TUI Specific -- "
+"  The following plugins are language/interface specific, and most are not required
+"  when using a GUI (such as Oni)
+"  As such, the are added as 'opt' packages and may or may not be loaded in
+"  'load.vim'
+
 " File Management
-call minpac#add('scrooloose/nerdtree')
-call minpac#add('junegunn/fzf')
+call minpac#add('scrooloose/nerdtree', { 'type': 'opt' })
+call minpac#add('junegunn/fzf', { 'type': 'opt' })
 
 " General Linting/Autocompletion
-call minpac#add('w0rp/ale', { 'do': jobstart('yarn global add tslint eslint') })
-call minpac#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
-call minpac#add('Shougo/denite.nvim')
-call minpac#add('shougo/echodoc')
+call minpac#add('w0rp/ale', { 'type': 'opt', 'do': jobstart('yarn global add tslint eslint') })
+call minpac#add('Shougo/deoplete.nvim', { 'type': 'opt', 'do': ':UpdateRemotePlugins' })
+call minpac#add('Shougo/denite.nvim', { 'type': 'opt' })
+call minpac#add('shougo/echodoc', { 'type': 'opt' })
 
 " Themes
 call minpac#add('joshdick/onedark.vim', { 'type': 'opt' })
 
 " Interface
-call minpac#add('vim-airline/vim-airline')
-call minpac#add('vim-airline/vim-airline-themes')
+call minpac#add('vim-airline/vim-airline', { 'type': 'opt' })
+call minpac#add('vim-airline/vim-airline-themes', { 'type': 'opt' })
 
 " -- LANGUAGES --
+"  General
+call minpac#add('autozimu/languageclient-neovim', { 'type': 'opt', 'branch': 'next', 'do': jobstart('bash install.sh') })
+
 " Javascript/Typescript
-call minpac#add('mhartington/nvim-typescript', { 'do': jobstart('./install.sh && yarn global add typescript neovim') })
-call minpac#add('pangloss/vim-javascript')
-call minpac#add('HerringtonDarkholme/yats.vim')
+call minpac#add('pangloss/vim-javascript', { 'type': 'opt' })
+call minpac#add('leafgarland/typescript-vim', { 'type': 'opt', 'do': jobstart('yarn global add typescript-language-server') })
+call minpac#add('wesselvdv/oni-plugin-tslint', { 'type': 'opt', 'do': jobstart('yarn') })
 
 " Elm
-call minpac#add('pbogut/deoplete-elm', { 'do': jobstart('yarn global add elm-oracle elm') })
-call minpac#add('elmcast/elm-vim')
+call minpac#add('elmcast/elm-vim', { 'type': 'opt' })
 
 " Markdown
-call minpac#add('tpope/vim-markdown')
+call minpac#add('tpope/vim-markdown', { 'type': 'opt' })
 
 " JSON
-call minpac#add('elzr/vim-json')
+call minpac#add('elzr/vim-json', { 'type': 'opt' })
 
 " Rust
-call minpac#add('rust-lang/rust.vim')
-call minpac#add('racer-rust/vim-racer')
+call minpac#add('rust-lang/rust.vim', { 'type': 'opt' })
 
 " GDScript
-call minpac#add('quabug/vim-gdscript')
+call minpac#add('quabug/vim-gdscript', { 'type': 'opt' })
 
 " -- END

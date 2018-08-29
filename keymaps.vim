@@ -1,11 +1,6 @@
 " -- Keymaps -- "
 
-" Ale linting
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
-" Fuzzy File Search
-nnoremap <C-p> :<C-u>FZF<CR>
+" -- Common -- "
 
 " -- Window Management
 nnoremap <silent> <C-Right> <c-w>l
@@ -16,16 +11,29 @@ nnoremap <silent> <C-Down> <c-w>j
 " -- Remove highlighting
 nnoremap <silent> <esc> :noh<cr><esc>
 
-" Workspace
-autocmd VimEnter * set noshowmode
 
-" -- Typescript
-autocmd FileType typescript nnoremap <buffer> <silent> K :TSType<CR>
-autocmd FileType typescriptreact nnoremap <buffer> <silent> K :TSType<CR>
-autocmd FileType javascript nnoremap <buffer> <silent> K :TSType<CR>
-autocmd FileType javascriptreact nnoremap <buffer> <silent> K :TSType<CR>
+" -- NeoVim -- "
 
-" Rust
+if !exists('g:gui_oni')
+  " Ale linting
+  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+  nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-" Deoplete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+  " Rust
+
+  " Deoplete
+  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+  " Fuzzy File Search
+  nnoremap <C-p> :<C-u>FZF<CR>
+
+  " Language client
+  nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+  nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+  nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+endif
+
+
+" -- Oni -- "
+if exists('g:gui_oni')
+
+endif
