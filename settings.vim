@@ -2,10 +2,11 @@
 
 " -- Common -- "
 
-
 " Hack for nvr
 if has('nvim')
-  let $NVIM_TERMINAL = 1
+  if !exists("g:gui_oni")
+    let $NVIM_TERMINAL = 1
+  endif
   let $VISUAL = 'nvr -cc vsplit --remote-wait'
 endif
 
@@ -19,9 +20,13 @@ endfunction
 " Vimgrep
 set wildignore=node_modules/**,elm-stuff/**,.git/**,build/**,dist/**,*.temp
 
+function! s:SetupTheme()
+  syntax on
+  colorscheme onedark
+endfunction
 
-" -- NeoVim -- "
-if !exists('g:gui_oni')
+if !exists("g:gui_oni")
+  " -- NeoVim -- "
   " True Colors
   "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
   "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -39,8 +44,7 @@ if !exists('g:gui_oni')
 
   " Themes
   let g:onedark_terminal_italics = 1
-  syntax on
-  colorscheme onedark
+  call s:SetupTheme()
 
   " Default indentation
   set expandtab
@@ -53,6 +57,9 @@ if !exists('g:gui_oni')
   " Line numbers
   set number
 
+  " Sign column
+  set signcolumn=yes
+
   " Workspace
   autocmd VimEnter * set noshowmode
 
@@ -60,13 +67,14 @@ if !exists('g:gui_oni')
   set hidden
   let g:LanguageClient_hoverPreview = 'Always'
   let g:LanguageClient_serverCommands = {
-        \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-        \ 'javascript': ['javascript-typescript-stdio'],
-        \ 'typescript': ['typescript-language-server', '--stdio'],
-        \ 'python': [],
-        \ 'elm': [],
-        \ 'vue': ['vls'],
-        \}
+  \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+  \ 'javascript': ['javascript-typescript-stdio'],
+  \ 'typescript': ['typescript-language-server', '--stdio'],
+  \ 'python': [],
+  \ 'elm': [],
+  \ 'vue': ['vls'],
+  \}
+  " 'typescript': ['javascript-typescript-stdio'],
 
   " ELm
   let g:elm_setup_keybindings = 1
@@ -103,8 +111,7 @@ if !exists('g:gui_oni')
   let $FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git"'
 endif
 
-
 " -- Oni -- "
-if exists('g:gui_oni')
+if exists("g:gui_oni")
 
 endif

@@ -13,8 +13,8 @@ nnoremap <silent> <esc> :noh<cr><esc>
 
 
 " -- NeoVim -- "
+if !exists("g:gui_oni")
 
-if !exists('g:gui_oni')
   " Ale linting
   nmap <silent> <C-k> <Plug>(ale_previous_wrap)
   nmap <silent> <C-j> <Plug>(ale_next_wrap)
@@ -23,6 +23,7 @@ if !exists('g:gui_oni')
 
   " Deoplete
   inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
   " Fuzzy File Search
   nnoremap <C-p> :<C-u>FZF<CR>
 
@@ -30,10 +31,12 @@ if !exists('g:gui_oni')
   nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
   nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
   nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+  nnoremap <silent> <C-K> :call LanguageClient#textDocument_codeAction()<CR>
 endif
 
 
 " -- Oni -- "
-if exists('g:gui_oni')
+if exists("g:gui_oni")
+
 
 endif

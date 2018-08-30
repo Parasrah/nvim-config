@@ -1,9 +1,9 @@
 " -- Load -- "
-" Load the opt plugins "
 
-if !exists('g:gui_oni')
-
+" -- NeoVim -- "
+if !exists("g:gui_oni")
   packadd! onedark.vim
+  packadd! vim-commentary
   packadd! deoplete.nvim
   packadd! denite.nvim
   packadd! echodoc
@@ -17,12 +17,11 @@ if !exists('g:gui_oni')
   packadd! typescript-vim
   packadd! elm-vim
   packadd! vim-markdown
-  packadd! vim-json
   packadd! rust.vim
   packadd! vim-gdscript
-
 endif
 
-if exists('g:gui_oni')
+
+if exists("g:gui_oni")
   " packadd! oni-plugin-tslint
 endif

@@ -12,21 +12,15 @@ call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-obsession')
+call minpac#add('tpope/vim-commentary', { 'type': 'opt' })
 call minpac#add('nelstrom/vim-visual-star-search')
 call minpac#add('jiangmiao/auto-pairs')
-call minpac#add('tpope/vim-commentary')
 
 " Text Objects
 call minpac#add('kana/vim-textobj-entire')
 call minpac#add('kana/vim-textobj-user')
 call minpac#add('kana/vim-textobj-indent')
 call minpac#add('kana/vim-textobj-line')
-
-" -- TUI Specific -- "
-"  The following plugins are language/interface specific, and most are not required
-"  when using a GUI (such as Oni)
-"  As such, the are added as 'opt' packages and may or may not be loaded in
-"  'load.vim'
 
 " File Management
 call minpac#add('scrooloose/nerdtree', { 'type': 'opt' })
@@ -61,7 +55,7 @@ call minpac#add('elmcast/elm-vim', { 'type': 'opt' })
 call minpac#add('tpope/vim-markdown', { 'type': 'opt' })
 
 " JSON
-call minpac#add('elzr/vim-json', { 'type': 'opt' })
+call minpac#add('elzr/vim-json')
 
 " Rust
 call minpac#add('rust-lang/rust.vim', { 'type': 'opt' })
