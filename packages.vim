@@ -41,12 +41,12 @@ call minpac#add('vim-airline/vim-airline-themes', { 'type': 'opt' })
 
 " -- LANGUAGES --
 "  General
-call minpac#add('autozimu/languageclient-neovim', { 'type': 'opt', 'branch': 'next', 'do': jobstart('bash install.sh') })
+call minpac#add('autozimu/languageclient-neovim', { 'type': 'opt', 'branch': 'next', 'do': '!bash install.sh' })
 
 " Javascript/Typescript
 call minpac#add('pangloss/vim-javascript', { 'type': 'opt' })
 call minpac#add('leafgarland/typescript-vim', { 'type': 'opt', 'do': jobstart('yarn global add typescript-language-server') })
-call minpac#add('wesselvdv/oni-plugin-tslint', { 'type': 'opt', 'do': jobstart('yarn') })
+call minpac#add('wesselvdv/oni-plugin-tslint', { 'type': 'opt', 'do': '!yarn' })
 
 " Elm
 call minpac#add('elmcast/elm-vim', { 'type': 'opt' })

@@ -25,6 +25,11 @@ function! s:SetupTheme()
   colorscheme onedark
 endfunction
 
+" Grep program
+if executable("rg")
+  set grepprg=rg\ --vimgrep\ --smart-case\ --no-heading\ --hidden\ -g\ \"!.git\"
+endif
+
 if !exists("g:gui_oni")
   " -- NeoVim -- "
   " True Colors
@@ -65,7 +70,7 @@ if !exists("g:gui_oni")
 
   " Language Client
   set hidden
-  let g:LanguageClient_hoverPreview = 'Always'
+  let g:LanguageClient_hoverPreview = 'Never'
   let g:LanguageClient_serverCommands = {
   \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
   \ 'javascript': ['javascript-typescript-stdio'],
@@ -93,6 +98,8 @@ if !exists("g:gui_oni")
   let g:airline_theme='onedark'
 
   " Ale
+  let g:ale_set_loclist = 0
+  let g:ale_set_quickfix = 1
   let g:ale_sign_error = '✗'
   let g:ale_sign_warning = '⚠'
   let g:ale_completion_enabled = 0

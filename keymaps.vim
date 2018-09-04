@@ -11,6 +11,13 @@ nnoremap <silent> <C-Down> <c-w>j
 " -- Remove highlighting
 nnoremap <silent> <esc> :noh<cr><esc>
 
+" -- Location list navigation
+nnoremap <silent> <C-h> :lprevious<CR>
+nnoremap <silent> <C-l> :lnext<CR>
+
+" -- Quickfix navigation
+nnoremap <silent> <C-j> :cnext<CR>
+nnoremap <silent> <C-k> :cprevious<CR>
 
 " -- NeoVim -- "
 if !exists("g:gui_oni")
