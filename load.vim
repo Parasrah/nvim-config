@@ -19,6 +19,7 @@ if !exists("g:gui_oni")
   packadd! vim-markdown
   packadd! rust.vim
   packadd! vim-gdscript
+  packadd! vim-vue
 endif
 
 
