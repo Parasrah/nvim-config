@@ -65,14 +65,15 @@ if !exists("g:gui_oni")
 
   " Language Client
   set hidden
-  let g:LanguageClient_hoverPreview = 'Always'
+  " let g:LanguageClient_hoverPreview = 'Always'
   let g:LanguageClient_serverCommands = {
   \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
   \ 'javascript': ['javascript-typescript-stdio'],
   \ 'typescript': ['typescript-language-server', '--stdio'],
-  \ 'python': [],
-  \ 'elm': [],
   \ 'vue': ['vls'],
+  \ 'css': ['css-langserver', '--stdio'],
+  \ 'html': ['html-langserver', '--stdio'],
+  \ 'json': ['json-langserver', '--stdio'],
   \}
   " 'typescript': ['javascript-typescript-stdio'],
 

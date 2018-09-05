@@ -63,4 +63,7 @@ call minpac#add('rust-lang/rust.vim', { 'type': 'opt' })
 " GDScript
 call minpac#add('quabug/vim-gdscript', { 'type': 'opt' })
 
+" Vue
+call minpac#add('posva/vim-vue', { 'type': 'opt' })
+
 " -- END
