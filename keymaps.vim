@@ -2,11 +2,31 @@
 
 " -- Common -- "
 
+" -- Terminal
+
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <C-v><Esc> <Esc>
+  autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
+endif
+
 " -- Window Management
 nnoremap <silent> <C-Right> <c-w>l
 nnoremap <silent> <C-Left> <c-w>h
 nnoremap <silent> <C-Up> <c-w>k
 nnoremap <silent> <C-Down> <c-w>j
+
+nnoremap <M-h> <c-w>h
+nnoremap <M-j> <c-w>j
+nnoremap <M-k> <c-w>k
+nnoremap <M-l> <c-w>l
+
+if has('nvim')
+  tnoremap <M-h> <c-\><c-n><c-w>h
+  tnoremap <M-j> <c-\><c-n><c-w>j
+  tnoremap <M-k> <c-\><c-n><c-w>k
+  tnoremap <M-l> <c-\><c-n><c-w>l
+endif
 
 " -- Remove highlighting
 nnoremap <silent> <esc> :noh<cr><esc>
