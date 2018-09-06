@@ -3,6 +3,7 @@
 " -- NeoVim -- "
 if !exists("g:gui_oni")
   packadd! onedark.vim
+  packadd! vim-devicons
   packadd! vim-commentary
   packadd! deoplete.nvim
   packadd! denite.nvim

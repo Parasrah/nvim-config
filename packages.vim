@@ -27,13 +27,14 @@ call minpac#add('scrooloose/nerdtree', { 'type': 'opt' })
 call minpac#add('junegunn/fzf', { 'type': 'opt' })
 
 " General Linting/Autocompletion
-call minpac#add('w0rp/ale', { 'type': 'opt', 'do': jobstart('yarn global add tslint eslint') })
-call minpac#add('Shougo/deoplete.nvim', { 'type': 'opt', 'do': ':UpdateRemotePlugins' })
+call minpac#add('w0rp/ale', { 'type': 'opt', 'do': '!yarn global add tslint eslint' })
+call minpac#add('Shougo/deoplete.nvim', { 'type': 'opt', 'do': 'UpdateRemotePlugins' })
 call minpac#add('Shougo/denite.nvim', { 'type': 'opt' })
 call minpac#add('shougo/echodoc', { 'type': 'opt' })
 
 " Themes
 call minpac#add('joshdick/onedark.vim', { 'type': 'opt' })
+call minpac#add('ryanoasis/vim-devicons', { 'type': 'opt' })
 
 " Interface
 call minpac#add('vim-airline/vim-airline', { 'type': 'opt' })
@@ -45,7 +46,7 @@ call minpac#add('autozimu/languageclient-neovim', { 'type': 'opt', 'branch': 'ne
 
 " Javascript/Typescript
 call minpac#add('pangloss/vim-javascript', { 'type': 'opt' })
-call minpac#add('leafgarland/typescript-vim', { 'type': 'opt', 'do': jobstart('yarn global add typescript-language-server') })
+call minpac#add('leafgarland/typescript-vim', { 'type': 'opt', 'do': '!yarn global add typescript-language-server' })
 call minpac#add('wesselvdv/oni-plugin-tslint', { 'type': 'opt', 'do': '!yarn' })
 
 " Elm
