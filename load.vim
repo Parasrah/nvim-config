@@ -22,8 +22,3 @@ if !exists("g:gui_oni")
   packadd! vim-gdscript
   packadd! vim-vue
 endif
-
-
-if exists("g:gui_oni")
-  " packadd! oni-plugin-tslint
-endif
