@@ -15,7 +15,7 @@ if !exists("g:gui_oni")
   packadd! vim-airline
   packadd! vim-airline-themes
   packadd! vim-javascript
-  packadd! typescript-vim
+  packadd! yats.vim
   packadd! elm-vim
   packadd! vim-markdown
   packadd! rust.vim

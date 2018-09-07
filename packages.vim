@@ -46,7 +46,7 @@ call minpac#add('autozimu/languageclient-neovim', { 'type': 'opt', 'branch': 'ne
 
 " Javascript/Typescript
 call minpac#add('pangloss/vim-javascript', { 'type': 'opt' })
-call minpac#add('leafgarland/typescript-vim', { 'type': 'opt', 'do': '!yarn global add typescript-language-server' })
+call minpac#add('herringtondarkholme/yats.vim', { 'type': 'opt' })
 
 " Elm
 call minpac#add('elmcast/elm-vim', { 'type': 'opt' })

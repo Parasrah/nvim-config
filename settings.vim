@@ -70,7 +70,6 @@ if !exists("g:gui_oni")
 
   " Language Client
   set hidden
-  " let g:LanguageClient_hoverPreview = 'Always'
   let g:LanguageClient_serverCommands = {
   \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
   \ 'javascript': ['javascript-typescript-stdio'],
@@ -80,7 +79,6 @@ if !exists("g:gui_oni")
   \ 'html': ['html-langserver', '--stdio'],
   \ 'json': ['json-langserver', '--stdio'],
   \}
-  " 'typescript': ['javascript-typescript-stdio'],
 
   " ELm
   let g:elm_setup_keybindings = 1
