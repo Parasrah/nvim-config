@@ -30,6 +30,19 @@ if executable("rg")
   set grepprg=rg\ --vimgrep\ --smart-case\ --no-heading\ --hidden\ -g\ \"!.git\"
 endif
 
+" Sign column
+set signcolumn=yes
+
+" Ale
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+let g:ale_completion_enabled = 0
+" TODO: Move into ftplugin files
+" ex: let b:ale_fixers = ['eslint']
+let g:ale_linters = { 'typescript': ['tslint'], 'javascript': ['eslint'] }
+
 if !exists("g:gui_oni")
   " -- NeoVim -- "
   " True Colors
@@ -62,9 +75,6 @@ if !exists("g:gui_oni")
   " Line numbers
   set number
 
-  " Sign column
-  set signcolumn=yes
-
   " Workspace
   autocmd VimEnter * set noshowmode
 
@@ -95,16 +105,6 @@ if !exists("g:gui_oni")
   let g:airline#extensions#tabline#show_close_button = 0
   let g:airline#extensions#tabline#formatter = 'jsformatter'
   let g:airline_theme='onedark'
-
-  " Ale
-  let g:ale_set_loclist = 0
-  let g:ale_set_quickfix = 1
-  let g:ale_sign_error = '✗'
-  let g:ale_sign_warning = '⚠'
-  let g:ale_completion_enabled = 0
-  " TODO: Move into ftplugin files
-  " ex: let b:ale_fixers = ['eslint']
-  let g:ale_linters = { 'typescript': ['tslint'], 'javascript': ['eslint'] }
 
   " Javascript
   let g:javascript_plugin_jsdoc = 1

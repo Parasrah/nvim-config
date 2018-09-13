@@ -10,7 +10,7 @@ command! Packages tabnew $NVIMCONFIG/packages.vim
       \ | :wincmd k
 
 " Terminal
-command! Term bo :20sp term://bash
+command! Term bo :17sp term://bash
 
 " Git
 command! Done w | :bdelete

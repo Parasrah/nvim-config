@@ -1,5 +1,11 @@
 " -- Load -- "
 
+" -- Both
+
+if 1 == 1
+  packadd! ale
+endif
+
 " -- NeoVim -- "
 if !exists("g:gui_oni")
   packadd! onedark.vim
@@ -8,7 +14,6 @@ if !exists("g:gui_oni")
   packadd! deoplete.nvim
   packadd! denite.nvim
   packadd! echodoc
-  packadd! ale
   packadd! fzf
   packadd! languageclient-neovim
   packadd! nerdtree
