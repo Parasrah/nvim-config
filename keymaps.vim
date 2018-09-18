@@ -43,8 +43,8 @@ nnoremap <silent> <C-k> :cprevious<CR>
 if !exists("g:gui_oni")
 
   " Ale linting
-  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-  nmap <silent> <C-j> <Plug>(ale_next_wrap)
+  " nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+  " nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
   " Rust
 
@@ -58,7 +58,7 @@ if !exists("g:gui_oni")
   nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
   nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
   nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-  nnoremap <silent> <C-K> :call LanguageClient#textDocument_codeAction()<CR>
+  " nnoremap <silent> <C-K> :call LanguageClient#textDocument_codeAction()<CR>
 endif
 
 
