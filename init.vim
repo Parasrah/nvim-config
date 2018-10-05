@@ -11,15 +11,16 @@ if &compatible
 endif
 
 " -- Configuration --
+let g:nestedConfigDir = $NVIMCONFIG."/nconfig/"
 
 " Add Packages
-source $NVIMCONFIG/packages.vim
-source $NVIMCONFIG/load.vim
+exec "so" g:nestedConfigDir."packages.vim"
+exec "so" g:nestedConfigDir."load.vim"
 
 " Load configs
-source $NVIMCONFIG/settings.vim
-source $NVIMCONFIG/filetypes.vim
-source $NVIMCONFIG/keymaps.vim
-source $NVIMCONFIG/commands.vim
+exec "so" g:nestedConfigDir."settings.vim"
+exec "so" g:nestedConfigDir."filetypes.vim"
+exec "so" g:nestedConfigDir."keymaps.vim"
+exec "so" g:nestedConfigDir."commands.vim"
 
 " -- END --

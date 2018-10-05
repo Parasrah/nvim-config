@@ -13,65 +13,65 @@ endfunction
 " Configure plugin
 filetype plugin indent on
 
-augroup fzf
+augroup fzfGroup
   au!
   " Fix fzf for terminal ESC mapping
   au FileType fzf tnoremap <buffer> <Esc> <Esc>
 augroup end
 
-augroup typescript
+augroup typescriptGroup
   au!
   au FileType typescript call g:IndentTwo()
 augroup end
 
-augroup javascript
+augroup javascriptGroup
   au!
   au FileType javascript call g:IndentTwo()
 augroup end
 
-augroup vue
+augroup vueGroup
   au!
   " TODO: Smart indentation?
   au FileType vue call g:IndentTwo()
 augroup end
 
-augroup html
+augroup htmlGroup
   au!
   au FileType html call g:IndentTwo()
 augroup end
 
-augroup json
+augroup jsonGroup
   au!
   au FileType json call g:IndentTwo()
 augroup end
 
-augroup markdown
+augroup markdownGroup
   au!
   au FileType markdown call g:IndentTwo()
 augroup end
 
-augroup css
+augroup cssGroup
   au!
   au FileType css call g:IndentTwo()
 augroup end
 
-augroup scss
+augroup scssGroup
   au!
   au FileType scss call g:IndentTwo()
 augroup end
 
-augroup elm
+augroup elmGroup
   au!
   au FileType elm call g:IndentFour()
 augroup end
 
-augroup rust
+augroup rustGroup
   au!
   au FileType rust call g:IndentFour()
   au FileType rust nmap gd <Plug>(rust-def)
 augroup end
 
-augroup vim
+augroup vimGroup
   au!
   au FileType vim call g:IndentTwo()
 augroup end

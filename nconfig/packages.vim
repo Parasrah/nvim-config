@@ -11,7 +11,6 @@ call minpac#add('k-takata/minpac', { 'type': 'opt' })
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-repeat')
-" call minpac#add('tpope/vim-obsession') TODO: Remove if not used
 call minpac#add('tpope/vim-commentary', { 'type': 'opt' })
 call minpac#add('nelstrom/vim-visual-star-search')
 call minpac#add('jiangmiao/auto-pairs')
@@ -80,12 +79,10 @@ call minpac#add('elmcast/elm-vim', { 'type': 'opt' })
 call minpac#add('tpope/vim-markdown', { 'type': 'opt' })
 
 " JSON
-" Better than Oni's json support
-call minpac#add('elzr/vim-json')
+call minpac#add('elzr/vim-json', { 'type': 'opt' })
 
 " Rust
 call minpac#add('rust-lang/rust.vim', { 'type': 'opt' })
-call minpac#add('racer-rust/vim-racer', { 'type': 'opt' })
 
 " GDScript
 call minpac#add('quabug/vim-gdscript', { 'type': 'opt' })

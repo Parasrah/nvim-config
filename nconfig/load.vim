@@ -4,7 +4,11 @@
 
 " Dummy conditional to easily disable
 if 1 == 1
+  " Oni is lacking proper support for tslint
   packadd! ale
+
+  " vim-json provides better JSON experience than Oni
+  packadd! vim-json
 endif
 
 " -- NeoVim -- "
@@ -27,5 +31,4 @@ if !exists("g:gui_oni")
   packadd! rust.vim
   packadd! vim-gdscript
   packadd! vim-vue
-  packadd! vim-racer
 endif

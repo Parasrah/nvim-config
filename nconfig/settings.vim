@@ -79,6 +79,7 @@ if !exists("g:gui_oni")
   set hidden
   " TODO: CSS & JSON & HTML not working
   let g:LanguageClient_serverCommands = {
+  \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
   \ 'javascript': ['javascript-typescript-stdio'],
   \ 'typescript': ['typescript-language-server', '--stdio'],
   \ 'vue': ['vls'],
