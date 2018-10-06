@@ -14,6 +14,7 @@ endif
 " -- NeoVim -- "
 if !exists("g:gui_oni")
   packadd! onedark.vim
+  packadd! ayu-vim
   packadd! vim-devicons
   packadd! vim-commentary
   packadd! deoplete.nvim

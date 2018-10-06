@@ -20,9 +20,27 @@ endfunction
 " Vimgrep
 set wildignore=node_modules/**,elm-stuff/**,.git/**,build/**,dist/**,*.temp
 
-function! s:SetupTheme()
+function! s:UseOneDark()
+  let g:onedark_terminal_italics = 1
+  let g:airline_theme = "onedark"
   syntax on
   colorscheme onedark
+endfunction
+
+function! s:UseAyu()
+  let ayucolor="dark"
+  let g:airline_theme='ayu_mirage'
+  syntax on
+  colorscheme ayu
+endfunction
+
+function! s:SetupTheme()
+  if (has("termguicolors"))
+    set termguicolors
+    call s:UseAyu()
+  else
+    call s:UseOneDark()
+  endif
 endfunction
 
 " Grep program
@@ -39,29 +57,10 @@ let g:ale_set_quickfix = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:ale_completion_enabled = 0
-" TODO: Move into ftplugin files
-" ex: let b:ale_fixers = ['eslint']
 let g:ale_linters = { 'typescript': ['tslint'], 'javascript': ['eslint'] }
 
 if !exists("g:gui_oni")
-  " -- NeoVim -- "
-  " True Colors
-  "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-  "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-  "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-  if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-
   " Themes
-  let g:onedark_terminal_italics = 1
   call s:SetupTheme()
 
   " Default indentation
@@ -77,7 +76,6 @@ if !exists("g:gui_oni")
 
   " Language Client
   set hidden
-  " TODO: CSS & JSON & HTML not working
   let g:LanguageClient_serverCommands = {
   \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
   \ 'javascript': ['javascript-typescript-stdio'],
@@ -103,7 +101,6 @@ if !exists("g:gui_oni")
   let g:airline#extensions#tabline#show_tab_type = 0
   let g:airline#extensions#tabline#show_close_button = 0
   let g:airline#extensions#tabline#formatter = 'jsformatter'
-  let g:airline_theme='onedark'
 
   " Javascript
   let g:javascript_plugin_jsdoc = 1

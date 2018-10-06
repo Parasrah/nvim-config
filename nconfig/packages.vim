@@ -55,6 +55,7 @@ call minpac#add('shougo/echodoc', { 'type': 'opt' })
 "-------------------------------
 
 call minpac#add('joshdick/onedark.vim', { 'type': 'opt' })
+call minpac#add('ayu-theme/ayu-vim', { 'type': 'opt' })
 call minpac#add('ryanoasis/vim-devicons', { 'type': 'opt' })
 call minpac#add('vim-airline/vim-airline', { 'type': 'opt' })
 call minpac#add('vim-airline/vim-airline-themes', { 'type': 'opt' })
