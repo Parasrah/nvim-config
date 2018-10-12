@@ -54,8 +54,13 @@ call minpac#add('shougo/echodoc', { 'type': 'opt' })
 "                             ||
 "-------------------------------
 
+" Themes
 call minpac#add('joshdick/onedark.vim', { 'type': 'opt' })
 call minpac#add('ayu-theme/ayu-vim', { 'type': 'opt' })
+call minpac#add('dracula/vim', { 'name': 'dracula', 'type': 'opt' })
+call minpac#add('morhetz/gruvbox', { 'type': 'opt' })
+
+" Other
 call minpac#add('ryanoasis/vim-devicons', { 'type': 'opt' })
 call minpac#add('vim-airline/vim-airline', { 'type': 'opt' })
 call minpac#add('vim-airline/vim-airline-themes', { 'type': 'opt' })

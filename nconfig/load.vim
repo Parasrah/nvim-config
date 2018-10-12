@@ -13,6 +13,8 @@ endif
 
 " -- NeoVim -- "
 if !exists("g:gui_oni")
+  " packadd! dracula
+  packadd! gruvbox
   packadd! onedark.vim
   packadd! ayu-vim
   packadd! vim-devicons

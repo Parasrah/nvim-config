@@ -34,10 +34,23 @@ function! s:UseAyu()
   colorscheme ayu
 endfunction
 
+function! s:UseDracula()
+  let g:airline_theme='dracula'
+  syntax on
+  color dracula
+endfunction
+
+function! s:UseGruvbox()
+  let g:airline_theme='gruvbox'
+  set background=dark
+  syntax on
+  colorscheme gruvbox
+endfunction
+
 function! s:SetupTheme()
   if (has("termguicolors"))
     set termguicolors
-    call s:UseAyu()
+    call s:UseGruvbox()
   else
     call s:UseOneDark()
   endif
@@ -78,7 +91,6 @@ if !exists("g:gui_oni")
   set hidden
   let g:LanguageClient_serverCommands = {
   \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-  \ 'javascript': ['javascript-typescript-stdio'],
   \ 'typescript': ['typescript-language-server', '--stdio'],
   \ 'vue': ['vls'],
   \ 'css': ['css-langserver', '--stdio'],
@@ -86,6 +98,7 @@ if !exists("g:gui_oni")
   \ 'html': ['html-langserver', '--stdio'],
   \ 'json': ['json-langserver', '--stdio'],
   \}
+  " \ 'javascript': ['javascript-typescript-stdio'],
 
   " ELm
   let g:elm_setup_keybindings = 1
