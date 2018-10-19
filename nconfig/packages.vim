@@ -16,6 +16,9 @@ call minpac#add('nelstrom/vim-visual-star-search')
 call minpac#add('jiangmiao/auto-pairs')
 call minpac#add('wesq3/vim-windowswap')
 
+" Snippets
+call minpac#add('SirVer/ultisnips')
+
 " Text Objects
 call minpac#add('kana/vim-textobj-entire')
 call minpac#add('kana/vim-textobj-user')
@@ -42,7 +45,7 @@ call minpac#add('junegunn/fzf', { 'type': 'opt' })
 "                                 ||
 "-----------------------------------
 
-call minpac#add('w0rp/ale', { 'type': 'opt', 'do': '!yarn global add tslint eslint' })
+call minpac#add('w0rp/ale', { 'type': 'opt', 'do': '!npm i -g tslint eslint' })
 call minpac#add('Shougo/deoplete.nvim', { 'type': 'opt', 'do': 'UpdateRemotePlugins' })
 call minpac#add('Shougo/denite.nvim', { 'type': 'opt' })
 " TODO: Doesn't seem to be working properly

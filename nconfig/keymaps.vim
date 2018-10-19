@@ -28,7 +28,7 @@ nnoremap <space> i<space><right><esc>
 if !exists("g:gui_oni")
 
   " Deoplete
-  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+  " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
   " Fuzzy File Search
   nnoremap <C-p> :<C-u>FZF<CR>

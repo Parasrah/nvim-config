@@ -2,6 +2,9 @@
 
 " -- Common -- "
 
+" shortmess
+set shortmess=filnxtToOI
+
 " Hack for nvr
 if has('nvim')
   if !exists("g:gui_oni")
@@ -71,6 +74,10 @@ let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:ale_completion_enabled = 0
 let g:ale_linters = { 'typescript': ['tslint'], 'javascript': ['eslint'] }
+
+" Snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsSnippetDirectories=["usnippets"]
 
 if !exists("g:gui_oni")
   " Themes
