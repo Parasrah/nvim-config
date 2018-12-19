@@ -16,6 +16,7 @@ call minpac#add('tpope/vim-dispatch')
 call minpac#add('nelstrom/vim-visual-star-search')
 call minpac#add('jiangmiao/auto-pairs')
 call minpac#add('wesq3/vim-windowswap')
+call minpac#add('mattn/emmet-vim')
 
 " Snippets
 call minpac#add('SirVer/ultisnips')

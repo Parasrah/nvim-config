@@ -75,3 +75,8 @@ augroup vimGroup
   au!
   au FileType vim call g:IndentTwo()
 augroup end
+
+augroup gdscriptGroup
+  au!
+  au FileType gdscript call g:IndentFour()
+augroup end
