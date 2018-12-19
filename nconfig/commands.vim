@@ -25,9 +25,8 @@ command! Term bo :17sp term://bash
 command! Done w | :bdelete
 
 " Grep
-command! -nargs=1 SearchJs lgrep <q-args> -g "**/*.{js,jsx}"
+command! -nargs=1 SearchJs lgrep <q-args> -g "**/*.{js,jsx,html}"
 command! -nargs=1 SearchTs lgrep <q-args> -g "**/*.{ts,tsx}"
 command! -nargs=1 SearchRs lgrep <q-args> -g "**/*.rs"
-command! -nargs=1 SearchScss lgrep <q-args> -g "**/*.scss"
-command! -nargs=1 SearchCss lgrep <q-args> -g "**/*.css"
 command! -nargs=1 SearchMyElm lgrep <q-args> -g "**/*.elm"
+command! -nargs=1 SearchStyle lgrep <q-args> -g "**/*.{css,scss}"
