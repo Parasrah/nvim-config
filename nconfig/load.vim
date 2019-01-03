@@ -28,6 +28,7 @@ if !exists("g:gui_oni")
   packadd! vim-airline
   packadd! vim-airline-themes
   packadd! vim-javascript
+  packadd! vim-jsx
   packadd! yats.vim
   packadd! elm-vim
   packadd! vim-markdown

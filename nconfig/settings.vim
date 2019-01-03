@@ -98,7 +98,6 @@ if !exists("g:gui_oni")
   set hidden
   let g:LanguageClient_serverCommands = {
   \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-  \ 'javascript': ['javascript-typescript-stdio'],
   \ 'typescript': ['typescript-language-server', '--stdio'],
   \ 'vue': ['vls'],
   \ 'css': ['css-langserver', '--stdio'],
@@ -106,6 +105,9 @@ if !exists("g:gui_oni")
   \ 'html': ['html-langserver', '--stdio'],
   \ 'json': ['json-langserver', '--stdio'],
   \}
+
+  " Disabled LSP servers
+  " \ 'javascript': ['javascript-typescript-stdio'],
 
   " ELm
   let g:elm_setup_keybindings = 1
