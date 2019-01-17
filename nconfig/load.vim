@@ -13,20 +13,33 @@ endif
 
 " -- NeoVim -- "
 if !exists("g:gui_oni")
-  " packadd! dracula
+  " --- General --- "
+  packadd! vim-commentary
+
+  " --- File Management --- "
+  packadd! fzf
+  packadd! nerdtree
+
+  " --- Interface --- "
   packadd! gruvbox
   packadd! onedark.vim
   packadd! ayu-vim
+  " packadd! dracula
   packadd! vim-devicons
-  packadd! vim-commentary
-  packadd! deoplete.nvim
-  packadd! denite.nvim
-  packadd! echodoc
-  packadd! fzf
-  packadd! languageclient-neovim
-  packadd! nerdtree
   packadd! vim-airline
   packadd! vim-airline-themes
+
+  " --- Linting/Autocompletion --- "
+  packadd! coc.nvim
+  " TODO: Remove?
+  " packadd! deoplete.nvim
+  packadd! denite.nvim
+  " TODO: Remove?
+  " packadd! echodoc
+  " TODO: Remove?
+
+  " --- Language --- "
+  " packadd! languageclient-neovim
   packadd! vim-javascript
   packadd! vim-jsx
   packadd! yats.vim

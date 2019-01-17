@@ -50,8 +50,8 @@ call minpac#add('junegunn/fzf', { 'type': 'opt' })
 call minpac#add('w0rp/ale', { 'type': 'opt', 'do': '!npm i -g tslint eslint' })
 call minpac#add('Shougo/deoplete.nvim', { 'type': 'opt', 'do': 'UpdateRemotePlugins' })
 call minpac#add('Shougo/denite.nvim', { 'type': 'opt' })
-" TODO: Doesn't seem to be working properly
 call minpac#add('shougo/echodoc', { 'type': 'opt' })
+call minpac#add('neoclide/coc.nvim', { 'type': 'opt', 'do': 'call coc#util#install()' })
 
 " ------------------------------
 "                             ||
