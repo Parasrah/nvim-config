@@ -23,39 +23,32 @@ endfunction
 " Vimgrep
 set wildignore=node_modules/**,elm-stuff/**,.git/**,build/**,dist/**,*.temp
 
-function! s:UseOneDark()
+function! s:ThemeOneDark()
   let g:onedark_terminal_italics = 1
   let g:airline_theme = "onedark"
   syntax on
   colorscheme onedark
 endfunction
 
-function! s:UseAyu()
-  let ayucolor="dark"
-  let g:airline_theme='ayu_mirage'
-  syntax on
-  colorscheme ayu
-endfunction
-
-function! s:UseDracula()
-  let g:airline_theme='dracula'
-  syntax on
-  color dracula
-endfunction
-
-function! s:UseGruvbox()
-  let g:airline_theme='gruvbox'
+function! s:ThemeGruvbox()
+  let g:airline_theme = 'gruvbox'
   set background=dark
   syntax on
   colorscheme gruvbox
 endfunction
 
+function! s:ThemeNord()
+  let g:airline_theme = 'nord'
+  syntax on
+  colorscheme nord
+endfunction
+
 function! s:SetupTheme()
   if (has("termguicolors"))
     set termguicolors
-    call s:UseGruvbox()
+    call s:ThemeGruvbox()
   else
-    call s:UseOneDark()
+    call s:ThemeOneDark()
   endif
 endfunction
 
@@ -100,7 +93,12 @@ if !exists("g:gui_oni")
   set updatetime=300
 
   " Highlight symbol under cursor on CursorHold
-  autocmd CursorHold * silent call CocActionAsync('highlight')
+  autocmd CursorHold * silent call s:CursorHoldHighlight()
+  function! s:CursorHoldHighlight()
+    if &ft != 'json'
+      call CocActionAsync('highlight')
+    endif
+  endfunction
 
   " Use `:Format` for format current buffer
   command! -nargs=0 Format :call CocAction('format')

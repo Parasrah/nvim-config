@@ -3,11 +3,22 @@ if !exists('*minpac#init')
   finish
 endif
 
-call minpac#init({ 'verbose': 0 })
+" ------------------------------
+"                             ||
+"           Minpac            ||
+"                             ||
+"-------------------------------
 
+call minpac#init({ 'verbose': 0 })
 call minpac#add('k-takata/minpac', { 'type': 'opt' })
 
-" General
+" ------------------------------
+"                             ||
+"           General           ||
+"                             ||
+"-------------------------------
+
+" Utilities
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-repeat')
@@ -48,9 +59,7 @@ call minpac#add('junegunn/fzf', { 'type': 'opt' })
 "-----------------------------------
 
 call minpac#add('w0rp/ale', { 'type': 'opt', 'do': '!npm i -g tslint eslint' })
-call minpac#add('Shougo/deoplete.nvim', { 'type': 'opt', 'do': 'UpdateRemotePlugins' })
 call minpac#add('Shougo/denite.nvim', { 'type': 'opt' })
-call minpac#add('shougo/echodoc', { 'type': 'opt' })
 call minpac#add('neoclide/coc.nvim', { 'type': 'opt', 'do': 'call coc#util#install()' })
 
 " ------------------------------
@@ -60,10 +69,9 @@ call minpac#add('neoclide/coc.nvim', { 'type': 'opt', 'do': 'call coc#util#insta
 "-------------------------------
 
 " Themes
-call minpac#add('joshdick/onedark.vim', { 'type': 'opt' })
-call minpac#add('ayu-theme/ayu-vim', { 'type': 'opt' })
-call minpac#add('dracula/vim', { 'name': 'dracula', 'type': 'opt' })
 call minpac#add('morhetz/gruvbox', { 'type': 'opt' })
+call minpac#add('joshdick/onedark.vim', { 'type': 'opt' })
+call minpac#add('arcticicestudio/nord-vim', { 'type': 'opt' })
 
 " Other
 call minpac#add('ryanoasis/vim-devicons', { 'type': 'opt' })
@@ -75,9 +83,6 @@ call minpac#add('vim-airline/vim-airline-themes', { 'type': 'opt' })
 "          LANGUAGES          ||
 "                             ||
 " ------------------------------
-
-"  Language client
-call minpac#add('autozimu/languageclient-neovim', { 'type': 'opt', 'branch': 'next', 'do': '!bash install.sh' })
 
 " Javascript/Typescript
 call minpac#add('pangloss/vim-javascript', { 'type': 'opt' })
