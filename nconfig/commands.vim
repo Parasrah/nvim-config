@@ -20,6 +20,7 @@ command! Packages call s:OpenPackages()
 
 " Terminal
 command! Term bo :17sp term://bash
+command! Tarm tabnew term://bash
 
 " Git
 command! Done w | :bdelete

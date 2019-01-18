@@ -32,6 +32,7 @@ endfunction
 
 function! s:ThemeGruvbox()
   let g:airline_theme = 'gruvbox'
+  let g:gruvbox_italic = 1
   set background=dark
   syntax on
   colorscheme gruvbox
@@ -39,6 +40,10 @@ endfunction
 
 function! s:ThemeNord()
   let g:airline_theme = 'nord'
+  let g:nord_italic = 1
+  let g:nord_underline = 1
+  let g:nord_italic_comments = 1
+  let g:nord_comment_brightness = 12
   syntax on
   colorscheme nord
 endfunction
