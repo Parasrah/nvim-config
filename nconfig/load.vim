@@ -34,4 +34,5 @@ if !exists("g:gui_oni")
   packadd! rust.vim
   packadd! vim-gdscript
   packadd! vim-vue
+  packadd! dockerfile.vim
 endif

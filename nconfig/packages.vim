@@ -101,4 +101,7 @@ call minpac#add('quabug/vim-gdscript', { 'type': 'opt' })
 " Vue
 call minpac#add('posva/vim-vue', { 'type': 'opt' })
 
+" Docker
+call minpac#add('ekalinin/dockerfile.vim', { 'type': 'opt' })
+
 " -- END
