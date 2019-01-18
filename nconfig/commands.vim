@@ -26,6 +26,7 @@ command! Done w | :bdelete
 
 " Grep
 command! -nargs=1 SearchJs lgrep <q-args> -g "**/*.{js,jsx,html}"
+command! -nargs=1 SearchJson lgrep <q-args> -g "**/*.json"
 command! -nargs=1 SearchTs lgrep <q-args> -g "**/*.{ts,tsx}"
 command! -nargs=1 SearchRs lgrep <q-args> -g "**/*.rs"
 command! -nargs=1 SearchMyElm lgrep <q-args> -g "**/*.elm"

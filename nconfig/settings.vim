@@ -3,7 +3,7 @@
 " -- Common -- "
 
 " shortmess
-set shortmess=filnxtToOI
+set shortmess=cfilnxtToOI
 
 " Hack for nvr
 if has('nvim')
@@ -94,20 +94,29 @@ if !exists("g:gui_oni")
   " Workspace
   autocmd VimEnter * set noshowmode
 
-  " Language Client
-  set hidden
-  let g:LanguageClient_serverCommands = {
-  \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-  \ 'javascript': ['javascript-typescript-stdio'],
-  \ 'typescript': ['typescript-language-server', '--stdio'],
-  \ 'vue': ['vls'],
-  \ 'css': ['css-langserver', '--stdio'],
-  \ 'scss': ['css-langserver', '--stdio'],
-  \ 'html': ['html-langserver', '--stdio'],
-  \ 'json': ['json-langserver', '--stdio'],
-  \}
+  " --- CoC --- "
 
-  " ELm
+  " Smaller updatetime for CursorHold & CursorHoldI
+  set updatetime=300
+
+  " Highlight symbol under cursor on CursorHold
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+
+  " Use `:Format` for format current buffer
+  command! -nargs=0 Format :call CocAction('format')
+
+  " Use `:Fold` for fold current buffer
+  command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+  augroup cocformat
+    autocmd!
+    " Setup formatexpr specified filetype(s).
+    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    " Update signature help on jump placeholder
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  augroup end
+
+  " --- Elm --- "
   let g:elm_setup_keybindings = 1
 
   " Airline
