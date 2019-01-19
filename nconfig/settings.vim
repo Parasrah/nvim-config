@@ -2,6 +2,8 @@
 
 " -- Common -- "
 
+set hidden
+
 " shortmess
 set shortmess=cfilnxtToOI
 
