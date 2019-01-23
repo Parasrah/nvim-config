@@ -27,6 +27,7 @@ call minpac#add('tpope/vim-commentary', { 'type': 'opt' })
 call minpac#add('nelstrom/vim-visual-star-search')
 call minpac#add('wesq3/vim-windowswap')
 call minpac#add('mattn/emmet-vim')
+call minpac#add('raimondi/delimitmate')
 
 " Snippets
 call minpac#add('SirVer/ultisnips')

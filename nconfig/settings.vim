@@ -121,6 +121,10 @@ if !exists("g:gui_oni")
     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   augroup end
 
+  " -- Delimitmate -- "
+  let g:delimitMate_expand_cr = 1
+  let g:delimitMate_expand_space = 1
+
   " --- Elm --- "
   let g:elm_setup_keybindings = 1
 
