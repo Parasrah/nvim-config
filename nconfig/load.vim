@@ -13,6 +13,7 @@ endif
 if !exists("g:gui_oni")
   " --- General --- "
   packadd! vim-commentary
+  packadd! vim-obsession
 
   " --- File Management --- "
   packadd! fzf
@@ -40,4 +41,5 @@ if !exists("g:gui_oni")
   packadd! vim-gdscript
   packadd! vim-vue
   packadd! dockerfile.vim
+  packadd! vim-go
 endif
