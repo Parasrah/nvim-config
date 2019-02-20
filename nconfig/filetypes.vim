@@ -15,6 +15,9 @@ filetype plugin indent on
 
 augroup fzfGroup
   au!
+  autocmd! FileType fzf
+  autocmd  FileType fzf set laststatus=0 noruler
+    \| autocmd BufLeave <buffer> set laststatus=2 ruler
   " Fix fzf for terminal ESC mapping
   au FileType fzf tnoremap <buffer> <Esc> <Esc>
 augroup end

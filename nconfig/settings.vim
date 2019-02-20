@@ -98,6 +98,9 @@ if !exists("g:gui_oni")
   " Workspace
   autocmd VimEnter * set noshowmode
 
+  " FZF
+  " let g:fzf_layout = { 'window': 'enew' }
+
   " --- CoC --- "
 
   set completeopt-=preview
