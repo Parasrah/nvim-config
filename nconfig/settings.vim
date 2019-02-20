@@ -7,6 +7,10 @@ set hidden
 " shortmess
 set shortmess=cfilnxtToOI
 
+" Command completion
+set wildmode=longest,list,full
+set wildmenu
+
 " Hack for nvr
 if has('nvim')
   if !exists("g:gui_oni")
@@ -99,7 +103,7 @@ if !exists("g:gui_oni")
   set completeopt-=preview
 
   " Smaller updatetime for CursorHold & CursorHoldI
-  set updatetime=300
+  " set updatetime=300
 
   " Highlight symbol under cursor on CursorHold
   autocmd CursorHold * silent call s:CursorHoldHighlight()
