@@ -7,6 +7,9 @@ set hidden
 " shortmess
 set shortmess=cfilnxtToOI
 
+" modeline
+set modelines=5
+
 " Command completion
 set wildmode=longest,list,full
 set wildmenu
