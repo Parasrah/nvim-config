@@ -10,6 +10,12 @@ function! g:IndentFour()
   setlocal softtabstop=4
 endfunction
 
+function! g:IndentGo()
+  setlocal noexpandtab
+  setlocal shiftwidth=8
+  setlocal softtabstop=8
+endfunction
+
 " Configure plugin
 filetype plugin indent on
 
@@ -79,4 +85,9 @@ augroup end
 augroup gdscriptGroup
   au!
   au FileType gdscript call g:IndentFour()
+augroup end
+
+augroup goGroup
+  au!
+  au FileType go call g:IndentGo()
 augroup end
