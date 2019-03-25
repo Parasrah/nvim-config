@@ -50,7 +50,7 @@ call minpac#add('kana/vim-textobj-line')
 "                             ||
 "===============================
 
-call minpac#add('scrooloose/nerdtree', { 'type': 'opt' })
+call minpac#add('tpope/vim-vinegar', { 'type': 'opt' })
 call minpac#add('junegunn/fzf', { 'type': 'opt' })
 
 " ==================================

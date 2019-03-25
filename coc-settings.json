@@ -1,4 +1,4 @@
 {
-  "coc.preferences.diagnostic.displayByAle": true,
+  "diagnostic.displayByAle": true,
   "coc.preferences.formatOnType": false
 }
