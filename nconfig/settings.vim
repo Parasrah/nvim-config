@@ -14,6 +14,9 @@ set modelines=5
 set wildmode=longest,list,full
 set wildmenu
 
+" File tree
+let g:netrw_liststyle = 3
+
 " Hack for nvr
 if has('nvim')
   if !exists("g:gui_oni")
@@ -41,7 +44,10 @@ endfunction
 
 function! s:ThemeGruvbox()
   let g:airline_theme = 'gruvbox'
-  let g:gruvbox_italic = 1
+  let g:gruvbox_italic = 0
+  let g:gruvbox_bold = 1
+  let g:gruvbox_underline = 1
+  let g:gruvbox_italicize_comments = 0
   set background=dark
   syntax on
   colorscheme gruvbox

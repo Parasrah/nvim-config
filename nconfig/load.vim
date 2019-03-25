@@ -17,7 +17,7 @@ if !exists("g:gui_oni")
 
   " --- File Management --- "
   packadd! fzf
-  packadd! nerdtree
+  packadd! vim-vinegar
 
   " --- Interface --- "
   packadd! gruvbox
