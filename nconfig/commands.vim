@@ -32,6 +32,7 @@ command! -nargs=1 SearchTs lgrep <q-args> -g "**/*.{ts,tsx}"
 command! -nargs=1 SearchRs lgrep <q-args> -g "**/*.rs"
 command! -nargs=1 SearchMyElm lgrep <q-args> -g "**/*.elm"
 command! -nargs=1 SearchStyle lgrep <q-args> -g "**/*.{css,scss}"
+command! -nargs=1 SearchGo lgrep <q-args> -g "**/*.{go}"
 
 " Bracket completion
 " TODO: Complete
