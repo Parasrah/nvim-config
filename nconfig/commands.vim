@@ -32,28 +32,3 @@ command! -nargs=1 SearchTs lgrep <q-args> -g "**/*.{ts,tsx}"
 command! -nargs=1 SearchRs lgrep <q-args> -g "**/*.rs"
 command! -nargs=1 SearchMyElm lgrep <q-args> -g "**/*.elm"
 command! -nargs=1 SearchStyle lgrep <q-args> -g "**/*.{css,scss}"
-
-" Bracket completion
-" TODO: Complete
-" TODO: Package as independent plugin
-function! g:CompleteBrackets()
-  let s:line = getline('.')
-  let s:starters = []
-  for s:c in split(s:line)
-    " TODO: Account for "{
-    " TODO: Account for "[
-    " TODO: Must account for `${}`
-    " TODO: Must account for different filetypes
-    if s:c == '"'
-      call add(s:starters, '"')
-    endif
-    if s:c == '{'
-
-    endif
-    if s:c == '['
-
-    endif
-  endfor
-  echo join(s:starters)
-endfunction
-command! CompleteBrackets call g:CompleteBrackets()

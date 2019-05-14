@@ -14,9 +14,6 @@ set modelines=5
 set wildmode=longest,list,full
 set wildmenu
 
-" File tree
-let g:netrw_liststyle = 3
-
 " Hack for nvr
 if has('nvim')
   if !exists("g:gui_oni")
@@ -70,6 +67,8 @@ function! s:SetupTheme()
   else
     call s:ThemeOneDark()
   endif
+  " setup highlighting
+  hi CocErrorFloat ctermfg=LightRed guifg=#fa8072
 endfunction
 
 " Grep program
@@ -86,7 +85,7 @@ let g:ale_set_quickfix = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:ale_completion_enabled = 0
-let g:ale_linters = { 'typescript': ['tslint'], 'javascript': ['eslint'] }
+let g:ale_linters = { 'javascript': ['eslint'], 'typescript': ['tslint'] }
 
 " Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -107,15 +106,9 @@ if !exists("g:gui_oni")
   " Workspace
   autocmd VimEnter * set noshowmode
 
-  " FZF
-  " let g:fzf_layout = { 'window': 'enew' }
-
   " --- CoC --- "
 
   set completeopt-=preview
-
-  " Smaller updatetime for CursorHold & CursorHoldI
-  " set updatetime=300
 
   " Highlight symbol under cursor on CursorHold
   autocmd CursorHold * silent call s:CursorHoldHighlight()
@@ -163,13 +156,8 @@ if !exists("g:gui_oni")
 
   " Deoplete
   let g:deoplete#enable_at_startup = 1
-  let g:echodoc#enable_at_startup = 1
 
   " Fuzzy Search
   let $FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git"'
-endif
-
-" -- Oni -- "
-if exists("g:gui_oni")
-
+  let g:fzf_layout = { 'window': 'enew' }
 endif
