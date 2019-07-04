@@ -9,6 +9,8 @@ endif
 "                             ||
 "===============================
 
+" TODO: fetch minpac if doesn't exist
+" TODO: Fork minpac
 call minpac#init({ 'verbose': 0 })
 call minpac#add('k-takata/minpac', { 'type': 'opt' })
 
@@ -40,8 +42,8 @@ call minpac#add('kana/vim-textobj-indent')
 call minpac#add('kana/vim-textobj-line')
 
 " =============================================================== "
-"       Generally the rest of the plugins are provided by oni
-"       and are hence loaded optionally in 'load.vim'
+"       Generally the rest of the plugins are provided by oni     "
+"       and are hence loaded optionally in 'load.vim'             "
 " =============================================================== "
 
 " ==============================
@@ -51,7 +53,7 @@ call minpac#add('kana/vim-textobj-line')
 "===============================
 
 call minpac#add('tpope/vim-vinegar', { 'type': 'opt' })
-call minpac#add('junegunn/fzf', { 'type': 'opt' })
+call minpac#add('junegunn/fzf', { 'type': 'opt', 'do': '!./install --all' })
 
 " ==================================
 "                                 ||
@@ -85,33 +87,16 @@ call minpac#add('vim-airline/vim-airline-themes', { 'type': 'opt' })
 "                             ||
 " ==============================
 
-" Javascript/Typescript
 call minpac#add('pangloss/vim-javascript', { 'type': 'opt' })
 call minpac#add('mxw/vim-jsx', { 'type': 'opt' })
 call minpac#add('herringtondarkholme/yats.vim', { 'type': 'opt' })
-
-" Elm
 call minpac#add('elmcast/elm-vim', { 'type': 'opt' })
-
-" Markdown
 call minpac#add('tpope/vim-markdown', { 'type': 'opt' })
-
-" JSON
 call minpac#add('elzr/vim-json', { 'type': 'opt' })
-
-" Rust
 call minpac#add('rust-lang/rust.vim', { 'type': 'opt' })
-
-" GDScript
 call minpac#add('quabug/vim-gdscript', { 'type': 'opt' })
-
-" Vue
 call minpac#add('posva/vim-vue', { 'type': 'opt' })
-
-" Docker
 call minpac#add('ekalinin/dockerfile.vim', { 'type': 'opt' })
-
-" Go
 call minpac#add('fatih/vim-go', { 'type': 'opt' })
 
 " -- END

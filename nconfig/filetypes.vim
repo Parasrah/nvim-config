@@ -10,7 +10,7 @@ function! g:IndentFour()
   setlocal softtabstop=4
 endfunction
 
-function! g:IndentGo()
+function! g:IndentEight()
   setlocal noexpandtab
   setlocal shiftwidth=8
   setlocal softtabstop=8
@@ -19,6 +19,7 @@ endfunction
 " Configure plugin
 filetype plugin indent on
 
+" FZF
 augroup fzfGroup
   au!
   autocmd! FileType fzf
@@ -27,6 +28,8 @@ augroup fzfGroup
   " Fix fzf for terminal ESC mapping
   au FileType fzf tnoremap <buffer> <Esc> <Esc>
 augroup end
+
+" Indentation "
 
 augroup typescriptGroup
   au!
@@ -92,5 +95,5 @@ augroup end
 
 augroup goGroup
   au!
-  au FileType go call g:IndentGo()
+  au FileType go call g:IndentEight()
 augroup end
