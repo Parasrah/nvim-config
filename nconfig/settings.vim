@@ -14,9 +14,6 @@ set modelines=5
 set wildmode=longest,list,full
 set wildmenu
 
-" File tree
-let g:netrw_liststyle = 3
-
 " Hack for nvr
 if has('nvim')
   if !exists("g:gui_oni")
