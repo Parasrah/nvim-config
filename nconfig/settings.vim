@@ -3,6 +3,7 @@
 " -- Common -- "
 
 set hidden
+set linebreak
 
 " shortmess
 set shortmess=cfilnxtToOI

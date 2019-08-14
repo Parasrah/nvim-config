@@ -42,4 +42,5 @@ if !exists("g:gui_oni")
   packadd! vim-vue
   packadd! dockerfile.vim
   packadd! vim-go
+  packadd! vim-toml
 endif

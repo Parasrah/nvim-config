@@ -98,5 +98,6 @@ call minpac#add('quabug/vim-gdscript', { 'type': 'opt' })
 call minpac#add('posva/vim-vue', { 'type': 'opt' })
 call minpac#add('ekalinin/dockerfile.vim', { 'type': 'opt' })
 call minpac#add('fatih/vim-go', { 'type': 'opt' })
+call minpac#add('cespare/vim-toml', { 'type': 'opt' })
 
 " -- END
