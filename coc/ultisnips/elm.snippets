@@ -1,0 +1,21 @@
+snippet data "Import Data" b
+import Data.${1:name} as $1 exposing ($1)
+endsnippet
+
+snippet import "Import X" b
+import ${1:name} exposing (${2:imports})
+endsnippet
+
+snippet update "Application.update" b
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg (Model internals) =
+\tcase msg of
+\t\tNoOp ->
+\t\t\t( Model internals, Cmd.none )
+endsnippet
+
+snippet view "Application.view" b
+view : Model -> List (Html Msg)
+view (Model internals) =
+\t[]
+endsnippet

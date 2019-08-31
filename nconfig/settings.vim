@@ -81,17 +81,29 @@ endif
 set signcolumn=yes
 
 " Ale
+let g:ale_lint_on_save = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:ale_completion_enabled = 0
-let g:ale_linters = { 'javascript': ['eslint'], 'typescript': ['tslint'] }
+let g:ale_linters = { 'javascript': ['eslint'], 'typescript': ['eslint'] }
 
 " Snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsSnippetDirectories=["usnippets"]
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+" Terminal Only
 if !exists("g:gui_oni")
   " Themes
   call s:SetupTheme()
@@ -141,7 +153,7 @@ if !exists("g:gui_oni")
   let g:elm_setup_keybindings = 1
 
   " Airline
-  let g:airline_powerline_fonts=1
+  " let g:airline_powerline_fonts=1
   let g:airline#extensions#ale#enabled = 1
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#show_buffers = 0

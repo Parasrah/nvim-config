@@ -23,7 +23,7 @@ if !exists("g:gui_oni")
   packadd! gruvbox
   packadd! onedark.vim
   packadd! nord-vim
-  packadd! vim-devicons
+  " packadd! vim-devicons
   packadd! vim-airline
   packadd! vim-airline-themes
 
@@ -43,4 +43,5 @@ if !exists("g:gui_oni")
   packadd! dockerfile.vim
   packadd! vim-go
   packadd! vim-toml
+  packadd! vim-elixir
 endif

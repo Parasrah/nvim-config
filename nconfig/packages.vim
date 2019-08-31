@@ -32,9 +32,6 @@ call minpac#add('wesq3/vim-windowswap')
 call minpac#add('mattn/emmet-vim')
 call minpac#add('raimondi/delimitmate')
 
-" Snippets
-call minpac#add('SirVer/ultisnips')
-
 " Text Objects
 call minpac#add('kana/vim-textobj-entire')
 call minpac#add('kana/vim-textobj-user')
@@ -61,7 +58,7 @@ call minpac#add('junegunn/fzf', { 'type': 'opt', 'do': '!./install --all' })
 "                                 ||
 "===================================
 
-call minpac#add('w0rp/ale', { 'type': 'opt', 'do': '!npm i -g tslint eslint' })
+call minpac#add('w0rp/ale', { 'type': 'opt', 'do': '!npm i -g eslint' })
 call minpac#add('Shougo/denite.nvim', { 'type': 'opt' })
 call minpac#add('neoclide/coc.nvim', { 'type': 'opt', 'do': 'call coc#util#install()' })
 
@@ -99,5 +96,6 @@ call minpac#add('posva/vim-vue', { 'type': 'opt' })
 call minpac#add('ekalinin/dockerfile.vim', { 'type': 'opt' })
 call minpac#add('fatih/vim-go', { 'type': 'opt' })
 call minpac#add('cespare/vim-toml', { 'type': 'opt' })
+call minpac#add('elixir-lang/vim-elixir', { 'type': 'opt' })
 
 " -- END

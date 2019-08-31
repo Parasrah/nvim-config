@@ -2,5 +2,6 @@
   "diagnostic.displayByAle": false,
   "diagnostic.locationlist": false,
   "coc.preferences.formatOnType": false,
-  "npm.binPath": "npm"
+  "npm.binPath": "npm",
+  "snippets.userSnippetsDirectory": "~/.config/nvim/coc/ultisnips"
 }
