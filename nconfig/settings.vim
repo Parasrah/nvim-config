@@ -82,12 +82,10 @@ set signcolumn=yes
 
 " Ale
 let g:ale_lint_on_save = 1
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:ale_completion_enabled = 0
-let g:ale_linters = { 'javascript': ['eslint'], 'typescript': ['eslint'] }
+let g:ale_linters = { 'javascript': ['eslint'], 'typescript': ['eslint'], 'cs': ['OmniSharp'] }
 
 " Snippets
 inoremap <silent><expr> <TAB>
@@ -167,10 +165,16 @@ if !exists("g:gui_oni")
   " Javascript
   let g:javascript_plugin_jsdoc = 1
 
+  " Omnisharp
+  let g:OmniSharp_server_stdio = 1
+  let g:OmniSharp_server_path = '/mnt/c/OmniSharp/omnisharp-win-x64/OmniSharp.exe'
+  let g:OmniSharp_translate_cygwin_wsl = 1
+  let g:OmniSharp_selector_ui = 'fzf'
+  let g:OmniSharp_open_quickfix = 0
+
   " Deoplete
   let g:deoplete#enable_at_startup = 1
 
-  " Fuzzy Search
+  " FZF
   let $FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git"'
-  let g:fzf_layout = { 'window': 'enew' }
 endif

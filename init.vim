@@ -11,7 +11,8 @@ if &compatible
 endif
 
 " -- Configuration --
-let g:nestedConfigDir = $NVIMCONFIG."/nconfig/"
+let g:configDir = $NVIMCONFIG
+let g:nestedConfigDir = g:configDir."/nconfig/"
 
 " Add Packages
 exec "so" g:nestedConfigDir."packages.vim"

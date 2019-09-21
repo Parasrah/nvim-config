@@ -11,18 +11,24 @@ nnoremap <silent> <C-Up> <c-w>k
 nnoremap <silent> <C-Down> <c-w>j
 
 " -- Remove highlighting
-nnoremap <silent> <esc> :noh<cr><esc>
+nnoremap <silent> <esc> :noh<CR><ESC>
 
 " -- Location list navigation
-nnoremap <silent> <C-h> :lprevious<CR>
-nnoremap <silent> <C-l> :lnext<CR>
+nnoremap <silent> <C-h> :cprevious<CR>
+nnoremap <silent> <C-l> :cnext<CR>
 
 " -- Quickfix navigation
-nnoremap <silent> <C-j> :cnext<CR>
-nnoremap <silent> <C-k> :cprevious<CR>
+nnoremap <silent> <C-j> :lprevious<CR>
+nnoremap <silent> <C-k> :lnext<CR>
 
 " -- Insert Spaces
-nnoremap <space> i<space><right><esc>
+nnoremap <space> i<space><right><ESC>
+
+" -- OmniSharp
+"  TODO: move to filetypes?
+"  * open new tab
+"  * lcd to filetypes folder
+"  * open fuzzy finder
 
 " -- NeoVim -- "
 if !exists("g:gui_oni")

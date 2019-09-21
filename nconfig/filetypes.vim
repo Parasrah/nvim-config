@@ -1,3 +1,4 @@
+" TODO: just use editorconfig if it works
 function! g:IndentTwo()
   setlocal expandtab
   setlocal shiftwidth=2

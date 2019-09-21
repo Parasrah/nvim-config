@@ -44,4 +44,5 @@ if !exists("g:gui_oni")
   packadd! vim-go
   packadd! vim-toml
   packadd! vim-elixir
+  packadd! omnisharp-vim
 endif

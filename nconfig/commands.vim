@@ -15,8 +15,15 @@ function! s:OpenPackages()
   wincmd h
 endfunction
 
+function! s:OpenFileTypes()
+  exec "tabnew"
+  exec "lcd ".g:configDir."/ftplugin"
+  exec "FZF!"
+endfunction
+
 command! Config call s:OpenConfig()
 command! Packages call s:OpenPackages()
+command! FileTypes call s:OpenFileTypes()
 
 " Terminal
 command! Term bo :17sp term://bash
@@ -26,11 +33,12 @@ command! Tarm tabnew term://bash
 command! Done w | :bdelete
 
 " Grep
-command! -nargs=1 JS lgrep <q-args> -g "**/*.{js,jsx,html}"
-command! -nargs=1 JSON lgrep <q-args> -g "**/*.json"
-command! -nargs=1 TS lgrep <q-args> -g "**/*.{ts,tsx,html}"
-command! -nargs=1 RS lgrep <q-args> -g "**/*.rs"
-command! -nargs=1 ELM lgrep <q-args> -g "**/*.elm"
-command! -nargs=1 STL lgrep <q-args> -g "**/*.{css,scss}"
-command! -nargs=1 GO lgrep <q-args> -g "**/*.go"
-command! -nargs=1 GD lgrep <q-args> -g "**/*.gd"
+command! -nargs=1 JS grep <q-args> -g "**/*.{js,jsx,html}"
+command! -nargs=1 JSON grep <q-args> -g "**/*.json"
+command! -nargs=1 TS grep <q-args> -g "**/*.{ts,tsx,html}"
+command! -nargs=1 RS grep <q-args> -g "**/*.rs"
+command! -nargs=1 ELM grep <q-args> -g "**/*.elm"
+command! -nargs=1 STL grep <q-args> -g "**/*.{css,scss}"
+command! -nargs=1 GO grep <q-args> -g "**/*.go"
+command! -nargs=1 GD grep <q-args> -g "**/*.gd"
+command! -nargs=1 CS grep <q-args> -g "**/*.{cs,cshtml}"
