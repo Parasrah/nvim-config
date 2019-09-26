@@ -1,24 +1,25 @@
 " -- Commands -- "
 
 function! s:OpenConfig()
-  exec "tabnew" g:nestedConfigDir."settings.vim"
-  exec "below :vs" g:nestedConfigDir."filetypes.vim"
-  exec "below :sp" g:nestedConfigDir."keymaps.vim"
-  wincmd h
-  exec "below :sp" g:nestedConfigDir."commands.vim"
-  wincmd k
+    exec "tabnew" g:nestedConfigDir."settings.vim"
+    exec "below :vs" g:nestedConfigDir."functions.vim"
+    exec "below :sp" g:nestedConfigDir."keymaps.vim"
+    wincmd h
+    exec "below :sp" g:nestedConfigDir."commands.vim"
+    wincmd k
+    exec "lcd" g:nestedConfigDir
 endfunction
 
 function! s:OpenPackages()
-  exec "tabnew" g:nestedConfigDir."packages.vim"
-  exec "below :vs" g:nestedConfigDir."load.vim"
-  wincmd h
+    exec "tabnew" g:nestedConfigDir."packages.vim"
+    exec "below :vs" g:nestedConfigDir."load.vim"
+    wincmd h
 endfunction
 
 function! s:OpenFileTypes()
-  exec "tabnew"
-  exec "lcd ".g:configDir."/ftplugin"
-  exec "FZF!"
+    exec "tabnew"
+    exec "lcd" g:configDir."/ftplugin"
+    exec "FZF!"
 endfunction
 
 command! Config call s:OpenConfig()
