@@ -31,6 +31,7 @@ call minpac#add('nelstrom/vim-visual-star-search')
 call minpac#add('wesq3/vim-windowswap')
 call minpac#add('mattn/emmet-vim')
 call minpac#add('raimondi/delimitmate')
+call minpac#add('editorconfig/editorconfig-vim')
 
 " Text Objects
 call minpac#add('kana/vim-textobj-entire')
@@ -97,5 +98,6 @@ call minpac#add('ekalinin/dockerfile.vim', { 'type': 'opt' })
 call minpac#add('fatih/vim-go', { 'type': 'opt' })
 call minpac#add('cespare/vim-toml', { 'type': 'opt' })
 call minpac#add('elixir-lang/vim-elixir', { 'type': 'opt' })
+call minpac#add('omnisharp/omnisharp-vim', { 'type': 'opt' })
 
 " -- END

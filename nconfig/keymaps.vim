@@ -1,8 +1,6 @@
-if has('nvim')
-  " Use esc to exit terminal mode
-  tnoremap <Esc> <C-\><C-n>
-  tnoremap <C-v><Esc> <Esc>
-endif
+" Use esc to exit terminal mode
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-v><Esc> <Esc>
 
 " -- Window Management
 nnoremap <silent> <C-Right> <c-w>l
@@ -11,56 +9,58 @@ nnoremap <silent> <C-Up> <c-w>k
 nnoremap <silent> <C-Down> <c-w>j
 
 " -- Remove highlighting
-nnoremap <silent> <esc> :noh<cr><esc>
+nnoremap <silent> <esc> :noh<CR><ESC>
 
 " -- Location list navigation
-nnoremap <silent> <C-h> :lprevious<CR>
-nnoremap <silent> <C-l> :lnext<CR>
+nnoremap <silent> <C-h> :cprevious<CR>
+nnoremap <silent> <C-l> :cnext<CR>
 
 " -- Quickfix navigation
-nnoremap <silent> <C-j> :cnext<CR>
-nnoremap <silent> <C-k> :cprevious<CR>
+nnoremap <silent> <C-j> :lprevious<CR>
+nnoremap <silent> <C-k> :lnext<CR>
 
 " -- Insert Spaces
-nnoremap <space> i<space><right><esc>
+nnoremap <space> i<space><right><ESC>
 
-" -- NeoVim -- "
-if !exists("g:gui_oni")
+" -- OmniSharp
+"  TODO: move to filetypes?
+"  * open new tab
+"  * lcd to filetypes folder
+"  * open fuzzy finder
 
-  " Fuzzy File Search
-  nnoremap <C-p> :<C-u>FZF<CR>
+" Fuzzy File Search
+nnoremap <C-p> :<C-u>FZF<CR>
 
-  " CoC
-  nmap <silent> gd <Plug>(coc-definition)
-  nmap <silent> gy <Plug>(coc-type-definition)
-  " TODO: Don't overwrite gi
-  " nmap <silent> gi <Plug>(coc-implementation)
-  nmap <silent> gr <Plug>(coc-references)
+" CoC
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+" TODO: Don't overwrite gi
+" nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-  " Remap for rename current word
-  nmap <leader>rn <Plug>(coc-rename)
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
 
-  " Remap for format selected region
-  vmap <leader>f  <Plug>(coc-format-selected)
-  nmap <leader>f  <Plug>(coc-format-selected)
+" Remap for format selected region
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
-  " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-  vmap <leader>a  <Plug>(coc-codeaction-selected)
-  nmap <leader>a  <Plug>(coc-codeaction-selected)
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+vmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
 
-  " Remap for do codeAction of current line
-  nmap <leader>ac  <Plug>(coc-codeaction)
-  " Fix autofix problem of current line
-  nmap <leader>qf  <Plug>(coc-fix-current)
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
 
-  " Use K for show documentation in preview window
-  nnoremap <silent> K :call <SID>show_documentation()<CR>
+" Use K for show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-  function! s:show_documentation()
+function! s:show_documentation()
     if &filetype == 'vim'
-      execute 'h '.expand('<cword>')
+        execute 'h '.expand('<cword>')
     else
-      call CocAction('doHover')
+        call CocAction('doHover')
     endif
-  endfunction
-endif
+endfunction
