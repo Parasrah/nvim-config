@@ -22,9 +22,18 @@ function! s:OpenFileTypes()
     exec "FZF!"
 endfunction
 
+function! s:OpenSnippets()
+    exec "tabnew"
+    exec "lcd" g:configDir."/coc/ultisnips"
+    exec "FZF!"
+endfunction
+
 command! Config call s:OpenConfig()
 command! Packages call s:OpenPackages()
 command! FileTypes call s:OpenFileTypes()
+command! Snippets call s:OpenSnippets()
+
+command! TODO exec "e" "TODO.md"
 
 " Terminal
 command! Term bo :17sp term://bash

@@ -1,7 +1,10 @@
 {
   "diagnostic.displayByAle": false,
-  "diagnostic.locationlist": false,
+  "diagnostic.locationlist": true,
   "coc.preferences.formatOnType": false,
   "npm.binPath": "npm",
-  "snippets.userSnippetsDirectory": "~/.config/nvim/coc/ultisnips"
+  "snippets.userSnippetsDirectory": "~/.config/nvim/coc/ultisnips",
+  "coc.preferences.hoverTarget": "float",
+  "suggest.floatEnable": true,
+  "coc.preferences.useQuickfixForLocations": true
 }

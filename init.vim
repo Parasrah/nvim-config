@@ -25,5 +25,3 @@ exec "so" g:nestedConfigDir."load.vim"
 exec "so" g:nestedConfigDir."settings.vim"
 exec "so" g:nestedConfigDir."keymaps.vim"
 exec "so" g:nestedConfigDir."commands.vim"
-
-" -- END --
