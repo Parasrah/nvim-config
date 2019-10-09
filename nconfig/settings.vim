@@ -30,6 +30,13 @@ if executable("rg")
 endif
 
 " ----------------------------- "
+"          Delimitmate          "
+"------------------------------ "
+
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_space = 1
+
+" ----------------------------- "
 "              Ale              "
 "------------------------------ "
 
@@ -98,10 +105,12 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_splits = 1
 let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#show_tab_count = 0
 let g:airline#extensions#tabline#show_tab_nr = 0
 let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#formatter = 'jsformatter'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 if g:DetectOS() == 'linux'
     let g:airline_powerline_fonts = 1
     let g:airline_symbols_ascii = 0
