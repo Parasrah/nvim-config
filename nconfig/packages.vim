@@ -9,6 +9,12 @@ endif
 "                             ||
 "===============================
 
+function! s:add()
+    " TODO: move addition of packages here
+    " TODO: all packages should be loaded optionally (easier to toggle)
+    " TODO: function should take argument to activate plugin (remove load.vim)
+endfunction
+
 " TODO: fetch minpac if doesn't exist
 " TODO: Fork minpac
 call minpac#init({ 'verbose': 0 })
@@ -78,6 +84,7 @@ call minpac#add('arcticicestudio/nord-vim', { 'type': 'opt' })
 call minpac#add('ryanoasis/vim-devicons', { 'type': 'opt' })
 call minpac#add('vim-airline/vim-airline', { 'type': 'opt' })
 call minpac#add('vim-airline/vim-airline-themes', { 'type': 'opt' })
+call minpac#add('Shougo/echodoc.vim', { 'type': 'opt' })
 
 " ==============================
 "                             ||

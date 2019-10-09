@@ -23,9 +23,15 @@ if !exists("g:gui_oni")
   packadd! gruvbox
   packadd! onedark.vim
   packadd! nord-vim
-  " packadd! vim-devicons
   packadd! vim-airline
   packadd! vim-airline-themes
+  packadd! echodoc.vim
+
+  " devicons not setup/supported on wsl
+  if g:DetectOS() == 'linux'
+      " still no mono nerdfonts
+      " packadd! vim-devicons
+  endif
 
   " --- Linting/Autocompletion --- "
   packadd! coc.nvim
