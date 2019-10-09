@@ -33,8 +33,6 @@ command! Packages call s:OpenPackages()
 command! FileTypes call s:OpenFileTypes()
 command! Snippets call s:OpenSnippets()
 
-command! TODO exec "e" "TODO.md"
-
 " Terminal
 command! Term bo :17sp term://bash
 command! Tarm tabnew term://bash

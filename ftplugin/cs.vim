@@ -9,16 +9,12 @@ nnoremap <buffer> gs :OmniSharpFindSymbol<CR>
 nnoremap <buffer> <Leader>rn :OmniSharpRename<CR>
 nnoremap <buffer> <silent> K :OmniSharpDocumentation<CR>
 nnoremap <buffer> gr :OmniSharpFindUsages<CR>
-<<<<<<< HEAD
-nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
-=======
 nnoremap <buffer> <Leader>gi :OmniSharpFindImplementations<CR>
 
 " Contextual code actions (uses fzf, CtrlP or unite.vim when available)
 nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
 " Run code actions with text selected in visual mode to extract method
 xnoremap <Leader><Space> :call OmniSharp#GetCodeActions('visual')<CR>
->>>>>>> 548d9799df503dccf3750a9a5962d2fce6393545
 
 " autocmd FileType cs nnoremap <buffer> <Leader>fm :OmniSharpFindMembers<CR>
 

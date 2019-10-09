@@ -1,4 +1,6 @@
-" -- Environment
+" ----------------------------- "
+"          Environment          "
+"------------------------------ "
 
 " Detect the current OS (windows/linux/wsl)
 function! g:DetectOS()
@@ -13,7 +15,9 @@ function! g:DetectOS()
     endif
 endfunction
 
-" -- Indentation
+" ----------------------------- "
+"          Indentation          "
+"------------------------------ "
 
 function! g:IndentTwo()
     setlocal expandtab
@@ -33,7 +37,9 @@ function! g:IndentEight()
     setlocal softtabstop=8
 endfunction
 
-" -- FZF 
+" ----------------------------- "
+"              Fzf              "
+"------------------------------ "
 
 function! g:FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)

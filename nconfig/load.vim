@@ -29,7 +29,8 @@ if !exists("g:gui_oni")
 
   " devicons not setup/supported on wsl
   if g:DetectOS() == 'linux'
-      packadd! vim-devicons
+      " still no mono nerdfonts
+      " packadd! vim-devicons
   endif
 
   " --- Linting/Autocompletion --- "
