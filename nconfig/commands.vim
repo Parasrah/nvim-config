@@ -33,20 +33,30 @@ command! Packages call s:OpenPackages()
 command! FileTypes call s:OpenFileTypes()
 command! Snippets call s:OpenSnippets()
 
-" Terminal
+" ----------------------------- "
+"             Term              "
+"------------------------------ "
+
 command! Term bo :17sp term://bash
 command! Tarm tabnew term://bash
 
-" Git
+" ----------------------------- "
+"              Git              "
+"------------------------------ "
+
 command! Done w | :bdelete
 
-" Grep
+
+" ----------------------------- "
+"             Grep              "
+"------------------------------ "
+
 command! -nargs=1 JS grep <q-args> -g "**/*.{js,jsx,html}"
 command! -nargs=1 JSON grep <q-args> -g "**/*.json"
 command! -nargs=1 TS grep <q-args> -g "**/*.{ts,tsx,html}"
 command! -nargs=1 RS grep <q-args> -g "**/*.rs"
 command! -nargs=1 ELM grep <q-args> -g "**/*.elm"
-command! -nargs=1 STL grep <q-args> -g "**/*.{css,scss}"
+command! -nargs=1 STL grep <q-args> -g "**/*.{css,scss,less,sass}"
 command! -nargs=1 GO grep <q-args> -g "**/*.go"
 command! -nargs=1 GD grep <q-args> -g "**/*.gd"
 command! -nargs=1 CS grep <q-args> -g "**/*.{cs,cshtml}"
