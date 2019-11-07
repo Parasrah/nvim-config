@@ -2,12 +2,6 @@
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-v><Esc> <Esc>
 
-" -- Window Management
-nnoremap <silent> <C-Right> <c-w>l
-nnoremap <silent> <C-Left> <c-w>h
-nnoremap <silent> <C-Up> <c-w>k
-nnoremap <silent> <C-Down> <c-w>j
-
 " -- Remove highlighting
 nnoremap <silent> <esc> :noh<CR><ESC>
 

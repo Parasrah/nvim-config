@@ -46,7 +46,6 @@ command! Tarm tabnew term://bash
 
 command! Done w | :bdelete
 
-
 " ----------------------------- "
 "             Grep              "
 "------------------------------ "
@@ -60,3 +59,4 @@ command! -nargs=1 STL grep <q-args> -g "**/*.{css,scss,less,sass}"
 command! -nargs=1 GO grep <q-args> -g "**/*.go"
 command! -nargs=1 GD grep <q-args> -g "**/*.gd"
 command! -nargs=1 CS grep <q-args> -g "**/*.{cs,cshtml}"
+command! -nargs=1 S :call g:Search(<f-args>)

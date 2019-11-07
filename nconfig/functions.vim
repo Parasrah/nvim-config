@@ -15,6 +15,36 @@ function! g:DetectOS()
     endif
 endfunction
 
+
+" ----------------------------- "
+"             Search            "
+"------------------------------ "
+
+let s:searchGroups = {
+\ "web": ["js", "jsx", "ts", "tsx", "json", "html", "scss", "sass", "css", "less", "cs", "cshtml"],
+\ "rust": ["rs"],
+\ "elm": ["elm"],
+\ "golang": ["go"],
+\ "elixir": [],
+\ "haskell": ["hs"]
+\ }
+
+function! g:Search(term)
+    let l:currGroup = []
+    for l:group in values(s:searchGroups)
+        for l:ext in l:group
+            if l:ext == &filetype
+                let l:currGroup = l:group
+                break
+            endif
+        endfor
+    endfor
+    let l:files = "**/*.{"
+                \ . join(l:currGroup, ",")
+                \ . "}"
+    exec "grep " . shellescape(a:term) . ' -g "' . l:files . '"'
+endfunction
+
 " ----------------------------- "
 "          Indentation          "
 "------------------------------ "
