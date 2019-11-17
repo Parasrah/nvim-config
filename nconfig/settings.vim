@@ -178,9 +178,10 @@ endfunction
 function! s:ThemeGruvbox()
     let g:airline_theme = 'gruvbox'
     let g:gruvbox_italic = 0
-    let g:gruvbox_bold = 1
-    let g:gruvbox_underline = 1
+    let g:gruvbox_bold = 0
+    let g:gruvbox_underline = 0
     let g:gruvbox_italicize_comments = 0
+    let g:gruvbox_italicize_strings = 0
     set background=dark
     syntax on
     colorscheme gruvbox

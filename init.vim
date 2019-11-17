@@ -10,6 +10,10 @@ if &compatible
     set nocompatible
 endif
 
+" TODO: if local init.vim exists in project, load that after the current
+" config files
+" TODO: maybe wait until init.lua
+
 " -- Configuration --
 let g:configDir = $NVIMCONFIG
 let g:nestedConfigDir = g:configDir."/nconfig/"
