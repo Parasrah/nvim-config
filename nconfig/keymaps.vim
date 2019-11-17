@@ -1,3 +1,6 @@
+" General
+nnoremap Y y$
+
 " Use esc to exit terminal mode
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-v><Esc> <Esc>
