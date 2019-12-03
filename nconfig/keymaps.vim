@@ -1,23 +1,23 @@
 " Use esc to exit terminal mode
-tnoremap <Esc> <C-\><C-n>
-tnoremap <C-v><Esc> <Esc>
+tnoremap <esc> <C-\><C-n>
+tnoremap <C-v><esc> <esc>
 
 " -- Remove highlighting
-nnoremap <silent> <esc> :noh<CR><ESC>
+nnoremap <silent> <esc> :noh<cr><esc>
 
 " -- Location list navigation
-nnoremap <silent> <C-h> :cprevious<CR>
-nnoremap <silent> <C-l> :cnext<CR>
+nnoremap <silent> <C-h> :cprevious<cr>
+nnoremap <silent> <C-l> :cnext<cr>
 
 " -- Quickfix navigation
-nnoremap <silent> <C-j> :lprevious<CR>
-nnoremap <silent> <C-k> :lnext<CR>
+nnoremap <silent> <C-k> :lprevious<cr>
+nnoremap <silent> <C-j> :lnext<cr>
 
 " -- Insert Spaces
-nnoremap <space> i<space><right><ESC>
+nnoremap <space> i<space><right><esc>
 
 " Fuzzy File Search
-nnoremap <C-p> :<C-u>FZF<CR>
+nnoremap <C-p> :<C-u>FZF<cr>
 
 " ----------------------------- "
 "              CoC              "
@@ -28,29 +28,26 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
-" TODO: Don't overwrite gi
-" nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
 
 " Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+nmap <silent> <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+vmap <silent> <leader>f <Plug>(coc-format-selected)
+nmap <silent> <leader>f <Plug>(coc-format-selected)
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-vmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+vmap <silent> <leader><space> <Plug>(coc-codeaction-selected)
 
 " Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <silent> <leader><space> <Plug>(coc-codeaction)
 " Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <silent> <leader>qf <Plug>(coc-fix-current)
 
 " Use K for show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call <SID>show_documentation()<cr>
 
 function! s:show_documentation()
     if &filetype == 'vim'
@@ -62,11 +59,11 @@ endfunction
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
+inoremap <silent><expr> <tab>
       \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ <SID>check_back_space() ? "\<tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
     let col = col('.') - 1
@@ -75,7 +72,3 @@ endfunction
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion
-" Doesn't work with delimitmate
-" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"

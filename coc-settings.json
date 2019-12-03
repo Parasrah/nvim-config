@@ -1,5 +1,5 @@
 {
-  "diagnostic.displayByAle": false,
+  "diagnostic.displayByAle": true,
   "diagnostic.locationlist": true,
   "coc.preferences.formatOnType": false,
   "npm.binPath": "npm",

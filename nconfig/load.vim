@@ -1,12 +1,10 @@
 " -- Both -- "
 
-if 1 == 1
-  " Oni is lacking proper support for tslint
-  packadd! ale
+" Oni is lacking proper support for tslint
+packadd! ale
 
-  " vim-json provides better JSON experience than Oni
-  packadd! vim-json
-endif
+" vim-json provides better JSON experience than Oni
+packadd! vim-json
 
 " -- Terminal -- "
 

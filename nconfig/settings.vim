@@ -26,7 +26,8 @@ autocmd VimEnter * set noshowmode
 "------------------------------ "
 
 if executable("rg")
-    set grepprg=rg\ --vimgrep\ --smart-case\ --no-heading\ --hidden\ -g\ \"!.git\"
+    "                           smartcase
+    set grepprg=rg\ --vimgrep\ -S\ --no-heading\ --hidden
 endif
 
 " ----------------------------- "
@@ -49,7 +50,6 @@ else
     let g:ale_sign_warning = '--'
 endif
 let g:ale_completion_enabled = 0
-let g:ale_linters = { 'javascript': ['eslint'], 'typescript': ['tslint'], 'cs': ['OmniSharp'] }
 
 " ----------------------------- "
 "              CoC              "
