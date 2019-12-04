@@ -209,5 +209,3 @@ function! s:SetupTheme()
 endfunction
 
 call s:SetupTheme()
-
-set hidden

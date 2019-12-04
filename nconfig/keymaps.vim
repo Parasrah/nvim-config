@@ -5,10 +5,20 @@ nnoremap Y y$
 tnoremap <esc> <C-\><C-n>
 tnoremap <C-v><esc> <esc>
 
-" -- Remove highlighting
-nnoremap <silent> <esc> :noh<cr><esc>
+" ----------------------------- "
+"             Escape            "
+" ----------------------------- "
 
-" -- Location list navigation
+function! s:NormalEscape()
+    return ":nohls\<cr>\<esc>"
+endfunction
+
+" Remove highlighting & close floating windows
+noremap <silent><expr> <esc> <SID>NormalEscape()
+
+" ------------------------------ "
+
+" Location list navigation
 nnoremap <silent> <C-h> :cprevious<cr>
 nnoremap <silent> <C-l> :cnext<cr>
 

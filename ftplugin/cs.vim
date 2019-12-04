@@ -5,7 +5,8 @@ let b:ale_linters = {'cs': ['OmniSharp']}
 call echodoc#enable()
 autocmd BufLeave call echodoc#disable()
 
-autocmd CursorHold <buffer> call OmniSharp#TypeLookupWithoutDocumentation()
+" consider enabling this when floating window support hits omnisharp-vim
+" autocmd CursorHold <buffer> call OmniSharp#TypeLookupWithoutDocumentation()
 nnoremap <buffer> <silent> gd :OmniSharpGotoDefinition<CR>
 nnoremap <buffer> <silent> gs :OmniSharpFindSymbol<CR>
 nnoremap <buffer> <silent> <leader>rn :OmniSharpRename<CR>
