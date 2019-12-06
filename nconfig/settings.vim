@@ -84,6 +84,23 @@ augroup cocformat
 augroup end
 
 " ----------------------------- "
+"         Language Client       "
+"------------------------------ "
+
+let g:LanguageClient_serverCommands = {
+    \ }
+
+let g:LanguageClient_rootMarkers = {
+    \ 'fs': ['*.fsproj']
+    \ }
+
+" ----------------------------- "
+"            Ionide             "
+"------------------------------ "
+
+let g:fsharp#show_signature_on_cursor_move = 0
+
+" ----------------------------- "
 "           OmniSharp           "
 "------------------------------ "
 

@@ -33,9 +33,11 @@ if !exists("g:gui_oni")
 
   " --- Linting/Autocompletion --- "
   packadd! coc.nvim
+  packadd! LanguageClient-neovim
   packadd! denite.nvim
 
   " --- Language --- "
+  packadd! Ionide-vim
   packadd! vim-javascript
   packadd! vim-jsx
   packadd! yats.vim

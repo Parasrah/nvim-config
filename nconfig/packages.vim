@@ -68,6 +68,7 @@ call minpac#add('junegunn/fzf', { 'type': 'opt', 'do': '!./install --all' })
 call minpac#add('w0rp/ale', { 'type': 'opt', 'do': '!npm i -g eslint' })
 call minpac#add('Shougo/denite.nvim', { 'type': 'opt' })
 call minpac#add('neoclide/coc.nvim', { 'type': 'opt', 'do': 'call coc#util#install()' })
+call minpac#add('autozimu/LanguageClient-neovim', { 'type': 'opt', 'do': 'bash install.sh' })
 
 " ==============================
 "                             ||
@@ -92,6 +93,7 @@ call minpac#add('Shougo/echodoc.vim', { 'type': 'opt' })
 "                             ||
 " ==============================
 
+call minpac#add('ionide/Ionide-vim', { 'type': 'opt', 'do': 'make fsautocomplete' })
 call minpac#add('pangloss/vim-javascript', { 'type': 'opt' })
 call minpac#add('mxw/vim-jsx', { 'type': 'opt' })
 call minpac#add('herringtondarkholme/yats.vim', { 'type': 'opt' })
