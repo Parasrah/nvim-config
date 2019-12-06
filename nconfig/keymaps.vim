@@ -13,8 +13,9 @@ function! s:NormalEscape()
     return ":nohls\<cr>\<esc>"
 endfunction
 
-" Remove highlighting & close floating windows
 noremap <silent><expr> <esc> <SID>NormalEscape()
+
+" TODO: make esc remove popup item <C-e>
 
 " ------------------------------ "
 
