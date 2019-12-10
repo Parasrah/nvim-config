@@ -45,6 +45,26 @@ function! g:Search(term)
     exec "grep " . shellescape(a:term) . ' -g "' . l:files . '"'
 endfunction
 
+" temp
+
+function! s:crawl(currentDir, extension)
+    echom "crawling ".a:currentDir
+    if empty(globpath(a:currentDir, "*.".a:extension)) == 0
+        return a:currentDir
+    endif
+    if a:currentDir == "/" || a:currentDir == "C:\\"
+        echoerr "could not find ".a:extension
+        return ""
+    endif
+    let upDir = simplify(a:currentDir."/..")
+    return s:crawl(upDir, a:extension)
+endfunction
+
+function! g:Find(extension)
+    let bufferDirectory = fnamemodify(resolve(expand('%:p')), ':h')
+    return s:crawl(bufferDirectory, a:extension)
+endfunction
+
 " ----------------------------- "
 "          Indentation          "
 "------------------------------ "

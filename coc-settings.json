@@ -6,5 +6,7 @@
   "snippets.userSnippetsDirectory": "~/.config/nvim/coc/ultisnips",
   "coc.preferences.hoverTarget": "float",
   "suggest.floatEnable": true,
-  "coc.preferences.useQuickfixForLocations": true
+  "coc.preferences.useQuickfixForLocations": true,
+  "list.nextKeymap": "<C-n>",
+  "list.previousKeymap": "<C-p>"
 }

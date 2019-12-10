@@ -93,7 +93,7 @@ call minpac#add('Shougo/echodoc.vim', { 'type': 'opt' })
 "                             ||
 " ==============================
 
-call minpac#add('ionide/Ionide-vim', { 'type': 'opt', 'do': 'make fsautocomplete' })
+call minpac#add('parasrah/Ionide-vim', { 'type': 'opt', 'do': 'make fsautocomplete' })
 call minpac#add('pangloss/vim-javascript', { 'type': 'opt' })
 call minpac#add('mxw/vim-jsx', { 'type': 'opt' })
 call minpac#add('herringtondarkholme/yats.vim', { 'type': 'opt' })

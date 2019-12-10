@@ -1,22 +1,47 @@
-" linter
-let b:ale_linters = {'cs': ['OmniSharp']}
+" ale
+let b:ale_linters = ['OmniSharp']
 
 " echodoc
 call echodoc#enable()
 autocmd BufLeave call echodoc#disable()
 
-" consider enabling this when floating window support hits omnisharp-vim
-" autocmd CursorHold <buffer> call OmniSharp#TypeLookupWithoutDocumentation()
-nnoremap <buffer> <silent> gd :OmniSharpGotoDefinition<CR>
-nnoremap <buffer> <silent> gs :OmniSharpFindSymbol<CR>
-nnoremap <buffer> <silent> <leader>rn :OmniSharpRename<CR>
-nnoremap <buffer> <silent> K :OmniSharpDocumentation<CR>
-nnoremap <buffer> <silent> gr :OmniSharpFindUsages<CR>
-nnoremap <buffer> <silent> <leader>gi :OmniSharpFindImplementations<CR>
+" omnisharp (override coc-nvim)
+nnoremap <buffer> <silent>
+            \ gd
+            \ <Plug>(omnisharp_go_to_definition)
 
-" Contextual code actions (uses fzf, CtrlP or unite.vim when available)
-nnoremap <buffer> <silent> <leader><Space> :OmniSharpGetCodeActions<CR>
-" Quickfix usings
-nnoremap <buffer> <silent> <leader>qf :OmniSharpFixUsings<CR>
-" Run code actions with text selected in visual mode to extract method
-vnoremap <buffer> <silent> <leader><Space> :call OmniSharp#GetCodeActions('visual')<CR>
+nnoremap <buffer> <silent>
+            \ go
+            \ <Plug>(omnisharp_find_members)
+
+nnoremap <buffer> <silent>
+            \ gs
+            \ <Plug>(omnisharp_find_symbols)
+
+nnoremap <buffer> <silent>
+            \ <leader>rn
+            \ <Plug>(omnisharp_rename)
+
+nnoremap <buffer> <silent>
+            \ K
+            \ <Plug>(omnisharp_documentation)
+
+nnoremap <buffer> <silent>
+            \ gr
+            \ <Plug>(omnisharp_find_usages)
+
+nnoremap <buffer> <silent>
+            \ <leader>gi
+            \ <Plug>(omnisharp_find_implementations)
+
+nnoremap <buffer> <silent>
+            \ <leader><Space>
+            \ <Plug>(omnisharp_code_actions)
+
+nnoremap <buffer> <silent>
+            \ <leader>qf
+            \ <Plug>(omnisharp_fix_usings)
+
+vnoremap <buffer> <silent>
+            \ <leader><Space>
+            \ :call OmniSharp#GetCodeActions('visual')<CR>

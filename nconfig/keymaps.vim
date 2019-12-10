@@ -40,10 +40,18 @@ nnoremap <C-p> :<C-u>FZF<cr>
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
+" goto definition
 nmap <silent> gd <Plug>(coc-definition)
+" goto type definition
 nmap <silent> gy <Plug>(coc-type-definition)
+" goto reference
 nmap <silent> gr <Plug>(coc-references)
+" goto implementation
 nmap <silent> <leader>gi <Plug>(coc-implementation)
+" goto document symbol
+nnoremap <silent> go  :<C-u>CocList outline<cr>
+" goto workspace symbol
+nnoremap <silent> gs  :<C-u>CocList -I symbols<cr>
 
 " Remap for rename current word
 nmap <silent> <leader>rn <Plug>(coc-rename)

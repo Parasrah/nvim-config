@@ -50,6 +50,8 @@ else
     let g:ale_sign_warning = '--'
 endif
 let g:ale_completion_enabled = 0
+let g:ale_linters_explicit = 1
+let g:ale_linters = {}
 
 " ----------------------------- "
 "              CoC              "
@@ -87,12 +89,9 @@ augroup end
 "         Language Client       "
 "------------------------------ "
 
-let g:LanguageClient_serverCommands = {
-    \ }
-
-let g:LanguageClient_rootMarkers = {
-    \ 'fsharp': ['*.sln', '*.fsproj']
-    \ }
+" fsharp will inject server command, don't want to
+" load for anything else
+let g:LanguageClient_serverCommands = {}
 
 let g:LanguageClient_diagnosticsList = 'Location'
 
