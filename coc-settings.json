@@ -8,5 +8,6 @@
   "suggest.floatEnable": true,
   "coc.preferences.useQuickfixForLocations": true,
   "list.nextKeymap": "<C-n>",
-  "list.previousKeymap": "<C-p>"
+  "list.previousKeymap": "<C-p>",
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true
 }
