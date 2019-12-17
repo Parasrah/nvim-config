@@ -1,5 +1,5 @@
 " ale
-let b:ale_linters = ['OmniSharp']
+let b:ale_linters = { 'cs': ['OmniSharp'] }
 
 " echodoc
 call echodoc#enable()
