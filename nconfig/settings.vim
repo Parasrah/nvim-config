@@ -26,7 +26,6 @@ autocmd VimEnter * set noshowmode
 "------------------------------ "
 
 if executable("rg")
-    "                           smartcase
     set grepprg=rg\ --vimgrep\ -S\ --no-heading\ --hidden
 endif
 
@@ -52,6 +51,14 @@ endif
 let g:ale_completion_enabled = 0
 let g:ale_linters_explicit = 1
 let g:ale_linters = {}
+
+" ----------------------------- "
+"          Editorconfig         "
+"------------------------------ "
+
+let g:EditorConfig_max_line_indicator = "none"
+" These rules cause another save...
+let g:EditorConfig_disable_rules = ['insert_final_newline', 'trim_trailing_whitespace']
 
 " ----------------------------- "
 "              CoC              "
