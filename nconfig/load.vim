@@ -37,6 +37,7 @@ if !exists("g:gui_oni")
   packadd! denite.nvim
 
   " --- Language --- "
+  packadd! vim-nix
   packadd! Ionide-vim
   packadd! vim-javascript
   packadd! vim-jsx
