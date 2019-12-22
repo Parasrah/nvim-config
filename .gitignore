@@ -1,3 +1,4 @@
 plugged/
-pack/
 .netrwhist
+pack/
+!pack/minpac/opt/minpac
