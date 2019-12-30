@@ -23,7 +23,6 @@ exec "so" g:nestedConfigDir."functions.vim"
 
 " Add Packages
 exec "so" g:nestedConfigDir."packages.vim"
-exec "so" g:nestedConfigDir."load.vim"
 
 " Load configs
 exec "so" g:nestedConfigDir."settings.vim"
