@@ -12,8 +12,6 @@ endfunction
 
 function! s:OpenPackages()
     exec "tabnew" g:nestedConfigDir."packages.vim"
-    exec "below :vs" g:nestedConfigDir."load.vim"
-    wincmd h
 endfunction
 
 function! s:OpenFileTypes()

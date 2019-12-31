@@ -1,24 +1,43 @@
-if !exists('*minpac#init')
-  " Exit file if not loaded
-  finish
-endif
-
 " ==============================
 "                             ||
 "           Minpac            ||
 "                             ||
 "===============================
 
-function! s:add()
-    " TODO: move addition of packages here
-    " TODO: all packages should be loaded optionally (easier to toggle)
-    " TODO: function should take argument to activate plugin (remove load.vim)
+function! s:add(info)
+    " TODO: write in lua
+    if !has_key(a:info, 'repo')
+        echoerr "missing package repo (trying to add package)"
+        return
+    endif
+    if !has_key(a:info, 'package')
+        echoerr "missing package name (trying to add package)"
+        return
+    endif
+    let repo = a:info.repo
+    let package = a:info.package
+    let enable = 1
+    if has_key(a:info, 'enable')
+        let enable = a:info.enable
+    endif
+    let defaults = {}
+    if has_key(a:info, 'config')
+        let defaults = extend(defaults, a:info.config)
+    endif
+    let config = extend(copy(defaults), { 'type': 'opt' })
+    if exists('*minpac#init')
+	    call minpac#add(repo.'/'.package, config)
+    endif
+    if l:enable
+	exec "packadd! " . package
+    endif
 endfunction
 
-" TODO: fetch minpac if doesn't exist
-" TODO: Fork minpac
-call minpac#init({ 'verbose': 0 })
-call minpac#add('k-takata/minpac', { 'type': 'opt' })
+
+if exists('*minpac#init')
+	call minpac#init({ 'verbose': 0 })
+endif
+call s:add({ 'repo': 'k-takata', 'package': 'minpac' })
 
 " ==============================
 "                             ||
@@ -27,23 +46,24 @@ call minpac#add('k-takata/minpac', { 'type': 'opt' })
 "===============================
 
 " Utilities
-call minpac#add('tpope/vim-fugitive')
-call minpac#add('tpope/vim-surround')
-call minpac#add('tpope/vim-repeat')
-call minpac#add('tpope/vim-dispatch')
-call minpac#add('tpope/vim-commentary', { 'type': 'opt' })
-call minpac#add('tpope/vim-obsession', { 'type': 'opt' })
-call minpac#add('nelstrom/vim-visual-star-search')
-call minpac#add('wesq3/vim-windowswap')
-call minpac#add('mattn/emmet-vim')
-call minpac#add('raimondi/delimitmate')
-call minpac#add('editorconfig/editorconfig-vim')
+call s:add({ 'repo': 'tpope', 'package': 'vim-fugitive' })
+call s:add({ 'repo': 'tpope', 'package': 'vim-surround' })
+call s:add({ 'repo': 'tpope', 'package': 'vim-repeat' })
+call s:add({ 'repo': 'tpope', 'package': 'vim-dispatch' })
+call s:add({ 'repo': 'tpope', 'package': 'vim-commentary' })
+call s:add({ 'repo': 'tpope', 'package': 'vim-obsession' })
+call s:add({ 'repo': 'tpope', 'package': 'vim-dadbod' })
+call s:add({ 'repo': 'nelstrom', 'package': 'vim-visual-star-search' })
+call s:add({ 'repo': 'wesq3', 'package': 'vim-windowswap' })
+call s:add({ 'repo': 'mattn', 'package': 'emmet-vim' })
+call s:add({ 'repo': 'raimondi', 'package': 'delimitmate' })
+call s:add({ 'repo': 'editorconfig', 'package': 'editorconfig-vim' })
 
 " Text Objects
-call minpac#add('kana/vim-textobj-entire')
-call minpac#add('kana/vim-textobj-user')
-call minpac#add('kana/vim-textobj-indent')
-call minpac#add('kana/vim-textobj-line')
+call s:add({ 'repo': 'kana', 'package': 'vim-textobj-entire' })
+call s:add({ 'repo': 'kana', 'package': 'vim-textobj-user' })
+call s:add({ 'repo': 'kana', 'package': 'vim-textobj-indent' })
+call s:add({ 'repo': 'kana', 'package': 'vim-textobj-line' })
 
 " =============================================================== "
 "       Generally the rest of the plugins are provided by oni     "
@@ -56,8 +76,8 @@ call minpac#add('kana/vim-textobj-line')
 "                             ||
 "===============================
 
-call minpac#add('tpope/vim-vinegar', { 'type': 'opt' })
-call minpac#add('junegunn/fzf', { 'type': 'opt', 'do': '!./install --all' })
+call s:add({ 'repo': 'tpope', 'package': 'vim-vinegar' })
+call s:add({ 'repo': 'junegunn', 'package': 'fzf', 'config': { 'do': '!./install' } })
 
 " ==================================
 "                                 ||
@@ -65,10 +85,8 @@ call minpac#add('junegunn/fzf', { 'type': 'opt', 'do': '!./install --all' })
 "                                 ||
 "===================================
 
-call minpac#add('w0rp/ale', { 'type': 'opt', 'do': '!npm i -g eslint' })
-call minpac#add('Shougo/denite.nvim', { 'type': 'opt' })
-call minpac#add('neoclide/coc.nvim', { 'type': 'opt', 'do': 'call coc#util#install()' })
-call minpac#add('autozimu/LanguageClient-neovim', { 'type': 'opt', 'do': 'bash install.sh' })
+call s:add({ 'repo': 'w0rp', 'package': 'ale' })
+call s:add({ 'repo': 'neoclide', 'package': 'coc.nvim', 'config': { 'do': 'call coc#util#install()' } })
 
 " ==============================
 "                             ||
@@ -77,15 +95,15 @@ call minpac#add('autozimu/LanguageClient-neovim', { 'type': 'opt', 'do': 'bash i
 "===============================
 
 " Themes
-call minpac#add('morhetz/gruvbox', { 'type': 'opt' })
-call minpac#add('joshdick/onedark.vim', { 'type': 'opt' })
-call minpac#add('arcticicestudio/nord-vim', { 'type': 'opt' })
+call s:add({ 'repo': 'morhetz', 'package': 'gruvbox' })
+call s:add({ 'repo': 'joshdick', 'package': 'onedark.vim' })
+call s:add({ 'repo': 'arcticicestudio', 'package': 'nord-vim' })
 
 " Other
-call minpac#add('ryanoasis/vim-devicons', { 'type': 'opt' })
-call minpac#add('vim-airline/vim-airline', { 'type': 'opt' })
-call minpac#add('vim-airline/vim-airline-themes', { 'type': 'opt' })
-call minpac#add('Shougo/echodoc.vim', { 'type': 'opt' })
+call s:add({ 'repo': 'ryanoasis', 'package': 'vim-devicons' })
+call s:add({ 'repo': 'vim-airline', 'package': 'vim-airline' })
+call s:add({ 'repo': 'vim-airline', 'package': 'vim-airline-themes' })
+call s:add({ 'repo': 'Shougo', 'package': 'echodoc.vim' })
 
 " ==============================
 "                             ||
@@ -93,21 +111,8 @@ call minpac#add('Shougo/echodoc.vim', { 'type': 'opt' })
 "                             ||
 " ==============================
 
-call minpac#add('lnl7/vim-nix', { 'type': 'opt' })
-call minpac#add('parasrah/Ionide-vim', { 'type': 'opt', 'do': 'make fsautocomplete' })
-call minpac#add('pangloss/vim-javascript', { 'type': 'opt' })
-call minpac#add('mxw/vim-jsx', { 'type': 'opt' })
-call minpac#add('herringtondarkholme/yats.vim', { 'type': 'opt' })
-call minpac#add('elmcast/elm-vim', { 'type': 'opt' })
-call minpac#add('tpope/vim-markdown', { 'type': 'opt' })
-call minpac#add('elzr/vim-json', { 'type': 'opt' })
-call minpac#add('rust-lang/rust.vim', { 'type': 'opt' })
-call minpac#add('quabug/vim-gdscript', { 'type': 'opt' })
-call minpac#add('posva/vim-vue', { 'type': 'opt' })
-call minpac#add('ekalinin/dockerfile.vim', { 'type': 'opt' })
-call minpac#add('fatih/vim-go', { 'type': 'opt' })
-call minpac#add('cespare/vim-toml', { 'type': 'opt' })
-call minpac#add('elixir-lang/vim-elixir', { 'type': 'opt' })
-call minpac#add('omnisharp/omnisharp-vim', { 'type': 'opt' })
+call s:add({ 'repo': 'sheerun', 'package': 'vim-polyglot' })
+call s:add({ 'repo': 'quabug', 'package': 'vim-gdscript' })
+call s:add({ 'repo': 'omnisharp', 'package': 'omnisharp-vim' })
 
 " -- END
