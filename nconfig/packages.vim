@@ -22,14 +22,14 @@ function! s:add(info)
     endif
     let defaults = {}
     if has_key(a:info, 'config')
-        extend(l:defaults, a:info.config)
+        let defaults = extend(defaults, a:info.config)
     endif
-    let config = extend(copy(l:defaults), { 'type': 'opt' })
+    let config = extend(copy(defaults), { 'type': 'opt' })
     if exists('*minpac#init')
-	    call minpac#add(l:repo.'/'.l:package, l:config)
+	    call minpac#add(repo.'/'.package, config)
     endif
     if l:enable
-        exec "packadd! " . repo
+	exec "packadd! " . package
     endif
 endfunction
 
@@ -77,7 +77,7 @@ call s:add({ 'repo': 'kana', 'package': 'vim-textobj-line' })
 "===============================
 
 call s:add({ 'repo': 'tpope', 'package': 'vim-vinegar' })
-call s:add({ 'repo': 'junegunn', 'package': 'fzf', 'config': { 'do': '!./install --all' } })
+call s:add({ 'repo': 'junegunn', 'package': 'fzf', 'config': { 'do': '!./install' } })
 
 " ==================================
 "                                 ||
@@ -85,7 +85,7 @@ call s:add({ 'repo': 'junegunn', 'package': 'fzf', 'config': { 'do': '!./install
 "                                 ||
 "===================================
 
-call s:add({ 'repo': 'w0rp', 'package': 'ale', 'config': { 'do': '!npm i -g eslint' } })
+call s:add({ 'repo': 'w0rp', 'package': 'ale' })
 call s:add({ 'repo': 'neoclide', 'package': 'coc.nvim', 'config': { 'do': 'call coc#util#install()' } })
 
 " ==============================
