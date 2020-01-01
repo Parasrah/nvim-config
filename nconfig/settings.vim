@@ -64,6 +64,13 @@ let g:EditorConfig_disable_rules = ['insert_final_newline', 'trim_trailing_white
 "              CoC              "
 "------------------------------ "
 
+" extensions
+let g:coc_global_extensions = [
+    \ 'coc-tsserver',
+    \ 'coc-json',
+    \ 'coc-snippets',
+    \ ]
+
 " options
 let g:coc_snippet_next = '<tab>'
 

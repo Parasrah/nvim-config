@@ -58,4 +58,5 @@ command! -nargs=1 GO grep <q-args> -g "**/*.go"
 command! -nargs=1 GD grep <q-args> -g "**/*.gd"
 command! -nargs=1 CS grep <q-args> -g "**/*.{cs,cshtml}"
 command! -nargs=1 FS grep <q-args> -g "**/*.{fs}"
+command! -nargs=1 NIX grep <q-args> -g "**/*.{nix}"
 command! -nargs=1 S :call g:Search(<f-args>)

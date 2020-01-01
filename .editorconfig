@@ -27,6 +27,6 @@ indent_size = 4
 indent_style = tab
 
 # Matches the exact files either package.json or .travis.yml
-[{package.json,.travis.yml}]
+[{*.json,.travis.yml}]
 indent_style = space
 indent_size = 2

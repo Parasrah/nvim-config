@@ -109,3 +109,36 @@ function! g:FloatingFZF()
 
   call nvim_open_win(buf, v:true, opts)
 endfunction
+
+" ----------------------------- "
+"            Minpac             "
+"------------------------------ "
+
+function! g:AddPackage(info)
+    " TODO: write in lua
+    if !has_key(a:info, 'repo')
+        echoerr "missing package repo (trying to add package)"
+        return
+    endif
+    if !has_key(a:info, 'package')
+        echoerr "missing package name (trying to add package)"
+        return
+    endif
+    let repo = a:info.repo
+    let package = a:info.package
+    let enable = 1
+    if has_key(a:info, 'enable')
+        let enable = a:info.enable
+    endif
+    let defaults = {}
+    if has_key(a:info, 'config')
+        let defaults = extend(defaults, a:info.config)
+    endif
+    let config = extend(copy(defaults), { 'type': 'opt' })
+    if exists('*minpac#init')
+	    call minpac#add(repo.'/'.package, config)
+    endif
+    if l:enable
+	exec "packadd! " . package
+    endif
+endfunction
