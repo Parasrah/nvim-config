@@ -13,7 +13,7 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 set number
-set wildignore=node_modules/**,elm-stuff/**,.git/**,build/**,dist/**,*.temp
+set wildignore=node_modules/**,elm-stuff/**,.git/**,build/**,dist/**,*.temp,obj/**,bin/**
 
 " Enable filetype plugin
 filetype plugin indent on
@@ -26,7 +26,7 @@ autocmd VimEnter * set noshowmode
 "------------------------------ "
 
 if executable("rg")
-    set grepprg=rg\ --vimgrep\ -S\ --no-heading\ --hidden
+    set grepprg=rg\ --vimgrep\ --smart-case\ --no-heading\ --hidden
 endif
 
 " ----------------------------- "
@@ -66,16 +66,13 @@ let g:EditorConfig_disable_rules = ['insert_final_newline', 'trim_trailing_white
 
 " extensions
 let g:coc_global_extensions = [
-    \ 'coc-tsserver',
-    \ 'coc-json',
-    \ 'coc-snippets',
-    \ ]
+\ 'coc-tsserver',
+\ 'coc-json',
+\ 'coc-snippets',
+\ ]
 
 " options
 let g:coc_snippet_next = '<tab>'
-
-" status line
-let g:airline#extensions#coc#enabled = 1
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call s:CursorHoldHighlight()
@@ -134,8 +131,40 @@ endif
 "            Airline            "
 "------------------------------ "
 
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
+" try
+
+" general
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+if g:DetectOS() == 'linux'
+    let g:airline_powerline_fonts = 1
+    let g:airline_symbols_ascii = 0
+else
+    let g:airline_symbols_ascii = 1
+    let g:airline_powerline_fonts = 0
+endif
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+let g:airline_exclude_preview = 1
+let g:airline_skip_empty_sections = 1
+let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'z', 'warning', 'error']]
+let g:airline_right_sep = ''
+let g:airline_left_sep = ''
+let g:airline_symbols.dirty = '⚡'
+function! AirlineInit()
+    let g:airline_section_z = airline#section#create(['linenr'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
+
+" extensions
+let g:airline_extensions = [
+\ 'branch',
+\ 'ale',
+\ 'tabline',
+\ ]
+
+" tabline
+" TODO: check if in extensions
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_splits = 1
 let g:airline#extensions#tabline#show_tabs = 1
@@ -144,20 +173,11 @@ let g:airline#extensions#tabline#show_tab_nr = 0
 let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-if g:DetectOS() == 'linux'
-    let g:airline_powerline_fonts = 1
-    let g:airline_symbols_ascii = 0
-else
-    let g:airline_symbols_ascii = 1
-    let g:airline_powerline_fonts = 0
-endif
 
-" ----------------------------- "
-"              Elm              "
-"------------------------------ "
+" catch
+"     echo 'airline not installed'
+" endtry
 
-let g:elm_setup_keybindings = 1
 
 " ----------------------------- "
 "           Javascript          "
@@ -191,6 +211,7 @@ endif
 " ----------------------------- "
 "            Macros             "
 "------------------------------ "
+
 " Macro trick https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 function! ExecuteMacroOverVisualRange()
