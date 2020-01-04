@@ -2,14 +2,42 @@
 "             Status            "
 "------------------------------ "
 
+function! s:Caught()
+    if v:exception != ""
+        echom "caught " . v:exception . " in functions.vim"
+    endif
+endfunction
+
 function! StatusColors()
+    try
     return luaeval('require("status").colors()')
+    catch
+        call s:Caught()
+    endtry
 endfunction
 
 function! g:SetupStatus()
+    try
     let value = luaeval('require("status").get()')
     set statusline=%{StatusColors()}
     exec "set statusline+=" . value
+    catch
+        call s:Caught()
+    endtry
+endfunction
+
+" ----------------------------- "
+"              Lua              "
+"------------------------------ "
+
+function g:TestUtils()
+    try
+        call luaeval('require("test_util")')
+    catch
+        if v:exception != ""
+            echoerr "tests failed: " . v:exception
+        endif
+    endtry
 endfunction
 
 " ----------------------------- "

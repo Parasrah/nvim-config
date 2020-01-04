@@ -21,6 +21,10 @@
         "elmTestPath": "elm-test",
         "elmAnalyseTrigger": "change"
       }
+    },
+    "lua": {
+      "command": "lua-lsp",
+      "filetypes": ["lua"]
     }
   }
 }

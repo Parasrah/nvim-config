@@ -1,3 +1,4 @@
+require 'util'()
 local api = vim.api
 -- local left = ""
 -- local right = ""
@@ -10,17 +11,19 @@ local something = ""
 ----------------------------------
 
 function create()
-    function closure(value)
-        function add(name, item)
+    function closure(status, colors)
+        function add(name, items)
             -- TODO: lazy evaluation
-            local pre = '%#pre_'..name..'#'..left
-            local main = '%#'..name..'#%'..item
-            local post = '%#post_'..name..'#'..right
-            return closure(value..pre..main..post)
-        end
-
-        function get()
-            return value
+            function updated()
+                local pre = '%#pre_'..name..'#'..left
+                local main = pipe({
+                    map(function(x) return '%#' .. x .. '#%' end),
+                    join('\\/'),
+                })(items)
+                local post = '%#post_'..name..'#'..right
+                return status()..pre..main..post
+            end
+            return closure(updated, colors)
         end
 
         function override(new)
@@ -29,15 +32,16 @@ function create()
 
         return {
             add = add,
-            get = get,
+            value = status,
+            colors = colors,
             override = override,
         }
     end
-    return closure('')
-end
 
-function colors()
-    return ""
+    function empty()
+        return ''
+    end
+    return closure(empty, empty)
 end
 
 ----------------------------------
@@ -47,7 +51,7 @@ end
 local status = create()
 
 -- Left Side --
-    .add('filename', '.20f')
+    -- .add('filename', '.20f')
 
 -- Right Side --
 
@@ -60,6 +64,6 @@ local status = create()
 -- Right Side --
 
 return {
-    get = status.get,
-    colors = colors,
+    get = status.value,
+    colors = status.colors,
 }
