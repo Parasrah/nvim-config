@@ -27,7 +27,7 @@ function! s:OpenSnippets()
 endfunction
 
 function! s:OpenStatus()
-    exec "tabnew" g:nestedConfigDir."status.vim"
+    exec "tabnew" g:files.status
     exec "lcd" g:nestedConfigDir
 endfunction
 

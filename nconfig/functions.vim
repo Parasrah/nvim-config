@@ -1,4 +1,18 @@
 " ----------------------------- "
+"             Status            "
+"------------------------------ "
+
+function! StatusColors()
+    return luaeval('require("status").colors()')
+endfunction
+
+function! g:SetupStatus()
+    let value = luaeval('require("status").get()')
+    set statusline=%{StatusColors()}
+    exec "set statusline+=" . value
+endfunction
+
+" ----------------------------- "
 "          Environment          "
 "------------------------------ "
 
@@ -14,7 +28,6 @@ function! g:DetectOS()
         return 'linux'
     endif
 endfunction
-
 
 " ----------------------------- "
 "             Search            "

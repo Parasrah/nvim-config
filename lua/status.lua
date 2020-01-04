@@ -1,10 +1,13 @@
 local api = vim.api
+-- local left = ""
+-- local right = ""
 local left = ""
 local right = ""
+local something = ""
 
-function init()
-    api.nvim_command('set statusline=""')
-end
+----------------------------------
+--             Util             --
+----------------------------------
 
 function create()
     function closure(value)
@@ -16,26 +19,35 @@ function create()
             return closure(value..pre..main..post)
         end
 
-        function set()
-            api.nvim_command('set statusline='..value)
+        function get()
+            return value
+        end
+
+        function override(new)
+            return closure(value..new)
         end
 
         return {
             add = add,
-            set = set,
+            get = get,
+            override = override,
         }
     end
     return closure('')
+end
+
+function colors()
+    return ""
 end
 
 ----------------------------------
 --          Status Line         --
 ----------------------------------
 
--- Left Side --
-
 local status = create()
-    .add('line', 'l')
+
+-- Left Side --
+    .add('filename', '.20f')
 
 -- Right Side --
 
@@ -48,5 +60,6 @@ local status = create()
 -- Right Side --
 
 return {
-    set = status.set,
+    get = status.get,
+    colors = colors,
 }

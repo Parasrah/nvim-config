@@ -9,12 +9,14 @@ endif
 " -- Configuration --
 let g:configDir = $NVIMCONFIG
 let g:nestedConfigDir = g:configDir."/nconfig/"
+let g:luaDir = g:configDir."/lua/"
 let g:files = {
     \ 'functions': g:nestedConfigDir."functions.vim",
     \ 'packages': g:nestedConfigDir."packages.vim",
     \ 'settings': g:nestedConfigDir."settings.vim",
     \ 'keymaps': g:nestedConfigDir."keymaps.vim",
     \ 'commands': g:nestedConfigDir."commands.vim",
+    \ 'status': g:luaDir."status.lua",
     \ }
 
 " Add Global Functions
