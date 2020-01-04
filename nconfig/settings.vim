@@ -173,7 +173,7 @@ if g:IsLoaded('vim-airline')
     let g:airline#extensions#tabline#show_close_button = 0
     let g:airline#extensions#tabline#formatter = 'unique_tail'
 else
-    call luaeval('require("status")')
+    echo luaeval('require("status").set()')
 endif
 
 " ----------------------------- "

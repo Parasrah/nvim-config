@@ -42,7 +42,7 @@ call g:AddPackage({ 'repo': 'kana', 'package': 'vim-textobj-line' })
 "===============================
 
 call g:AddPackage({ 'repo': 'tpope', 'package': 'vim-vinegar' })
-call g:AddPackage({ 'repo': 'junegunn', 'package': 'fzf', 'config': { 'do': '!./install' } })
+call g:AddPackage({ 'repo': 'junegunn', 'package': 'fzf', 'config': { 'do': '!./install --bin' } })
 
 " ==================================
 "                                 ||
