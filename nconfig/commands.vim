@@ -1,17 +1,17 @@
 " -- Commands -- "
 
 function! s:OpenConfig()
-    exec "tabnew" g:nestedConfigDir."settings.vim"
-    exec "below :vs" g:nestedConfigDir."functions.vim"
-    exec "below :sp" g:nestedConfigDir."keymaps.vim"
+    exec "tabnew" g:files.settings
+    exec "below :vs" g:files.functions
+    exec "below :sp" g:files.keymaps
     wincmd h
-    exec "below :sp" g:nestedConfigDir."commands.vim"
+    exec "below :sp" g:files.commands
     wincmd k
     exec "lcd" g:nestedConfigDir
 endfunction
 
 function! s:OpenPackages()
-    exec "tabnew" g:nestedConfigDir."packages.vim"
+    exec "tabnew" g:files.packages
 endfunction
 
 function! s:OpenFileTypes()
@@ -26,10 +26,16 @@ function! s:OpenSnippets()
     exec "FZF!"
 endfunction
 
+function! s:OpenStatus()
+    exec "tabnew" g:nestedConfigDir."status.vim"
+    exec "lcd" g:nestedConfigDir
+endfunction
+
 command! Config call s:OpenConfig()
 command! Packages call s:OpenPackages()
 command! FileTypes call s:OpenFileTypes()
 command! Snippets call s:OpenSnippets()
+command! Status call s:OpenStatus()
 
 " ----------------------------- "
 "             Term              "

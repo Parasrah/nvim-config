@@ -1,30 +1,29 @@
 command! PackUpdate packadd minpac | source $NVIMCONFIG/init.vim | redraw | call minpac#update()
-command! PackClean  packadd minpac | source $NVIMCONFIG/init.vim | call minpac#clean()
+command! PackClean packadd minpac | source $NVIMCONFIG/init.vim | call minpac#clean()
+command! Reload source $NVIMCONFIG/init.vim
 
-" For a paranoia.
-" Normally `:set nocp` is not needed, because it is done automatically
-" when .vimrc is found.
 if &compatible
-    " `:set nocp` has many side effects. Therefore this should be done
-    " only when 'compatible' is set.
     set nocompatible
 endif
-
-" TODO: if local init.vim exists in project, load that after the current
-" config files
-" TODO: maybe wait until init.lua
 
 " -- Configuration --
 let g:configDir = $NVIMCONFIG
 let g:nestedConfigDir = g:configDir."/nconfig/"
+let g:files = {
+    \ 'functions': g:nestedConfigDir."functions.vim",
+    \ 'packages': g:nestedConfigDir."packages.vim",
+    \ 'settings': g:nestedConfigDir."settings.vim",
+    \ 'keymaps': g:nestedConfigDir."keymaps.vim",
+    \ 'commands': g:nestedConfigDir."commands.vim",
+    \ }
 
 " Add Global Functions
-exec "so" g:nestedConfigDir."functions.vim"
+exec "so" g:files.functions
 
 " Add Packages
-exec "so" g:nestedConfigDir."packages.vim"
+exec "so" g:files.packages
 
 " Load configs
-exec "so" g:nestedConfigDir."settings.vim"
-exec "so" g:nestedConfigDir."keymaps.vim"
-exec "so" g:nestedConfigDir."commands.vim"
+exec "so" g:files.settings
+exec "so" g:files.keymaps
+exec "so" g:files.commands

@@ -128,56 +128,53 @@ if g:DetectOS() == 'wsl'
 endif
 
 " ----------------------------- "
-"            Airline            "
+"            Status             "
 "------------------------------ "
 
-" try
+if g:IsLoaded('vim-airline')
+    " general
+    if !exists('g:airline_symbols')
+      let g:airline_symbols = {}
+    endif
+    if g:DetectOS() == 'linux'
+        let g:airline_powerline_fonts = 1
+        let g:airline_symbols_ascii = 0
+    else
+        let g:airline_symbols_ascii = 1
+        let g:airline_powerline_fonts = 0
+    endif
+    let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+    let g:airline_exclude_preview = 1
+    let g:airline_skip_empty_sections = 1
+    let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'z', 'warning', 'error']]
+    let g:airline_right_sep = ''
+    let g:airline_left_sep = ''
+    let g:airline_symbols.dirty = '⚡'
+    function! AirlineInit()
+        let g:airline_section_z = airline#section#create(['linenr'])
+    endfunction
+    autocmd User AirlineAfterInit call AirlineInit()
 
-" general
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-if g:DetectOS() == 'linux'
-    let g:airline_powerline_fonts = 1
-    let g:airline_symbols_ascii = 0
+    " extensions
+    let g:airline_extensions = [
+    \ 'branch',
+    \ 'ale',
+    \ 'tabline',
+    \ ]
+
+    " tabline
+    " TODO: check if in extensions
+    let g:airline#extensions#tabline#show_buffers = 0
+    let g:airline#extensions#tabline#show_splits = 1
+    let g:airline#extensions#tabline#show_tabs = 1
+    let g:airline#extensions#tabline#show_tab_count = 0
+    let g:airline#extensions#tabline#show_tab_nr = 0
+    let g:airline#extensions#tabline#show_tab_type = 0
+    let g:airline#extensions#tabline#show_close_button = 0
+    let g:airline#extensions#tabline#formatter = 'unique_tail'
 else
-    let g:airline_symbols_ascii = 1
-    let g:airline_powerline_fonts = 0
+    call luaeval('require("status")')
 endif
-let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-let g:airline_exclude_preview = 1
-let g:airline_skip_empty_sections = 1
-let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'z', 'warning', 'error']]
-let g:airline_right_sep = ''
-let g:airline_left_sep = ''
-let g:airline_symbols.dirty = '⚡'
-function! AirlineInit()
-    let g:airline_section_z = airline#section#create(['linenr'])
-endfunction
-autocmd User AirlineAfterInit call AirlineInit()
-
-" extensions
-let g:airline_extensions = [
-\ 'branch',
-\ 'ale',
-\ 'tabline',
-\ ]
-
-" tabline
-" TODO: check if in extensions
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#show_splits = 1
-let g:airline#extensions#tabline#show_tabs = 1
-let g:airline#extensions#tabline#show_tab_count = 0
-let g:airline#extensions#tabline#show_tab_nr = 0
-let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-
-" catch
-"     echo 'airline not installed'
-" endtry
-
 
 " ----------------------------- "
 "           Javascript          "

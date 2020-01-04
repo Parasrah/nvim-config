@@ -145,3 +145,7 @@ function! g:AddPackage(info)
 	exec "packadd! " . package
     endif
 endfunction
+
+function! g:IsLoaded(package)
+    return &runtimepath =~ a:package
+endfunction
