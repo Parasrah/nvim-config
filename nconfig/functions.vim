@@ -10,7 +10,7 @@ endfunction
 
 function! StatusColors()
     try
-    return luaeval('require("status").colors()')
+    return luaeval('require("status").apply_colors()')
     catch
         call s:Caught()
     endtry

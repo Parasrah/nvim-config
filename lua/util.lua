@@ -60,6 +60,12 @@ end
 --           Custom         --
 ------------------------------
 
+exports.identity = function(me)
+    return function()
+        return me
+    end
+end
+
 exports.pipe = function(transforms)
     return function(arg)
         local result = arg
@@ -87,6 +93,9 @@ end
 
 exports.join = function(sep)
     return function(list)
+        if exports.length(list) == 1 then
+            return exports.head(list)
+        end
         return exports.pipe({
             exports.intersperse(sep),
             exports.reduce(function(x, y) return x .. y end),
