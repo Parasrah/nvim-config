@@ -19,7 +19,7 @@
         "elmPath": "elm",
         "elmFormatPath": "elm-format",
         "elmTestPath": "elm-test",
-        "elmAnalyseTrigger": "change"
+        "elmAnalyseTrigger": "never"
       }
     },
     "lua": {
