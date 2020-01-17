@@ -57,6 +57,13 @@ function! g:DetectOS()
     endif
 endfunction
 
+function! g:IsTUI()
+    if exists('g:vscode')
+        return 0
+    endif
+    return 1
+endfunction
+
 " ----------------------------- "
 "             Search            "
 "------------------------------ "

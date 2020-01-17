@@ -58,7 +58,7 @@ nmap <silent> <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
 vmap <silent> <leader>f <Plug>(coc-format-selected)
-nmap <silent> <leader>f <Plug>(coc-format-selected)
+nmap <silent> <leader>f <Plug>(coc-format)
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 vmap <silent> <leader><space> <Plug>(coc-codeaction-selected)

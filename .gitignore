@@ -2,3 +2,7 @@ plugged/
 .netrwhist
 pack/
 !pack/minpac/opt/minpac
+undo/*
+!undo/.gitkeep
+swap/*
+!swap/.gitkeep

@@ -1,6 +1,6 @@
 set hidden
 set linebreak
-set shortmess=cfilnxtToOI
+set shortmess=cfilnxtToOIF
 set modelines=5
 set updatetime=300
 set wildmode=longest,list,full
@@ -14,6 +14,9 @@ set shiftwidth=4
 set softtabstop=4
 set number
 set wildignore=node_modules/**,elm-stuff/**,.git/**,build/**,dist/**,*.temp,obj/**,bin/**
+set undofile
+let &undodir = g:configDir . "/undo/"
+let &directory = g:configDir . "/swap/"
 
 " Enable filetype plugin
 filetype plugin indent on
