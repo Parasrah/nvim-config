@@ -3,7 +3,7 @@ set linebreak
 set shortmess=cfilnxtToOIF
 set modelines=5
 set updatetime=300
-set wildmode=longest,list,full
+set wildmode=longest,list
 set wildmenu
 set completeopt-=preview
 set signcolumn=yes
@@ -15,6 +15,7 @@ set softtabstop=4
 set number
 set wildignore=node_modules/**,elm-stuff/**,.git/**,build/**,dist/**,*.temp,obj/**,bin/**
 set undofile
+set history=400
 let &undodir = g:configDir . "/undo/"
 let &directory = g:configDir . "/swap/"
 
@@ -31,6 +32,27 @@ autocmd VimEnter * set noshowmode
 if executable("rg")
     set grepprg=rg\ --vimgrep\ --smart-case\ --no-heading\ --hidden
 endif
+
+" ----------------------------- "
+"         Text Objects          "
+"------------------------------ "
+
+" doesn't seem to work?
+" (\d{2,4}-\d{1,2}-\d{1,2}[ |T]\d{1,2}:\d{1,2}:\d{1,2}|\d{2,4}-\d{1,2}-\d{1,2}|\d{1,2}:\d{1,2}:\d{1,2})
+call textobj#user#plugin('datetime', {
+\   'datetime': {
+\       'pattern': '\<\(\d\d\d\d-\d\d-\d\d[ |T]\d\d:\d\d:\d\d\)\>',
+\       'select': ['ad', 'at'],
+\   },
+\   'date': {
+\     'pattern': '\<\d\d\d\d-\d\d-\d\d\>',
+\     'select': ['id'],
+\   },
+\   'time': {
+\     'pattern': '\<\d\d:\d\d:\d\d\>',
+\     'select': ['it'],
+\   },
+\ })
 
 " ----------------------------- "
 "          Delimitmate          "
@@ -131,6 +153,9 @@ if g:DetectOS() == 'wsl'
     let g:OmniSharp_translate_cygwin_wsl = 1
     let g:OmniSharp_server_path = '/mnt/c/OmniSharp/omnisharp-win-x64/OmniSharp.exe'
 endif
+let g:OmniSharp_diagnostic_overrides = {
+\ 'CsharpStyleUnusedValueExpressionStatementPreference': {'type': 'None'}
+\}
 
 " ----------------------------- "
 "            Status             "

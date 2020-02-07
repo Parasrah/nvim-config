@@ -86,4 +86,4 @@ call g:AddPackage({ 'repo': 'vim-airline', 'package': 'vim-airline-themes', 'ena
 
 call g:AddPackage({ 'repo': 'sheerun', 'package': 'vim-polyglot' })
 call g:AddPackage({ 'repo': 'quabug', 'package': 'vim-gdscript' })
-call g:AddPackage({ 'repo': 'omnisharp', 'package': 'omnisharp-vim' })
+call g:AddPackage({ 'repo': 'omnisharp', 'package': 'omnisharp-vim', 'enable': 1 })

@@ -1,3 +1,3 @@
-let b:ale_linters = { 'typescript': ['eslint', 'tslint'] }
+let b:ale_linters = { 'typescript': ['eslint'] }
 
 nnoremap <silent> <leader>oi :CocCommand tsserver.organizeImports<CR>
