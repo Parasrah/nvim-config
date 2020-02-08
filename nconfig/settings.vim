@@ -24,6 +24,7 @@ filetype plugin indent on
 
 " Workspace
 autocmd VimEnter * set noshowmode
+autocmd VimEnter * set formatoptions+=or
 
 " ----------------------------- "
 "             Grep              "

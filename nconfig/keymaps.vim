@@ -71,8 +71,6 @@ nmap <silent> <leader>qf <Plug>(coc-fix-current)
 " Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<cr>
 
-nnoremap <silent> <leader>oi :call CocActionAsync('runCommand', 'tsserver.organizeImports')<cr>
-
 function! s:show_documentation()
     if &filetype == 'vim'
         execute 'h '.expand('<cword>')
