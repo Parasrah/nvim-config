@@ -16,6 +16,8 @@ set number
 set wildignore=node_modules/**,elm-stuff/**,.git/**,build/**,dist/**,*.temp,obj/**,bin/**
 set undofile
 set history=400
+set ignorecase
+set smartcase
 let &undodir = g:configDir . "/undo/"
 let &directory = g:configDir . "/swap/"
 
@@ -167,7 +169,7 @@ if g:IsLoaded('vim-airline')
     if !exists('g:airline_symbols')
       let g:airline_symbols = {}
     endif
-    if g:DetectOS() == 'linux'
+    if g:DetectOS() == 'none'
         let g:airline_powerline_fonts = 1
         let g:airline_symbols_ascii = 0
     else

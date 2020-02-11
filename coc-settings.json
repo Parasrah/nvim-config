@@ -7,9 +7,8 @@
   "coc.preferences.hoverTarget": "float",
   "suggest.floatEnable": true,
   "coc.preferences.useQuickfixForLocations": true,
-  "list.nextKeymap": "<C-n>",
-  "list.previousKeymap": "<C-p>",
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "list.maxPreviewHeight": 30,
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",
