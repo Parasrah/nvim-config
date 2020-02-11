@@ -6,6 +6,12 @@ tnoremap <esc> <C-\><C-n>
 tnoremap <C-v><esc> <esc>
 
 " ----------------------------- "
+"          Window Swap          "
+" ----------------------------- "
+
+nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
+
+" ----------------------------- "
 "             Escape            "
 " ----------------------------- "
 

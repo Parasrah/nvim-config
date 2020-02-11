@@ -29,6 +29,15 @@ autocmd VimEnter * set noshowmode
 autocmd VimEnter * set formatoptions+=or
 
 " ----------------------------- "
+"             TODO              "
+"------------------------------ "
+
+" * migrate to init.lua when it hits stable ubuntu
+" * all plugin related setup (installing plugin, keys, settings)
+"   should happen in the same place so it's easy to enable/disable
+"   and should be written in lua
+
+" ----------------------------- "
 "             Grep              "
 "------------------------------ "
 
@@ -127,24 +136,6 @@ augroup cocformat
 augroup end
 
 " ----------------------------- "
-"         Language Client       "
-"------------------------------ "
-
-" fsharp will inject server command, don't want to
-" load for anything else
-let g:LanguageClient_serverCommands = {}
-
-let g:LanguageClient_diagnosticsList = 'Location'
-
-" ----------------------------- "
-"            Ionide             "
-"------------------------------ "
-
-let g:fsharp#show_signature_on_cursor_move = 0
-
-let g:fsharp#workspace_mode_peek_deep_level = 2
-
-" ----------------------------- "
 "           OmniSharp           "
 "------------------------------ "
 
@@ -182,7 +173,12 @@ if g:IsLoaded('vim-airline')
     let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'z', 'warning', 'error']]
     let g:airline_right_sep = ''
     let g:airline_left_sep = ''
-    let g:airline_symbols.dirty = '⚡'
+    let g:airline_symbols.crypt = '🔒'
+    let g:airline_symbols.paste = 'ρ'
+    let g:airline_symbols.spell = 'Ꞩ'
+    let g:airline_symbols.notexists = 'Ɇ'
+    " let g:airline_symbols.dirty = ' ●'
+
     function! AirlineInit()
         let g:airline_section_z = airline#section#create(['linenr'])
     endfunction
@@ -197,6 +193,9 @@ if g:IsLoaded('vim-airline')
 
     " tabline
     " TODO: check if in extensions
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#left_sep = ''
+    let g:airline#extensions#tabline#right_sep = ''
     let g:airline#extensions#tabline#show_buffers = 0
     let g:airline#extensions#tabline#show_splits = 1
     let g:airline#extensions#tabline#show_tabs = 1
@@ -239,6 +238,31 @@ if has('nvim')
 endif
 
 " ----------------------------- "
+"          Star Search          "
+"------------------------------ "
+
+" From http://got-ravings.blogspot.com/2008/07/vim-pr0n-visual-search-mappings.html
+
+" makes * and # work on visual mode too.
+function! s:VSetSearch(cmdtype)
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+  let @s = temp
+endfunction
+
+xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
+
+" recursively vimgrep for word under cursor or selection if you hit leader-star
+if maparg('<leader>*', 'n') == ''
+  nmap <leader>* :execute 'noautocmd vimgrep /\V' . substitute(escape(expand("<cword>"), '\'), '\n', '\\n', 'g') . '/ **'<CR>
+endif
+if maparg('<leader>*', 'v') == ''
+  vmap <leader>* :<C-u>call <SID>VSetSearch()<CR>:execute 'noautocmd vimgrep /' . @/ . '/ **'<CR>
+endif
+
+" ----------------------------- "
 "            Macros             "
 "------------------------------ "
 
@@ -270,16 +294,6 @@ function! s:ThemeGruvbox()
     set background=dark
     syntax on
     colorscheme gruvbox
-endfunction
-
-function! s:ThemeNord()
-    let g:airline_theme = 'nord'
-    let g:nord_italic = 1
-    let g:nord_underline = 1
-    let g:nord_italic_comments = 1
-    let g:nord_comment_brightness = 12
-    syntax on
-    colorscheme nord
 endfunction
 
 function! s:SetupTheme()

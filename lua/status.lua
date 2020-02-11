@@ -3,11 +3,11 @@ require('util')()
 -- based on https://github.com/elenapan/dotfiles/blob/master/config/nvim/statusline.vim
 
 local api = vim.api
--- local left = ""
--- local right = ""
 local left = ""
 local right = ""
 local file_symbol = ""
+
+-- TODO: ensure recursion == tail end calls
 
 ----------------------------------
 --             Util             --

@@ -1,0 +1,63 @@
+" Originally from https://github.com/wesQ3/vim-windowswap
+" TODO: rewrite as lua plugin (fun experiment)
+let s:markedWinNum = []
+
+function! WindowSwap#MarkWindowSwap()
+   call WindowSwap#SetMarkedWindowNum( tabpagenr(), winnr() )
+endfunction
+
+function! WindowSwap#DoWindowSwap()
+   if !WindowSwap#HasMarkedWindow()
+      echom "WindowSwap: No window marked to swap! Mark a window first."
+      return
+   endif
+   "Mark destination
+   let curTab = tabpagenr()
+   let curNum = winnr()
+   let curView = winsaveview()
+   let curBuf = bufnr( "%" )
+   let targetWindow = WindowSwap#GetMarkedWindowTuple()
+   exe "tabn " . targetWindow[0]
+   exe targetWindow[1] . "wincmd w"
+   "Switch to source and shuffle dest->source
+   let markedView = winsaveview()
+   let markedBuf = bufnr( "%" )
+   "Hide and open so that we aren't prompted and keep history
+   exe 'hide buf ' . curBuf
+   call winrestview(curView)
+   "Switch to dest and shuffle source->dest
+   exe "tabn " . curTab
+   exe curNum . "wincmd w"
+   "Hide and open so that we aren't prompted and keep history
+   exe 'hide buf ' . markedBuf
+   call winrestview(markedView)
+   call WindowSwap#ClearMarkedWindowNum()
+endfunction
+
+function! WindowSwap#EasyWindowSwap()
+   if WindowSwap#HasMarkedWindow()
+      call WindowSwap#DoWindowSwap()
+   else
+      call WindowSwap#MarkWindowSwap()
+   endif
+endfunction
+
+function! WindowSwap#GetMarkedWindowTuple()
+   return s:markedWinNum
+endfunction
+
+function! WindowSwap#SetMarkedWindowNum(tab,win)
+   let s:markedWinNum = [a:tab,a:win]
+endfunction
+
+function! WindowSwap#ClearMarkedWindowNum()
+   let s:markedWinNum = []
+endfunction
+
+function! WindowSwap#HasMarkedWindow()
+   if s:markedWinNum == []
+      return 0
+   else
+      return 1
+   endif
+endfunction

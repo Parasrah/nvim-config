@@ -31,9 +31,8 @@ call g:AddPackage({ 'repo': 'tpope', 'package': 'vim-dispatch' })
 call g:AddPackage({ 'repo': 'tpope', 'package': 'vim-commentary' })
 call g:AddPackage({ 'repo': 'tpope', 'package': 'vim-obsession' })
 call g:AddPackage({ 'repo': 'tpope', 'package': 'vim-dadbod' })
-call g:AddPackage({ 'repo': 'nelstrom', 'package': 'vim-visual-star-search' })
-call g:AddPackage({ 'repo': 'wesq3', 'package': 'vim-windowswap' })
 call g:AddPackage({ 'repo': 'mattn', 'package': 'emmet-vim' })
+" TODO: revisit this after tree-sitter syntax
 call g:AddPackage({ 'repo': 'raimondi', 'package': 'delimitmate' })
 call g:AddPackage({ 'repo': 'editorconfig', 'package': 'editorconfig-vim' })
 
@@ -70,9 +69,9 @@ call g:AddPackage({ 'repo': 'neoclide', 'package': 'coc.nvim', 'config': { 'do':
 " Themes
 call g:AddPackage({ 'repo': 'morhetz', 'package': 'gruvbox' })
 call g:AddPackage({ 'repo': 'joshdick', 'package': 'onedark.vim' })
-call g:AddPackage({ 'repo': 'arcticicestudio', 'package': 'nord-vim' })
 
 " Other
+" TODO: revisit after https://github.com/ryanoasis/nerd-fonts/issues/127
 call g:AddPackage({ 'repo': 'ryanoasis', 'package': 'vim-devicons', 'enable': 0 })
 call g:AddPackage({ 'repo': 'Shougo', 'package': 'echodoc.vim' })
 call g:AddPackage({ 'repo': 'vim-airline', 'package': 'vim-airline', 'enable': g:airline_enabled })
@@ -84,7 +83,10 @@ call g:AddPackage({ 'repo': 'vim-airline', 'package': 'vim-airline-themes', 'ena
 "                             ||
 " ==============================
 
+" TODO: might be able to remove this after tree-sitter makes it into stable
 call g:AddPackage({ 'repo': 'sheerun', 'package': 'vim-polyglot' })
 call g:AddPackage({ 'repo': 'quabug', 'package': 'vim-gdscript' })
+" TODO: this can be replaced by gopls + nvim-lsp
 call g:AddPackage({ 'repo': 'fatih', 'package': 'vim-go' })
+" TODO: if removing this, also remove echodoc above
 call g:AddPackage({ 'repo': 'omnisharp', 'package': 'omnisharp-vim', 'enable': 1 })

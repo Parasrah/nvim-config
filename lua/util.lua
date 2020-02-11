@@ -1,3 +1,10 @@
+--- Utilities
+---
+--- The following are utilities used for my neovim configuration
+--- Many are either re-exports from the "fun" library or
+--- abstractions around it. It uses a similar currying pattern
+--- to RamdaJS
+
 local exports = {}
 local fun = require('fun')
 
