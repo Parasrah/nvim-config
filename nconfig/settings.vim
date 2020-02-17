@@ -28,6 +28,10 @@ filetype plugin indent on
 autocmd VimEnter * set noshowmode
 autocmd VimEnter * set formatoptions+=or
 
+" Terminal
+" TODO: prevent from triggering in FZF
+autocmd TermClose * call feedkeys('<cr>')
+
 " ----------------------------- "
 "             TODO              "
 "------------------------------ "
@@ -160,7 +164,7 @@ if g:IsLoaded('vim-airline')
     if !exists('g:airline_symbols')
       let g:airline_symbols = {}
     endif
-    if g:DetectOS() == 'none'
+    if g:IsLoaded('vim-devicons')
         let g:airline_powerline_fonts = 1
         let g:airline_symbols_ascii = 0
     else
@@ -171,15 +175,23 @@ if g:IsLoaded('vim-airline')
     let g:airline_exclude_preview = 1
     let g:airline_skip_empty_sections = 1
     let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'z', 'warning', 'error']]
+    
     let g:airline_right_sep = ''
     let g:airline_left_sep = ''
     let g:airline_symbols.crypt = '🔒'
+
     let g:airline_symbols.paste = 'ρ'
     let g:airline_symbols.spell = 'Ꞩ'
-    let g:airline_symbols.notexists = 'Ɇ'
-    " let g:airline_symbols.dirty = ' ●'
+    let g:airline_symbols.notexists = ' Ɇ'
+    let g:airline_symbols.branch = ''
+    let g:airline_symbols.dirty = '*'
 
     function! AirlineInit()
+        call airline#parts#define_raw('modified', '%{&modified ? "●" : ""}')
+        " let g:airline_section_c = airline#section#create(['%f', 'modified'])
+        " TODO: prevent section c taking up full width
+        let g:airline_section_c = '%<%f%{&modified ? " ● " : ""} %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
+        "
         let g:airline_section_z = airline#section#create(['linenr'])
     endfunction
     autocmd User AirlineAfterInit call AirlineInit()
@@ -194,8 +206,8 @@ if g:IsLoaded('vim-airline')
     " tabline
     " TODO: check if in extensions
     let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#left_sep = ''
     let g:airline#extensions#tabline#right_sep = ''
+    let g:airline#extensions#tabline#left_sep = ''
     let g:airline#extensions#tabline#show_buffers = 0
     let g:airline#extensions#tabline#show_splits = 1
     let g:airline#extensions#tabline#show_tabs = 1

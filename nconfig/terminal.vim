@@ -16,6 +16,8 @@ set history=400
 set noshowmode
 set noruler
 set laststatus=0
+set ignorecase
+set smartcase
 
 tnoremap <esc> <C-\><C-n>
 tnoremap <C-v><esc> <esc>

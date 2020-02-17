@@ -6,3 +6,4 @@ undo/*
 !undo/.gitkeep
 swap/*
 !swap/.gitkeep
+Session.vim

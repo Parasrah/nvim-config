@@ -71,7 +71,6 @@ call g:AddPackage({ 'repo': 'morhetz', 'package': 'gruvbox' })
 call g:AddPackage({ 'repo': 'joshdick', 'package': 'onedark.vim' })
 
 " Other
-" TODO: revisit after https://github.com/ryanoasis/nerd-fonts/issues/127
 call g:AddPackage({ 'repo': 'ryanoasis', 'package': 'vim-devicons', 'enable': 0 })
 call g:AddPackage({ 'repo': 'Shougo', 'package': 'echodoc.vim' })
 call g:AddPackage({ 'repo': 'vim-airline', 'package': 'vim-airline', 'enable': g:airline_enabled })
