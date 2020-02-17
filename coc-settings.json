@@ -2,6 +2,7 @@
   "diagnostic.displayByAle": true,
   "diagnostic.locationlist": true,
   "coc.preferences.formatOnType": false,
+  "coc.preferences.formatOnInsertLeave": false,
   "npm.binPath": "npm",
   "snippets.userSnippetsDirectory": "~/.config/nvim/coc/ultisnips",
   "coc.preferences.hoverTarget": "float",
@@ -16,9 +17,8 @@
       "rootPatterns": ["elm.json"],
       "initializationOptions": {
         "elmPath": "elm",
-        "elmFormatPath": "elm-format",
         "elmTestPath": "elm-test",
-        "elmAnalyseTrigger": "never"
+        "elmAnalyseTrigger": "change"
       }
     },
     "lua": {
