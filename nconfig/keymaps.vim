@@ -6,6 +6,13 @@ tnoremap <esc> <C-\><C-n>
 tnoremap <C-v><esc> <esc>
 
 " ----------------------------- "
+"           Surround            "
+" ----------------------------- "
+
+" TODO: get this working
+" nmap yS ys$
+
+" ----------------------------- "
 "          Window Swap          "
 " ----------------------------- "
 

@@ -94,6 +94,12 @@ let g:ale_linters_explicit = 1
 let g:ale_linters = {}
 
 " ----------------------------- "
+"            Polyglot           "
+"------------------------------ "
+
+let g:polyglot_disabled = ['elm']
+
+" ----------------------------- "
 "          Editorconfig         "
 "------------------------------ "
 
@@ -138,13 +144,6 @@ augroup cocformat
     " Update signature help on jump placeholder
     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
-
-" ----------------------------- "
-"              Elm              "
-"------------------------------ "
-
-let g:elm_format_autosave = 0
-let g:elm_setup_keybindings = 0
 
 " ----------------------------- "
 "           OmniSharp           "
