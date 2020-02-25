@@ -7,12 +7,13 @@ Hi, this is my configuration for neovim, a popular text editor seeking feature p
 I program in a variety of languages, and have tried to build a config that works for all of them while also maintaining stability:
 
 * Elm
+* Elixir
 * Javascript
 * Typescript
-* Rust
 * C#
-* F#
 * Lua
+* Rust
+* Golang
 
 # Lua
 

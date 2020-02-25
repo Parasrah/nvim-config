@@ -5,7 +5,7 @@ set modelines=5
 set updatetime=300
 set wildmode=longest,list
 set wildmenu
-set completeopt-=preview
+set completeopt=menu,noinsert,noselect,preview
 set signcolumn=yes
 set nobackup
 set nowritebackup
@@ -53,51 +53,53 @@ endif
 "         Text Objects          "
 "------------------------------ "
 
-" doesn't seem to work?
-" (\d{2,4}-\d{1,2}-\d{1,2}[ |T]\d{1,2}:\d{1,2}:\d{1,2}|\d{2,4}-\d{1,2}-\d{1,2}|\d{1,2}:\d{1,2}:\d{1,2})
-call textobj#user#plugin('datetime', {
-\   'datetime': {
-\       'pattern': '\<\(\d\d\d\d-\d\d-\d\d[ |T]\d\d:\d\d:\d\d\)\>',
-\       'select': ['ad', 'at'],
-\   },
-\   'date': {
-\     'pattern': '\<\d\d\d\d-\d\d-\d\d\>',
-\     'select': ['id'],
-\   },
-\   'time': {
-\     'pattern': '\<\d\d:\d\d:\d\d\>',
-\     'select': ['it'],
-\   },
-\ })
+if g:IsLoaded('vim-textobj-user')
+    " doesn't seem to work?
+    " (\d{2,4}-\d{1,2}-\d{1,2}[ |T]\d{1,2}:\d{1,2}:\d{1,2}|\d{2,4}-\d{1,2}-\d{1,2}|\d{1,2}:\d{1,2}:\d{1,2})
+    call textobj#user#plugin('datetime', {
+    \   'datetime': {
+    \       'pattern': '\<\(\d\d\d\d-\d\d-\d\d[ |T]\d\d:\d\d:\d\d\)\>',
+    \       'select': ['ad', 'at'],
+    \   },
+    \   'date': {
+    \     'pattern': '\<\d\d\d\d-\d\d-\d\d\>',
+    \     'select': ['id'],
+    \   },
+    \   'time': {
+    \     'pattern': '\<\d\d:\d\d:\d\d\>',
+    \     'select': ['it'],
+    \   },
+    \ })
+endif
 
 " ----------------------------- "
 "          Delimitmate          "
 "------------------------------ "
 
-let g:delimitMate_expand_cr = 1
-let g:delimitMate_expand_space = 1
+if g:IsLoaded('delimitmate')
+    let g:delimitMate_expand_cr = 1
+    let g:delimitMate_expand_space = 1
+endif
 
 " ----------------------------- "
 "              Ale              "
 "------------------------------ "
 
-" let g:ale_lint_on_save = 1
-if g:DetectOS() == 'linux' || g:DetectOS() == 'wsl'
+if g:IsLoaded('ale')
     let g:ale_sign_error = '✗'
     let g:ale_sign_warning = '⚠'
-else
-    let g:ale_sign_error = '>>'
-    let g:ale_sign_warning = '--'
+    let g:ale_completion_enabled = 0
+    let g:ale_linters_explicit = 1
+    let g:ale_linters = {}
 endif
-let g:ale_completion_enabled = 0
-let g:ale_linters_explicit = 1
-let g:ale_linters = {}
 
 " ----------------------------- "
 "            Polyglot           "
 "------------------------------ "
 
-let g:polyglot_disabled = ['elm']
+if g:IsLoaded('vim-polyglot')
+    let g:polyglot_disabled = ['elm']
+endif
 
 " ----------------------------- "
 "          Editorconfig         "
@@ -108,42 +110,45 @@ let g:EditorConfig_max_line_indicator = "none"
 let g:EditorConfig_disable_rules = ['insert_final_newline', 'trim_trailing_whitespace']
 
 " ----------------------------- "
+"             Emmet             "
+"------------------------------ "
+
+let g:user_emmet_leader_key = '<C-,>'
+
+" ----------------------------- "
 "              CoC              "
 "------------------------------ "
 
-" extensions
-let g:coc_global_extensions = [
-\ 'coc-tsserver',
-\ 'coc-json',
-\ 'coc-snippets',
-\ 'coc-rls',
-\ 'coc-yaml',
-\ ]
+if g:IsLoaded('coc.nvim')
+    " extensions
+    let g:coc_global_extensions = [
+    \ 'coc-tsserver',
+    \ 'coc-json',
+    \ 'coc-snippets',
+    \ 'coc-rls',
+    \ 'coc-yaml',
+    \ ]
 
-" options
-let g:coc_snippet_next = '<tab>'
+    " options
+    let g:coc_snippet_next = '<tab>'
 
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call s:CursorHoldHighlight()
-function! s:CursorHoldHighlight()
-    if &ft != 'json'
-        call CocActionAsync('highlight')
-    endif
-endfunction
+    " Highlight symbol under cursor on CursorHold
+    autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Use `:Format` for format current buffer
-command! -nargs=0 Format :call CocAction('format')
+    " Use `:Format` for format current buffer
+    command! -nargs=0 Format :call CocAction('format')
 
-" Use `:Fold` for fold current buffer
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
+    " Use `:Fold` for fold current buffer
+    command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
-augroup cocformat
-    autocmd!
-    " Setup formatexpr specified filetype(s).
-    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-    " Update signature help on jump placeholder
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
+    augroup cocformat
+        autocmd!
+        " Setup formatexpr specified filetype(s).
+        autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+        " Update signature help on jump placeholder
+        autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    augroup end
+endif
 
 " ----------------------------- "
 "           OmniSharp           "
