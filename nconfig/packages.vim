@@ -57,7 +57,7 @@ call g:AddPackage({ 'repo': 'junegunn', 'package': 'fzf', 'config': { 'do': '!./
 "                                 ||
 "===================================
 
-call g:AddPackage({ 'repo': 'w0rp', 'package': 'ale' })
+call g:AddPackage({ 'repo': 'dense-analysis', 'package': 'ale' })
 call g:AddPackage({ 'repo': 'neoclide', 'package': 'coc.nvim', 'config': { 'do': 'call coc#util#install()' } })
 
 " ==============================

@@ -1,6 +1,9 @@
 " ale
 let b:ale_linters = { 'cs': ['OmniSharp'] }
 
+setlocal comments=://
+setlocal commentstring=//\ %s
+
 " omnisharp (override coc-nvim)
 if exists("g:OmniSharp_loaded")
     " echodoc
