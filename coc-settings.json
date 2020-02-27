@@ -4,14 +4,14 @@
   "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnInsertLeave": false,
   "npm.binPath": "npm",
-  "snippets.userSnippetsDirectory": "~/.config/nvim/coc/ultisnips",
+  "snippets.userSnippetsDirectory": "$NVIMCONFIG/coc/ultisnips",
   "coc.preferences.hoverTarget": "float",
-  "suggest.floatEnable": true,
   "coc.preferences.useQuickfixForLocations": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "list.maxPreviewHeight": 30,
   "suggest.autoTrigger": "always",
   "suggest.noselect": true,
+  "suggest.floatEnable": true,
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",

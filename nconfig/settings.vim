@@ -6,6 +6,7 @@ set updatetime=300
 set wildmode=longest,list
 set wildmenu
 set completeopt=menu,noinsert,noselect,preview
+set complete=t,.,w,b,u
 set signcolumn=yes
 set nobackup
 set nowritebackup
@@ -18,6 +19,10 @@ set undofile
 set history=400
 set ignorecase
 set smartcase
+set lazyredraw
+set magic
+set noerrorbells
+set novisualbell
 let &undodir = g:configDir . "/undo/"
 let &directory = g:configDir . "/swap/"
 
@@ -90,6 +95,7 @@ if g:IsLoaded('ale')
     let g:ale_sign_warning = '⚠'
     let g:ale_completion_enabled = 0
     let g:ale_linters_explicit = 1
+    let g:ale_virtualtext_cursor = 0
     let g:ale_linters = {}
 endif
 
@@ -100,6 +106,12 @@ endif
 if g:IsLoaded('vim-polyglot')
     let g:polyglot_disabled = ['elm']
 endif
+
+" ----------------------------- "
+"           IndentLine          "
+"------------------------------ "
+
+let g:indentLine_char = '▏'
 
 " ----------------------------- "
 "          Editorconfig         "
