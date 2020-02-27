@@ -8,7 +8,6 @@ endif
 let b:did_indent = 1
 
 " Local defaults
-setlocal expandtab
 setlocal indentexpr=GetElmIndent()
 setlocal indentkeys+=0=else,0=if,0=of,0=import,0=then,0=type,0\|,0},0\],0),=-},0=in
 setlocal nolisp

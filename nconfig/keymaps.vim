@@ -50,60 +50,62 @@ nnoremap <C-p> :<C-u>FZF<cr>
 "              CoC              "
 "------------------------------ "
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+if g:IsLoaded('coc.nvim')
+    " Use <c-space> to trigger completion.
+    inoremap <silent><expr> <c-space> coc#refresh()
 
-" goto definition
-nmap <silent> gd <Plug>(coc-definition)
-" goto type definition
-nmap <silent> gy <Plug>(coc-type-definition)
-" goto reference
-nmap <silent> gr <Plug>(coc-references)
-" goto implementation
-nmap <silent> <leader>gi <Plug>(coc-implementation)
-" goto document symbol
-nnoremap <silent> go  :<C-u>CocList outline<cr>
-" goto workspace symbol
-nnoremap <silent> gs  :<C-u>CocList -I symbols<cr>
+    " goto definition
+    nmap <silent> gd <Plug>(coc-definition)
+    " goto type definition
+    nmap <silent> gy <Plug>(coc-type-definition)
+    " goto reference
+    nmap <silent> gr <Plug>(coc-references)
+    " goto implementation
+    nmap <silent> <leader>gi <Plug>(coc-implementation)
+    " goto document symbol
+    nnoremap <silent> go  :<C-u>CocList outline<cr>
+    " goto workspace symbol
+    nnoremap <silent> gs  :<C-u>CocList -I symbols<cr>
 
-" Remap for rename current word
-nmap <silent> <leader>rn <Plug>(coc-rename)
+    " Remap for rename current word
+    nmap <silent> <leader>rn <Plug>(coc-rename)
 
-" Remap for format selected region
-vmap <silent> <leader>f <Plug>(coc-format-selected)
-nmap <silent> <leader>f <Plug>(coc-format)
+    " Remap for format selected region
+    vmap <silent> <leader>f <Plug>(coc-format-selected)
+    nmap <silent> <leader>f <Plug>(coc-format)
 
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-vmap <silent> <leader><space> <Plug>(coc-codeaction-selected)
+    " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+    vmap <silent> <leader><space> <Plug>(coc-codeaction-selected)
 
-" Remap for do codeAction of current line
-nmap <silent> <leader><space> <Plug>(coc-codeaction)
-" Fix autofix problem of current line
-nmap <silent> <leader>qf <Plug>(coc-fix-current)
+    " Remap for do codeAction of current line
+    nmap <silent> <leader><space> <Plug>(coc-codeaction)
+    " Fix autofix problem of current line
+    nmap <silent> <leader>qf <Plug>(coc-fix-current)
 
-" Use K for show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<cr>
+    " Use K for show documentation in preview window
+    nnoremap <silent> K :call <SID>show_documentation()<cr>
 
-function! s:show_documentation()
-    if &filetype == 'vim'
-        execute 'h '.expand('<cword>')
-    else
-        call CocAction('doHover')
-    endif
-endfunction
+    function! s:show_documentation()
+        if &filetype == 'vim'
+            execute 'h '.expand('<cword>')
+        else
+            call CocAction('doHover')
+        endif
+    endfunction
 
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<tab>" :
-      \ coc#refresh()
-inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<C-h>"
+    " Use tab for trigger completion with characters ahead and navigate.
+    " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+    inoremap <silent><expr> <tab>
+          \ pumvisible() ? "\<C-n>" :
+          \ <SID>check_back_space() ? "\<tab>" :
+          \ coc#refresh()
+    inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+    function! s:check_back_space() abort
+        let col = col('.') - 1
+        return !col || getline('.')[col - 1]  =~# '\s'
+    endfunction
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+    " Use <c-space> to trigger completion.
+    inoremap <silent><expr> <c-space> coc#refresh()
+endif

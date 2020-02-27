@@ -10,6 +10,8 @@
   "coc.preferences.useQuickfixForLocations": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "list.maxPreviewHeight": 30,
+  "suggest.autoTrigger": "always",
+  "suggest.noselect": true,
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",
