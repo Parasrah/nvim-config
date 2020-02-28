@@ -233,13 +233,18 @@ endif
 "              fzf              "
 "------------------------------ "
 
+if g:IsLoaded('fzf-preview.vim')
+    let g:fzf_preview_filelist_command = 'rg --files --hidden --follow --no-messages -g \!"* *"'
+endif
+
 if g:IsLoaded('fzf')
     let $FZF_DEFAULT_OPTS='--layout=reverse'
-    let g:fzf_layout = { 'window': 'call g:FloatingFZF()' }
+    let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6, 'yoffset': 0 } }
     if executable('rg')
         let $FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git"'
     endif
 endif
+
 
 " ----------------------------- "
 "            Echodoc            "

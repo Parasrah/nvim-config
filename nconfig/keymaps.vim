@@ -62,7 +62,11 @@ nnoremap <silent> <C-j> :lnext<cr>
 nnoremap <space> i<space><right><esc>
 
 " Fuzzy File Search
-nnoremap <C-p> :<C-u>FZF<cr>
+if g:IsLoaded('fzf-preview.vim')
+    nnoremap <silent> <C-p> :<C-u>FzfPreviewFromResources git<cr>
+elseif g:IsLoaded('fzf')
+    nnoremap <silent> <C-p> :<C-u>FZF<cr>
+endif
 
 " ----------------------------- "
 "              CoC              "

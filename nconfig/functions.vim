@@ -129,32 +129,6 @@ function! g:IndentEight()
 endfunction
 
 " ----------------------------- "
-"              Fzf              "
-"------------------------------ "
-
-function! g:FloatingFZF()
-    " TODO: fallback if float not supported
-    let buf = nvim_create_buf(v:false, v:true)
-    call setbufvar(buf, '&signcolumn', 'no')
-
-    let height = float2nr(25)
-    let width = float2nr(80)
-    let row = 1
-    let col = float2nr((&columns - width) / 2)
-
-    let opts = {
-        \ 'relative': 'editor',
-        \ 'row': row,
-        \ 'col': col,
-        \ 'width': width,
-        \ 'height': height,
-        \ 'style': 'minimal'
-        \ }
-
-    call nvim_open_win(buf, v:true, opts)
-endfunction
-
-" ----------------------------- "
 "            Minpac             "
 "------------------------------ "
 
