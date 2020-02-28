@@ -16,21 +16,21 @@ tnoremap <C-v><esc> <esc>
 "             Emmet             "
 " ----------------------------- "
 
-imap   <C-j>,   <plug>(emmet-expand-abbr)
-imap   <C-j>;   <plug>(emmet-expand-word)
-imap   <C-j>u   <plug>(emmet-update-tag)
-imap   <C-j>d   <plug>(emmet-balance-tag-inward)
-imap   <C-j>D   <plug>(emmet-balance-tag-outward)
-imap   <C-j>n   <plug>(emmet-move-next)
-imap   <C-j>N   <plug>(emmet-move-prev)
-imap   <C-j>i   <plug>(emmet-image-size)
-imap   <C-j>/   <plug>(emmet-toggle-comment)
-imap   <C-j>j   <plug>(emmet-split-join-tag)
-imap   <C-j>k   <plug>(emmet-remove-tag)
-imap   <C-j>a   <plug>(emmet-anchorize-url)
-imap   <C-j>A   <plug>(emmet-anchorize-summary)
-imap   <C-j>m   <plug>(emmet-merge-lines)
-imap   <C-j>c   <plug>(emmet-code-pretty)
+imap <C-j>, <plug>(emmet-expand-abbr)
+imap <C-j>; <plug>(emmet-expand-word)
+imap <C-j>u <plug>(emmet-update-tag)
+imap <C-j>d <plug>(emmet-balance-tag-inward)
+imap <C-j>D <plug>(emmet-balance-tag-outward)
+imap <C-j>n <plug>(emmet-move-next)
+imap <C-j>N <plug>(emmet-move-prev)
+imap <C-j>i <plug>(emmet-image-size)
+imap <C-j>/ <plug>(emmet-toggle-comment)
+imap <C-j>j <plug>(emmet-split-join-tag)
+imap <C-j>k <plug>(emmet-remove-tag)
+imap <C-j>a <plug>(emmet-anchorize-url)
+imap <C-j>A <plug>(emmet-anchorize-summary)
+imap <C-j>m <plug>(emmet-merge-lines)
+imap <C-j>c <plug>(emmet-code-pretty)
 
 " ----------------------------- "
 "          Window Swap          "
@@ -92,17 +92,15 @@ if g:IsLoaded('coc.nvim')
     vmap <silent> <leader>f <Plug>(coc-format-selected)
     nmap <silent> <leader>f <Plug>(coc-format)
 
-    " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+    " Code Action
     vmap <silent> <leader><space> <Plug>(coc-codeaction-selected)
-
-    " Remap for do codeAction of current line
     nmap <silent> <leader><space> <Plug>(coc-codeaction)
-    " Fix autofix problem of current line
+
+    " Quickfix
     nmap <silent> <leader>qf <Plug>(coc-fix-current)
 
-    " Use K for show documentation in preview window
+    " Documentation
     nnoremap <silent> K :call <SID>show_documentation()<cr>
-
     function! s:show_documentation()
         if &filetype == 'vim'
             execute 'h '.expand('<cword>')
@@ -123,7 +121,4 @@ if g:IsLoaded('coc.nvim')
         let col = col('.') - 1
         return !col || getline('.')[col - 1]  =~# '\s'
     endfunction
-
-    " Use <c-space> to trigger completion.
-    inoremap <silent><expr> <c-space> coc#refresh()
 endif
