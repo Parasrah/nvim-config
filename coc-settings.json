@@ -11,6 +11,7 @@
   "list.maxPreviewHeight": 30,
   "suggest.autoTrigger": "always",
   "suggest.noselect": true,
+  "suggest.enablePreselect": false,
   "suggest.floatEnable": true,
   "languageserver": {
     "elmLS": {
@@ -20,7 +21,7 @@
       "initializationOptions": {
         "elmPath": "elm",
         "elmTestPath": "elm-test",
-        "elmAnalyseTrigger": "change"
+        "elmAnalyseTrigger": "never"
       }
     },
     "lua": {

@@ -3,8 +3,8 @@
 "------------------------------ "
 
 function! s:Caught()
-    if v:exception != ""
-        echom "caught " . v:exception . " in functions.vim"
+    if v:exception != ''
+        echom 'caught ' . v:exception . ' in functions.vim'
     endif
 endfunction
 
@@ -69,24 +69,17 @@ endfunction
 "------------------------------ "
 
 let s:searchGroups = {
-\ "web": ["js", "jsx", "ts", "tsx", "json", "html", "scss", "sass", "css", "less", "cs", "cshtml"],
-\ "rust": ["rs"],
-\ "elm": ["elm"],
-\ "golang": ["go"],
-\ "elixir": [],
-\ "haskell": ["hs"]
+\ 'web': ['js', 'jsx', 'ts', 'tsx', 'json', 'html', 'scss', 'sass', 'css', 'less'],
+\ 'cs': ['cs', 'cshtml'],
+\ 'rust': ['rs'],
+\ 'elm': ['elm'],
+\ 'golang': ['go'],
+\ 'elixir': ['ex', 'exs'],
+\ 'haskell': ['hs']
 \ }
 
 function! g:Search(term)
-    let l:currGroup = []
-    for l:group in values(s:searchGroups)
-        for l:ext in l:group
-            if l:ext == &filetype
-                let l:currGroup = l:group
-                break
-            endif
-        endfor
-    endfor
+    let l:currGroup = s:searchGroups.elm
     let l:files = "**/*.{"
                 \ . join(l:currGroup, ",")
                 \ . "}"

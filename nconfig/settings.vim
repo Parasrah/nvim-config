@@ -34,23 +34,14 @@ autocmd VimEnter * set noshowmode
 autocmd VimEnter * set formatoptions+=or
 
 " Terminal
-" TODO: prevent from triggering in FZF
+" FIXME: prevent from triggering in FZF
 autocmd TermClose * call feedkeys('<cr>')
-
-" ----------------------------- "
-"             TODO              "
-"------------------------------ "
-
-" * migrate to init.lua when it hits stable ubuntu
-" * all plugin related setup (installing plugin, keys, settings)
-"   should happen in the same place so it's easy to enable/disable
-"   and should be written in lua
 
 " ----------------------------- "
 "             Grep              "
 "------------------------------ "
 
-if executable("rg")
+if executable('rg')
     set grepprg=rg\ --vimgrep\ --smart-case\ --no-heading\ --hidden
 endif
 
@@ -59,7 +50,7 @@ endif
 "------------------------------ "
 
 if g:IsLoaded('vim-textobj-user')
-    " doesn't seem to work?
+    " FIXME: I want ['at, 'ad'] to match a time or a date (not just datetime)
     " (\d{2,4}-\d{1,2}-\d{1,2}[ |T]\d{1,2}:\d{1,2}:\d{1,2}|\d{2,4}-\d{1,2}-\d{1,2}|\d{1,2}:\d{1,2}:\d{1,2})
     call textobj#user#plugin('datetime', {
     \   'datetime': {
@@ -104,7 +95,10 @@ endif
 "------------------------------ "
 
 if g:IsLoaded('vim-polyglot')
-    let g:polyglot_disabled = ['elm']
+    let g:polyglot_disabled = [
+    \ 'elm',
+    \ 'javascript',
+    \ ]
 endif
 
 " ----------------------------- "
@@ -117,22 +111,15 @@ let g:indentLine_char = '▏'
 "          Editorconfig         "
 "------------------------------ "
 
-let g:EditorConfig_max_line_indicator = "none"
+let g:EditorConfig_max_line_indicator = 'none'
 " These rules cause another save...
 let g:EditorConfig_disable_rules = ['insert_final_newline', 'trim_trailing_whitespace']
-
-" ----------------------------- "
-"             Emmet             "
-"------------------------------ "
-
-let g:user_emmet_leader_key = '<C-,>'
 
 " ----------------------------- "
 "              CoC              "
 "------------------------------ "
 
 if g:IsLoaded('coc.nvim')
-    " extensions
     let g:coc_global_extensions = [
     \ 'coc-tsserver',
     \ 'coc-json',
@@ -141,16 +128,12 @@ if g:IsLoaded('coc.nvim')
     \ 'coc-yaml',
     \ ]
 
-    " options
     let g:coc_snippet_next = '<tab>'
 
-    " Highlight symbol under cursor on CursorHold
     autocmd CursorHold * silent call CocActionAsync('highlight')
 
-    " Use `:Format` for format current buffer
     command! -nargs=0 Format :call CocAction('format')
 
-    " Use `:Fold` for fold current buffer
     command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
     augroup cocformat
@@ -166,17 +149,21 @@ endif
 "           OmniSharp           "
 "------------------------------ "
 
-let g:OmniSharp_server_stdio = 1
-let g:OmniSharp_selector_ui = 'fzf'
-let g:OmniSharp_open_quickfix = 1
-let g:OmniSharp_highlight_types = 2
-if g:DetectOS() == 'wsl'
-    let g:OmniSharp_translate_cygwin_wsl = 1
-    let g:OmniSharp_server_path = '/mnt/c/OmniSharp/omnisharp-win-x64/OmniSharp.exe'
+if g:IsLoaded('omnisharp-vim')
+    let g:OmniSharp_server_stdio = 1
+    let g:OmniSharp_open_quickfix = 1
+    let g:OmniSharp_highlight_types = 2
+    let g:OmniSharp_diagnostic_overrides = {
+    \ 'CsharpStyleUnusedValueExpressionStatementPreference': {'type': 'None'}
+    \}
+    if g:IsLoaded('fzf')
+        let g:OmniSharp_selector_ui = 'fzf'
+    endif
+    if g:DetectOS() == 'wsl'
+        let g:OmniSharp_translate_cygwin_wsl = 1
+        let g:OmniSharp_server_path = '/mnt/c/OmniSharp/omnisharp-win-x64/OmniSharp.exe'
+    endif
 endif
-let g:OmniSharp_diagnostic_overrides = {
-\ 'CsharpStyleUnusedValueExpressionStatementPreference': {'type': 'None'}
-\}
 
 " ----------------------------- "
 "            Status             "
@@ -212,7 +199,7 @@ if g:IsLoaded('vim-airline')
     function! AirlineInit()
         call airline#parts#define_raw('modified', '%{&modified ? "●" : ""}')
         " let g:airline_section_c = airline#section#create(['%f', 'modified'])
-        " TODO: prevent section c taking up full width
+        " FIXME: prevent section c taking up full width
         let g:airline_section_c = '%<%f%{&modified ? " ● " : ""} %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
         "
         let g:airline_section_z = airline#section#create(['linenr'])
@@ -227,7 +214,6 @@ if g:IsLoaded('vim-airline')
     \ ]
 
     " tabline
-    " TODO: check if in extensions
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#right_sep = ''
     let g:airline#extensions#tabline#left_sep = ''
@@ -244,18 +230,16 @@ else
 endif
 
 " ----------------------------- "
-"           Javascript          "
+"              fzf              "
 "------------------------------ "
 
-let g:javascript_plugin_jsdoc = 1
-
-" ----------------------------- "
-"              Fzf              "
-"------------------------------ "
-
-let $FZF_DEFAULT_OPTS='--layout=reverse'
-let $FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git"'
-let g:fzf_layout = { 'window': 'call g:FloatingFZF()' }
+if g:IsLoaded('fzf')
+    let $FZF_DEFAULT_OPTS='--layout=reverse'
+    let g:fzf_layout = { 'window': 'call g:FloatingFZF()' }
+    if executable('rg')
+        let $FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git"'
+    endif
+endif
 
 " ----------------------------- "
 "            Echodoc            "
@@ -265,7 +249,7 @@ let g:echodoc#enable_at_startup = 0
 let g:echodoc#type = 'floating'
 
 " ----------------------------- "
-"              Nvr              "
+"              nvr              "
 "------------------------------ "
 
 if has('nvim')
@@ -304,7 +288,7 @@ endif
 " Macro trick https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 function! ExecuteMacroOverVisualRange()
-    echo "@".getcmdline()
+    echo '@'.getcmdline()
     execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
@@ -314,12 +298,13 @@ endfunction
 
 function! s:ThemeOneDark()
     let g:onedark_terminal_italics = 1
-    let g:airline_theme = "onedark"
+    let g:airline_theme = 'onedark'
     syntax on
     colorscheme onedark
 endfunction
 
 function! s:ThemeGruvbox()
+    set termguicolors
     let g:airline_theme = 'gruvbox'
     let g:gruvbox_italic = 0
     let g:gruvbox_bold = 0
@@ -332,14 +317,14 @@ function! s:ThemeGruvbox()
 endfunction
 
 function! s:SetupTheme()
-    if (has("termguicolors"))
-        set termguicolors
+    if has('termguicolors') && g:IsLoaded('gruvbox')
         call s:ThemeGruvbox()
-    else
+    elseif g:IsLoaded('onedark.vim')
         call s:ThemeOneDark()
     endif
-    " setup highlighting
-    hi CocErrorFloat ctermfg=LightRed guifg=#fa8072
+    if g:IsLoaded('coc.nvim')
+        hi CocErrorFloat ctermfg=LightRed guifg=#fa8072
+    endif
 endfunction
 
 call s:SetupTheme()

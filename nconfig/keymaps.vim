@@ -13,6 +13,26 @@ tnoremap <C-v><esc> <esc>
 " nmap yS ys$
 
 " ----------------------------- "
+"             Emmet             "
+" ----------------------------- "
+
+imap   <C-j>,   <plug>(emmet-expand-abbr)
+imap   <C-j>;   <plug>(emmet-expand-word)
+imap   <C-j>u   <plug>(emmet-update-tag)
+imap   <C-j>d   <plug>(emmet-balance-tag-inward)
+imap   <C-j>D   <plug>(emmet-balance-tag-outward)
+imap   <C-j>n   <plug>(emmet-move-next)
+imap   <C-j>N   <plug>(emmet-move-prev)
+imap   <C-j>i   <plug>(emmet-image-size)
+imap   <C-j>/   <plug>(emmet-toggle-comment)
+imap   <C-j>j   <plug>(emmet-split-join-tag)
+imap   <C-j>k   <plug>(emmet-remove-tag)
+imap   <C-j>a   <plug>(emmet-anchorize-url)
+imap   <C-j>A   <plug>(emmet-anchorize-summary)
+imap   <C-j>m   <plug>(emmet-merge-lines)
+imap   <C-j>c   <plug>(emmet-code-pretty)
+
+" ----------------------------- "
 "          Window Swap          "
 " ----------------------------- "
 
@@ -27,8 +47,6 @@ function! s:NormalEscape()
 endfunction
 
 noremap <silent><expr> <esc> <SID>NormalEscape()
-
-" TODO: make esc remove popup item <C-e>
 
 " ------------------------------ "
 

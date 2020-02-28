@@ -1,34 +1,34 @@
 " -- Commands -- "
 
 function! s:OpenConfig()
-    exec "tabnew" g:files.settings
-    exec "below :vs" g:files.functions
-    exec "below :sp" g:files.keymaps
+    exec 'tabnew' g:files.settings
+    exec 'lcd' g:nestedConfigDir
+    exec 'below :vs' g:files.functions
+    exec 'below :sp' g:files.keymaps
     wincmd h
-    exec "below :sp" g:files.commands
+    exec 'below :sp' g:files.commands
     wincmd k
-    exec "lcd" g:nestedConfigDir
 endfunction
 
 function! s:OpenPackages()
-    exec "tabnew" g:files.packages
+    exec 'tabnew' g:files.packages
 endfunction
 
 function! s:OpenFileTypes()
-    exec "tabnew"
-    exec "lcd" g:configDir."/ftplugin"
-    exec "FZF!"
+    exec 'tabnew'
+    exec 'lcd' g:configDir.'/ftplugin'
+    exec 'FZF!'
 endfunction
 
 function! s:OpenSnippets()
-    exec "tabnew"
-    exec "lcd" g:configDir."/coc/ultisnips"
-    exec "FZF!"
+    exec 'tabnew'
+    exec 'lcd' g:configDir.'/coc/ultisnips'
+    exec 'FZF!'
 endfunction
 
 function! s:OpenStatus()
-    exec "tabnew" g:files.status
-    exec "lcd" g:nestedConfigDir
+    exec 'tabnew' g:files.status
+    exec 'lcd' g:nestedConfigDir
 endfunction
 
 command! Config call s:OpenConfig()
@@ -43,12 +43,6 @@ command! Status call s:OpenStatus()
 
 command! Term bo :17sp term://bash
 command! Tarm tabnew term://bash
-
-" ----------------------------- "
-"              Git              "
-"------------------------------ "
-
-command! Done w | :bdelete
 
 " ----------------------------- "
 "             Grep              "
