@@ -17,8 +17,6 @@ set number
 set wildignore=node_modules/**,elm-stuff/**,.git/**,build/**,dist/**,*.temp,obj/**,bin/**
 set undofile
 set history=400
-set ignorecase
-set smartcase
 set lazyredraw
 set magic
 set noerrorbells
