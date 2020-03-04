@@ -8,6 +8,7 @@
   "coc.preferences.hoverTarget": "float",
   "coc.preferences.useQuickfixForLocations": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.preferences.importModuleSpecifier": "relative",
   "list.maxPreviewHeight": 30,
   "suggest.autoTrigger": "always",
   "suggest.noselect": true,

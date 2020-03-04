@@ -1,6 +1,15 @@
 " ale
 let b:ale_linters = { 'cs': ['OmniSharp'] }
 
+setlocal makeprg=dotnet\ build\ -p:GenerateFullPaths=true
+" Ignore from '.*Microsoft.*' to 'Build FAILED.' and all lines in between
+setlocal errorformat=
+    \%-A%.%#Microsoft%.%#,
+    \%-ZBuild\ FAILED.,
+    \%f(%l\\\,%c):\ %tarning\ %m\ [%.%#],
+    \%f(%l\\\,%c):\ %trror\ %m\ [%.%#],
+    \%-C%.%#
+
 setlocal comments=://
 setlocal commentstring=//\ %s
 
@@ -13,7 +22,7 @@ if exists('g:OmniSharp_loaded')
         \ <Plug>(omnisharp_go_to_definition)
 
     nmap <buffer> <silent>
-        \ go
+        \ <leader>go
         \ <Plug>(omnisharp_find_members)
 
     nmap <buffer> <silent>
@@ -37,7 +46,7 @@ if exists('g:OmniSharp_loaded')
         \ <Plug>(omnisharp_find_implementations)
 
     nmap <buffer> <silent>
-        \ <leader><Space>
+        \ <leader>.
         \ <Plug>(omnisharp_code_actions)
 
     nmap <buffer> <silent>

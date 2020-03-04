@@ -25,6 +25,26 @@ tnoremap <C-v><esc> <esc>
 command! Term bo :sp term://bash
 command! Tarm tabnew term://bash
 
+
+function! s:VSetSearch(cmdtype)
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+  let @s = temp
+endfunction
+
+xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
+
+" recursively vimgrep for word under cursor or selection if you hit leader-star
+" TODO: change this to use grep
+if maparg('<leader>*', 'n') == ''
+  nmap <leader>* :execute 'noautocmd vimgrep /\V' . substitute(escape(expand("<cword>"), '\'), '\n', '\\n', 'g') . '/ **'<CR>
+endif
+if maparg('<leader>*', 'v') == ''
+  vmap <leader>* :<C-u>call <SID>VSetSearch()<CR>:execute 'noautocmd vimgrep /' . @/ . '/ **'<CR>
+endif
+
 function s:SetupTheme()
     if has('termguicolors')
         packadd! gruvbox

@@ -59,7 +59,7 @@ nnoremap <silent> <C-k> :lprevious<cr>
 nnoremap <silent> <C-j> :lnext<cr>
 
 " -- Insert Spaces
-nnoremap <space> i<space><right><esc>
+nnoremap <silent> <leader><leader> i<space><right><esc>
 
 " Fuzzy File Search
 if g:IsLoaded('fzf-preview.vim')
@@ -85,7 +85,7 @@ if g:IsLoaded('coc.nvim')
     " goto implementation
     nmap <silent> <leader>gi <Plug>(coc-implementation)
     " goto document symbol
-    nnoremap <silent> go  :<C-u>CocList outline<cr>
+    nnoremap <silent> <leader>go  :<C-u>CocList outline<cr>
     " goto workspace symbol
     nnoremap <silent> gs  :<C-u>CocList -I symbols<cr>
 
@@ -93,15 +93,15 @@ if g:IsLoaded('coc.nvim')
     nmap <silent> <leader>rn <Plug>(coc-rename)
 
     " Remap for format selected region
-    vmap <silent> <leader>f <Plug>(coc-format-selected)
-    nmap <silent> <leader>f <Plug>(coc-format)
+    vmap <silent> <leader>fo <Plug>(coc-format-selected)
+    nmap <silent> <leader>fo <Plug>(coc-format)
 
     " Code Action
-    vmap <silent> <leader><space> <Plug>(coc-codeaction-selected)
-    nmap <silent> <leader><space> <Plug>(coc-codeaction)
+    vmap <silent> <leader>. <Plug>(coc-codeaction-selected)
+    nmap <silent> <leader>. <Plug>(coc-codeaction)
 
     " Quickfix
-    nmap <silent> <leader>qf <Plug>(coc-fix-current)
+    nmap <silent> <leader>fi <Plug>(coc-fix-current)
 
     " Documentation
     nnoremap <silent> K :call <SID>show_documentation()<cr>

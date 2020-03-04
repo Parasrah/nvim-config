@@ -24,6 +24,9 @@ set novisualbell
 let &undodir = g:configDir . "/undo/"
 let &directory = g:configDir . "/swap/"
 
+" Leader
+let mapleader = ' '
+
 " Enable filetype plugin
 filetype plugin indent on
 
@@ -82,7 +85,7 @@ endif
 if g:IsLoaded('ale')
     let g:ale_sign_error = '✗'
     let g:ale_sign_warning = '⚠'
-    let g:ale_completion_enabled = 0
+    let g:ale_disable_lsp = 1
     let g:ale_linters_explicit = 1
     let g:ale_virtualtext_cursor = 0
     let g:ale_linters = {}
@@ -95,7 +98,6 @@ endif
 if g:IsLoaded('vim-polyglot')
     let g:polyglot_disabled = [
     \ 'elm',
-    \ 'javascript',
     \ ]
 endif
 
@@ -277,6 +279,7 @@ xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
 
 " recursively vimgrep for word under cursor or selection if you hit leader-star
+" TODO: change this to use grep
 if maparg('<leader>*', 'n') == ''
   nmap <leader>* :execute 'noautocmd vimgrep /\V' . substitute(escape(expand("<cword>"), '\'), '\n', '\\n', 'g') . '/ **'<CR>
 endif
@@ -309,11 +312,13 @@ endfunction
 function! s:ThemeGruvbox()
     set termguicolors
     let g:airline_theme = 'gruvbox'
+    let g:gruvbox_contrast_dark = 'medium'
+    " re-evaluate when cascadia releases italicized/bolded fonts
     let g:gruvbox_italic = 0
     let g:gruvbox_bold = 0
     let g:gruvbox_underline = 0
-    let g:gruvbox_italicize_comments = 0
-    let g:gruvbox_italicize_strings = 0
+    let g:gruvbox_italicize_comments = 1
+    let g:gruvbox_italicize_strings = 1
     set background=dark
     syntax on
     colorscheme gruvbox
