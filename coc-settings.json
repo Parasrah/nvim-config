@@ -14,6 +14,7 @@
   "suggest.noselect": true,
   "suggest.enablePreselect": false,
   "suggest.floatEnable": true,
+  "codeLens.enable": true,
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",
