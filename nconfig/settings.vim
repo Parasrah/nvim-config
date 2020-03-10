@@ -23,6 +23,7 @@ set noerrorbells
 set novisualbell
 set ignorecase
 set smartcase
+set inccommand="nosplit"
 let &undodir = g:configDir . "/undo/"
 let &directory = g:configDir . "/swap/"
 

@@ -22,7 +22,7 @@ if exists('g:OmniSharp_loaded')
         \ <Plug>(omnisharp_go_to_definition)
 
     nmap <buffer> <silent>
-        \ <leader>go
+        \ go
         \ <Plug>(omnisharp_find_members)
 
     nmap <buffer> <silent>
@@ -42,7 +42,7 @@ if exists('g:OmniSharp_loaded')
         \ <Plug>(omnisharp_find_usages)
 
     nmap <buffer> <silent>
-        \ <leader>gi
+        \ gi
         \ <Plug>(omnisharp_find_implementations)
 
     nmap <buffer> <silent>
