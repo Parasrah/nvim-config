@@ -16,27 +16,36 @@ tnoremap <C-v><esc> <esc>
 "             Emmet             "
 " ----------------------------- "
 
-imap <C-j>, <plug>(emmet-expand-abbr)
-imap <C-j>; <plug>(emmet-expand-word)
-imap <C-j>u <plug>(emmet-update-tag)
-imap <C-j>d <plug>(emmet-balance-tag-inward)
-imap <C-j>D <plug>(emmet-balance-tag-outward)
-imap <C-j>n <plug>(emmet-move-next)
-imap <C-j>N <plug>(emmet-move-prev)
-imap <C-j>i <plug>(emmet-image-size)
-imap <C-j>/ <plug>(emmet-toggle-comment)
-imap <C-j>j <plug>(emmet-split-join-tag)
-imap <C-j>k <plug>(emmet-remove-tag)
-imap <C-j>a <plug>(emmet-anchorize-url)
-imap <C-j>A <plug>(emmet-anchorize-summary)
-imap <C-j>m <plug>(emmet-merge-lines)
-imap <C-j>c <plug>(emmet-code-pretty)
+imap <silent> <C-j>, <Plug>(emmet-expand-abbr)
+imap <silent> <C-j>; <Plug>(emmet-expand-word)
+imap <silent> <C-j>u <Plug>(emmet-update-tag)
+imap <silent> <C-j>d <Plug>(emmet-balance-tag-inward)
+imap <silent> <C-j>D <Plug>(emmet-balance-tag-outward)
+imap <silent> <C-j>n <Plug>(emmet-move-next)
+imap <silent> <C-j>N <Plug>(emmet-move-prev)
+imap <silent> <C-j>i <Plug>(emmet-image-size)
+imap <silent> <C-j>/ <Plug>(emmet-toggle-comment)
+imap <silent> <C-j>j <Plug>(emmet-split-join-tag)
+imap <silent> <C-j>k <Plug>(emmet-remove-tag)
+imap <silent> <C-j>a <Plug>(emmet-anchorize-url)
+imap <silent> <C-j>A <Plug>(emmet-anchorize-summary)
+imap <silent> <C-j>m <Plug>(emmet-merge-lines)
+imap <silent> <C-j>c <Plug>(emmet-code-pretty)
 
 " ----------------------------- "
 "          Window Swap          "
 " ----------------------------- "
 
 nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
+
+" ----------------------------- "
+"              Space            "
+" ----------------------------- "
+
+nnoremap <leader>l i<space><esc>l
+nnoremap <leader>h hi<space><esc>
+nnoremap <leader>j o<esc>
+nnoremap <leader>k <S-o><esc>
 
 " ----------------------------- "
 "             Escape            "
@@ -48,6 +57,38 @@ endfunction
 
 noremap <silent><expr> <esc> <SID>NormalEscape()
 
+" ----------------------------- "
+"          Star Search          "
+"------------------------------ "
+
+" case sensitive * search
+nnoremap * /\C\<<C-r>=expand('<cword>')<cr>\><cr>
+nnoremap # ?\C\<<C-r>=expand('<cword>')<cr>\><cr>
+nnoremap g* /\C<C-r>=expand('<cword>')<cr><cr>
+nnoremap g? ?\C<C-r>=expand('<cword>')<cr><cr>
+
+" From http://got-ravings.blogspot.com/2008/07/vim-pr0n-visual-search-mappings.html
+
+" makes * and # work on visual mode too.
+function! s:VSetSearch(cmdtype)
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+  let @s = temp
+endfunction
+
+xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
+
+" recursively vimgrep for word under cursor or selection if you hit leader-star
+" TODO: change this to use grep
+if maparg('<leader>*', 'n') == ''
+  nmap <leader>* :execute 'noautocmd vimgrep /\V' . substitute(escape(expand("<cword>"), '\'), '\n', '\\n', 'g') . '/ **'<CR>
+endif
+if maparg('<leader>*', 'v') == ''
+  vmap <leader>* :<C-u>call <SID>VSetSearch()<CR>:execute 'noautocmd vimgrep /' . @/ . '/ **'<CR>
+endif
+
 " ------------------------------ "
 
 " Location list navigation
@@ -57,9 +98,6 @@ nnoremap <silent> <C-l> :cnext<cr>
 " -- Quickfix navigation
 nnoremap <silent> <C-k> :lprevious<cr>
 nnoremap <silent> <C-j> :lnext<cr>
-
-" -- Insert Spaces
-nnoremap <silent> <leader><leader> i<space><right><esc>
 
 " Fuzzy File Search
 if g:IsLoaded('fzf-preview.vim')

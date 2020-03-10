@@ -21,6 +21,8 @@ set lazyredraw
 set magic
 set noerrorbells
 set novisualbell
+set ignorecase
+set smartcase
 let &undodir = g:configDir . "/undo/"
 let &directory = g:configDir . "/swap/"
 
@@ -90,6 +92,12 @@ if g:IsLoaded('ale')
     let g:ale_virtualtext_cursor = 0
     let g:ale_linters = {}
 endif
+
+" ----------------------------- "
+"             Emmet             "
+"------------------------------ "
+
+let g:user_emmet_install_command = 0
 
 " ----------------------------- "
 "            Polyglot           "
@@ -259,32 +267,6 @@ let g:echodoc#type = 'floating'
 
 if has('nvim')
     let $VISUAL = 'nvr -cc vsplit --remote-wait'
-endif
-
-" ----------------------------- "
-"          Star Search          "
-"------------------------------ "
-
-" From http://got-ravings.blogspot.com/2008/07/vim-pr0n-visual-search-mappings.html
-
-" makes * and # work on visual mode too.
-function! s:VSetSearch(cmdtype)
-  let temp = @s
-  norm! gv"sy
-  let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
-  let @s = temp
-endfunction
-
-xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
-xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
-
-" recursively vimgrep for word under cursor or selection if you hit leader-star
-" TODO: change this to use grep
-if maparg('<leader>*', 'n') == ''
-  nmap <leader>* :execute 'noautocmd vimgrep /\V' . substitute(escape(expand("<cword>"), '\'), '\n', '\\n', 'g') . '/ **'<CR>
-endif
-if maparg('<leader>*', 'v') == ''
-  vmap <leader>* :<C-u>call <SID>VSetSearch()<CR>:execute 'noautocmd vimgrep /' . @/ . '/ **'<CR>
 endif
 
 " ----------------------------- "
