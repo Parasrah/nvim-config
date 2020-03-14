@@ -116,14 +116,13 @@ nnoremap <silent> <leader>gm :<C-u>Git mergetool<cr>
 nnoremap <silent> <leader>gl :<C-u>0Gclog<cr>
 nnoremap <silent> <leader>gf :<C-u>Git fetch<cr>
 nnoremap <silent> <leader>gp :<C-u>Git push<cr>
+nnoremap <silent> <leader>gs :<C-u>Git status<cr>
 
 " ----------------------------- "
 "         Remap Defaults        "
 "------------------------------ "
 
 " TODO: carry count through to operation
-" TODO: might be worth putting LS keymaps on <leader>d, etc
-" so that I can still use vim w/o troubles
 nnoremap <silent> <leader>i gi
 nnoremap <silent> <leader>o go
 nnoremap <silent> <leader>s gs
