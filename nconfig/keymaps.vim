@@ -6,13 +6,6 @@ tnoremap <esc> <C-\><C-n>
 tnoremap <C-v><esc> <esc>
 
 " ----------------------------- "
-"           Surround            "
-" ----------------------------- "
-
-" TODO: get this working
-" nmap yS ys$
-
-" ----------------------------- "
 "             Emmet             "
 " ----------------------------- "
 
@@ -43,7 +36,7 @@ nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
 " ----------------------------- "
 
 nnoremap <leader>l i<space><esc>l
-nnoremap <leader>h hi<space><esc>
+nnoremap <leader>h i<space><esc>
 nnoremap <leader>j o<esc>
 nnoremap <leader>k <S-o><esc>
 
@@ -116,7 +109,7 @@ nnoremap <silent> <leader>gm :<C-u>Git mergetool<cr>
 nnoremap <silent> <leader>gl :<C-u>0Gclog<cr>
 nnoremap <silent> <leader>gf :<C-u>Git fetch<cr>
 nnoremap <silent> <leader>gp :<C-u>Git push<cr>
-nnoremap <silent> <leader>gs :<C-u>Git status<cr>
+nnoremap <silent> <leader>gs :<C-u>G<cr>
 
 " ----------------------------- "
 "         Remap Defaults        "

@@ -38,8 +38,7 @@ autocmd VimEnter * set noshowmode
 autocmd VimEnter * set formatoptions+=or
 
 " Terminal
-" FIXME: prevent from triggering in FZF
-autocmd TermClose * call feedkeys('<cr>')
+autocmd TermClose * if &ft != 'fzf' | call feedkeys('<cr>')
 
 " ----------------------------- "
 "             Grep              "
@@ -109,12 +108,6 @@ if g:IsLoaded('vim-polyglot')
     \ 'elm',
     \ ]
 endif
-
-" ----------------------------- "
-"           IndentLine          "
-"------------------------------ "
-
-let g:indentLine_char = '▏'
 
 " ----------------------------- "
 "          Editorconfig         "
