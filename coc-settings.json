@@ -15,6 +15,7 @@
   "suggest.enablePreselect": false,
   "suggest.floatEnable": true,
   "codeLens.enable": false,
+  "rust-client.disableRustup": true,
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",
