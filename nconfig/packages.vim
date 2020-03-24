@@ -59,7 +59,7 @@ call g:AddPackage({ 'repo': 'yuki-ycino', 'package': 'fzf-preview.vim', 'enable'
 "===================================
 
 call g:AddPackage({ 'repo': 'dense-analysis', 'package': 'ale' })
-call g:AddPackage({ 'repo': 'neoclide', 'package': 'coc.nvim', 'config': { 'do': 'call coc#util#install()' } })
+call g:AddPackage({ 'repo': 'neoclide', 'package': 'coc.nvim', 'config': { 'do': '!./install.sh' } })
 
 " ==============================
 "                             ||
