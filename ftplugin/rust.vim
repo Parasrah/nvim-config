@@ -1,2 +1,3 @@
-" TODO: migrate rust to use coc-nvim
-nmap gd <Plug>(rust-def)
+if has('nvim') && g:IsLoaded('nvim-lsp')
+    lua require'nvim_lsp'.rls.setup{}
+endif

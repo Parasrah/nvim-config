@@ -62,4 +62,5 @@ command! -nargs=1 NIX grep <q-args> -g "**/*.{nix}"
 command! -nargs=1 SQL grep <q-args> -g "**/*.{sql}"
 command! -nargs=1 ELI grep <q-args> -g "**/*.{ex,esx}"
 command! -nargs=1 YAML grep <q-args> -g "**/*.{yml,yaml}"
+command! -nargs=1 VIM grep <q-args> -g "**/*.{vim,lua}"
 command! -nargs=1 S :call g:Search(<f-args>)
