@@ -38,6 +38,17 @@ command! Snippets call s:OpenSnippets()
 command! Status call s:OpenStatus()
 
 " ----------------------------- "
+"             Help              "
+"------------------------------ "
+
+function! s:Help(topic)
+    exec 'tabnew +h\ ' . escape(a:topic, ' ')
+    wincmd o
+endfunction
+
+command! -nargs=1 Help call s:Help(<q-args>)
+
+" ----------------------------- "
 "             Term              "
 "------------------------------ "
 

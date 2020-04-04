@@ -104,12 +104,15 @@ endif
 "------------------------------ "
 
 nnoremap <silent> <leader>gb :<C-u>Gblame<cr>
-nnoremap <silent> <leader>gd :<C-u>Gdiffsplit<cr>
+nnoremap <silent> <leader>gd :<C-u>Gdiffsplit!<cr>
 nnoremap <silent> <leader>gm :<C-u>Git mergetool<cr>
 nnoremap <silent> <leader>gl :<C-u>0Gclog<cr>
 nnoremap <silent> <leader>gf :<C-u>Git fetch<cr>
-nnoremap <silent> <leader>gp :<C-u>Git push<cr>
+nnoremap <silent> <leader>gps :<C-u>Git push<cr>
+nnoremap <silent> <leader>gpl :<C-u>Git pull<cr>
 nnoremap <silent> <leader>gs :<C-u>G<cr>
+nnoremap <silent> <leader>g? :<C-u>Help fugitive<cr>
+nnoremap <silent> <leader>gw :<C-u>Gwrite<cr>
 
 " ----------------------------- "
 "         Remap Defaults        "

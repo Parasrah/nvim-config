@@ -27,5 +27,5 @@ exec "so" g:files.packages
 
 " Load configs
 exec "so" g:files.settings
-exec "so" g:files.keymaps
 exec "so" g:files.commands
+exec "so" g:files.keymaps

@@ -31,6 +31,7 @@ call g:AddPackage({ 'repo': 'tpope', 'package': 'vim-dispatch' })
 call g:AddPackage({ 'repo': 'tpope', 'package': 'vim-commentary' })
 call g:AddPackage({ 'repo': 'tpope', 'package': 'vim-obsession' })
 call g:AddPackage({ 'repo': 'tpope', 'package': 'vim-dadbod' })
+call g:AddPackage({ 'repo': 'tpope', 'package': 'vim-unimpaired' })
 call g:AddPackage({ 'repo': 'mattn', 'package': 'emmet-vim' })
 " TODO: revisit this after tree-sitter syntax
 call g:AddPackage({ 'repo': 'raimondi', 'package': 'delimitmate' })
@@ -59,7 +60,7 @@ call g:AddPackage({ 'repo': 'yuki-ycino', 'package': 'fzf-preview.vim', 'enable'
 "===================================
 
 call g:AddPackage({ 'repo': 'dense-analysis', 'package': 'ale' })
-call g:AddPackage({ 'repo': 'neoclide', 'package': 'coc.nvim', 'config': { 'do': '!./install.sh' } })
+call g:AddPackage({ 'repo': 'neoclide', 'package': 'coc.nvim', 'enable': 1, 'config': { 'do': '!./install.sh' } })
 call g:AddPackage({ 'repo': 'neovim', 'package': 'nvim-lsp', 'enable': 0 })
 
 " ==============================

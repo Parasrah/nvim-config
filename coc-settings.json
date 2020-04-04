@@ -30,6 +30,14 @@
     "lua": {
       "command": "lua-lsp",
       "filetypes": ["lua"]
+    },
+    "fsautocomplete": {
+      "command": "dotnet",
+      "args": ["/home/brad/.cache/fsautocomplete.netcore/fsautocomplete.dll", "--background-service-enabled"],
+      "filetypes": ["fsharp"],
+      "initializationOptions": {
+        "AutomaticWorkspaceInit": true
+      }
     }
   }
 }
