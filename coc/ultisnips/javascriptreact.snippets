@@ -1,0 +1,21 @@
+extends javascript
+
+snippet pcom "Presentational React Component" b
+const ${1:Name} = ({ $2 }) => (
+	$3
+)
+
+export { $1 }
+endsnippet
+
+snippet com "React Component" b
+const ${1:Name} = ({ $2 }) => {
+	return (
+		<${3:div}>
+			$4
+		</$3>
+	)
+}
+
+export { $1 }
+endsnippet

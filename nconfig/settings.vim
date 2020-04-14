@@ -97,7 +97,8 @@ endif
 "             Emmet             "
 "------------------------------ "
 
-let g:user_emmet_install_command = 0
+" to prevent emmet conflicting w/ completion
+let g:user_emmet_leader_key = '<C-l>'
 
 " ----------------------------- "
 "            Polyglot           "

@@ -1,3 +1,21 @@
 snippet bind "function binding" b
 this.${1:name} = this.$1.bind(this);
 endsnippet
+
+snippet lam "Lambda" w
+($1) => $2
+endsnippet
+
+snippet fn "Javascript Function" b
+function ${1:Name} ($2) {
+	$3
+}
+endsnippet
+
+snippet class "Javascript Class" b
+class ${1:Name} {
+	contructor ($2) {
+
+	}
+}
+endsnippet

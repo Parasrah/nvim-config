@@ -1,3 +1,42 @@
 snippet set "property setter" b
 public ${1:string} ${2:name} { get; set; }
 endsnippet
+
+snippet class "C# Class" b
+namespace ${1:Namespace}
+{
+	public class ${2:ClassName}
+	{
+		public $2()
+		{ }
+	}
+}
+endsnippet
+
+snippet interface "C# Interface" b
+namespace ${1:Namespace}
+{
+	public interface ${2:ClassName}
+	{
+		$3
+	}
+}
+endsnippet
+
+snippet method "C# Method" b
+public ${1:Type} ${2:Method}()
+{
+	$3
+}
+endsnippet
+
+snippet pmethod "C# Private Method" b
+private ${1:Type} ${2:Method}()
+{
+	$3
+}
+endsnippet
+
+snippet lam "C# Lambda" w
+($1) => $2
+endsnippet

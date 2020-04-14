@@ -6,26 +6,6 @@ tnoremap <esc> <C-\><C-n>
 tnoremap <C-v><esc> <esc>
 
 " ----------------------------- "
-"             Emmet             "
-" ----------------------------- "
-
-imap <silent> <C-j>, <Plug>(emmet-expand-abbr)
-imap <silent> <C-j>; <Plug>(emmet-expand-word)
-imap <silent> <C-j>u <Plug>(emmet-update-tag)
-imap <silent> <C-j>d <Plug>(emmet-balance-tag-inward)
-imap <silent> <C-j>D <Plug>(emmet-balance-tag-outward)
-imap <silent> <C-j>n <Plug>(emmet-move-next)
-imap <silent> <C-j>N <Plug>(emmet-move-prev)
-imap <silent> <C-j>i <Plug>(emmet-image-size)
-imap <silent> <C-j>/ <Plug>(emmet-toggle-comment)
-imap <silent> <C-j>j <Plug>(emmet-split-join-tag)
-imap <silent> <C-j>k <Plug>(emmet-remove-tag)
-imap <silent> <C-j>a <Plug>(emmet-anchorize-url)
-imap <silent> <C-j>A <Plug>(emmet-anchorize-summary)
-imap <silent> <C-j>m <Plug>(emmet-merge-lines)
-imap <silent> <C-j>c <Plug>(emmet-code-pretty)
-
-" ----------------------------- "
 "          Window Swap          "
 " ----------------------------- "
 
