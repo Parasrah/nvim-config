@@ -1,5 +1,5 @@
 plugged/
-.netrwhist
+.netrw*
 pack/
 !pack/minpac/opt/minpac
 undo/*
@@ -7,3 +7,4 @@ undo/*
 swap/*
 !swap/.gitkeep
 Session.vim
+coc/extensions/

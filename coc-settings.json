@@ -16,6 +16,7 @@
   "suggest.floatEnable": true,
   "codeLens.enable": false,
   "rust-client.disableRustup": true,
+  "python.pythonPath": "python3",
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",

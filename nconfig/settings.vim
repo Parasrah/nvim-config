@@ -129,6 +129,10 @@ if g:IsLoaded('coc.nvim')
     \ 'coc-snippets',
     \ 'coc-rls',
     \ 'coc-yaml',
+    \ 'coc-html',
+    \ 'coc-python',
+    \ 'coc-css',
+    \ 'coc-todolist',
     \ ]
 
     let g:coc_snippet_next = '<tab>'

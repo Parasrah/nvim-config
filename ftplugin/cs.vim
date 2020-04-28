@@ -38,6 +38,10 @@ if exists('g:OmniSharp_loaded')
         \ <Plug>(omnisharp_documentation)
 
     nmap <buffer> <silent>
+        \ <leader>fo
+        \ <Plug>(omnisharp_code_format)
+
+    nmap <buffer> <silent>
         \ gr
         \ <Plug>(omnisharp_find_usages)
 
