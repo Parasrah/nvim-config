@@ -1,6 +1,9 @@
 {
   "diagnostic.displayByAle": true,
   "diagnostic.locationlist": true,
+  "diagnostic.infoSign": "i",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.errorSign": "✗",
   "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnInsertLeave": false,
   "npm.binPath": "npm",

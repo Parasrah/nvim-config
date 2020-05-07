@@ -1,31 +1,31 @@
 extends typescript
 
 snippet pcom "Presentational React Component" b
-interface $1Props {
-	$3
-}
+import React, { FunctionComponent } from 'react';
+import styled from 'styled-components';
 
-const $1 = ({ $2 }: $1Props) => (
-	<${4:div}>
-		$5
-	</$4>
+const Wrapper = styled.div\`\`;
+
+interface IProps { }
+
+const $1: FunctionComponent<IProps> = () => (
+	<Wrapper>
+		$3
+	</Wrapper>
 );
 
-export { $1 };
+export default $1;
 endsnippet
 
 snippet com "React Component" b
-interface $1Props {
-	$3
-}
+import React, { FunctionComponent } from 'react';
 
-const $1 = ({ $2 }: $1Props) => {
-	return (
-		<${4:div}>
-			$5
-		</$4>
-	);
+interface IProps { }
+
+const $1: FunctionComponent<IProps> = () => {
+	$2
+	return (<></>);
 };
 
-export { $1 };
+export default $1;
 endsnippet

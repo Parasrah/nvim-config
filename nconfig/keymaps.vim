@@ -12,13 +12,11 @@ tnoremap <C-v><esc> <esc>
 nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
 
 " ----------------------------- "
-"              Space            "
+"          ex commands          "
 " ----------------------------- "
 
-nnoremap <leader>l i<space><esc>l
-nnoremap <leader>h i<space><esc>
-nnoremap <leader>j o<esc>
-nnoremap <leader>k <S-o><esc>
+cnoremap <expr> <C-P> wildmenumode() ? "\<C-P>" : "\<Up>"
+cnoremap <expr> <C-N> wildmenumode() ? "\<C-N>" : "\<Down>"
 
 " ----------------------------- "
 "             Escape            "
@@ -80,7 +78,14 @@ elseif g:IsLoaded('fzf')
 endif
 
 " ----------------------------- "
-"              Git              "
+"          navigation           "
+"------------------------------ "
+
+nnoremap <silent> <leader>l $
+nnoremap <silent> <leader>h ^
+
+" ----------------------------- "
+"              git              "
 "------------------------------ "
 
 nnoremap <silent> <leader>gb :<C-u>Gblame<cr>

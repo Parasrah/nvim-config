@@ -88,7 +88,5 @@ call g:AddPackage({ 'repo': 'vim-airline', 'package': 'vim-airline-themes', 'ena
 " TODO: might be able to remove this after tree-sitter makes it into stable
 call g:AddPackage({ 'repo': 'sheerun', 'package': 'vim-polyglot' })
 call g:AddPackage({ 'repo': 'quabug', 'package': 'vim-gdscript' })
-" TODO: this can be replaced by gopls + nvim-lsp
-call g:AddPackage({ 'repo': 'fatih', 'package': 'vim-go' })
 " TODO: if removing this, also remove echodoc above
 call g:AddPackage({ 'repo': 'omnisharp', 'package': 'omnisharp-vim', 'enable': 1 })

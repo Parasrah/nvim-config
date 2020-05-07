@@ -232,6 +232,8 @@ if g:IsLoaded('vim-airline')
     let g:airline#extensions#tabline#show_tab_type = 0
     let g:airline#extensions#tabline#show_close_button = 0
     let g:airline#extensions#tabline#formatter = 'unique_tail'
+    let airline#extensions#coc#error_symbol = '✗:'
+    let airline#extensions#coc#warning_symbol = '⚠:'
 else
     call g:SetupStatus()
 endif
