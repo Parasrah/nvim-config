@@ -134,6 +134,8 @@ if g:IsLoaded('coc.nvim')
     \ 'coc-css',
     \ ]
 
+    autocmd CursorMoved,CursorMovedI * call coc#util#float_hide()
+
     let g:coc_snippet_next = '<tab>'
 
     autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -233,8 +235,6 @@ if g:IsLoaded('vim-airline')
     let g:airline#extensions#tabline#formatter = 'unique_tail'
     let airline#extensions#coc#error_symbol = '✗:'
     let airline#extensions#coc#warning_symbol = '⚠:'
-else
-    call g:SetupStatus()
 endif
 
 " ----------------------------- "
