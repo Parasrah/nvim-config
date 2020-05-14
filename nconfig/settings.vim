@@ -6,7 +6,7 @@ set updatetime=300
 set wildmode=longest,list
 set wildmenu
 set completeopt=menu,noinsert,noselect,preview
-set complete=t,.,w,b,u
+set complete=.,w,b,u
 set signcolumn=yes
 set nobackup
 set nowritebackup
