@@ -160,12 +160,14 @@ if g:IsLoaded('coc.nvim')
         endif
     endfunction
 elseif has('nvim')
-    nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
-    nnoremap <silent> gD    <cmd>lua vim.lsp.buf.declaration()<CR>
-    nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-    nnoremap <silent> gi    <cmd>lua vim.lsp.buf.implementation()<CR>
-    nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-    " nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
-    nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-    nnoremap <silent> gs    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+    set omnifunc=v:lua.vim.lsp.omnifunc
+    nnoremap <silent> gd        <cmd>lua vim.lsp.buf.definition()<CR>
+    nnoremap <silent> gD        <cmd>lua vim.lsp.buf.declaration()<CR>
+    nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover()<CR>
+    nnoremap <silent> gi        <cmd>lua vim.lsp.buf.implementation()<CR>
+    nnoremap <silent> <c-k>     <cmd>lua vim.lsp.buf.signature_help()<CR>
+    " nnoremap <silent> 1gD       <cmd>lua vim.lsp.buf.type_definition()<CR>
+    nnoremap <silent> gr        <cmd>lua vim.lsp.buf.references()<CR>
+    nnoremap <silent> gs        <cmd>lua vim.lsp.buf.document_symbol()<CR>
+    inoremap <silent> <c-space> <c-x><c-o>
 endif

@@ -1,32 +1,4 @@
 " ----------------------------- "
-"             Status            "
-"------------------------------ "
-
-function! s:Caught()
-    if v:exception != ''
-        echom 'caught ' . v:exception . ' in functions.vim'
-    endif
-endfunction
-
-function! StatusColors()
-    try
-    return luaeval('require("status").apply_colors()')
-    catch
-        call s:Caught()
-    endtry
-endfunction
-
-function! g:SetupStatus()
-    try
-    let value = luaeval('require("status").get()')
-    set statusline=%{StatusColors()}
-    exec "set statusline+=" . value
-    catch
-        call s:Caught()
-    endtry
-endfunction
-
-" ----------------------------- "
 "              Lua              "
 "------------------------------ "
 
@@ -130,7 +102,7 @@ endfunction
 
 " ----------------------------- "
 "            Minpac             "
-"------------------------------ "
+" ----------------------------- "
 
 function! g:AddPackage(info)
     " TODO: write in lua

@@ -16,6 +16,7 @@ call g:AddPackage({ 'repo': 'k-takata', 'package': 'minpac' })
 "===============================
 
 let s:airline_enabled = 1
+let s:builtin_lsp_enabled = 0
 
 " ==============================
 "                             ||
@@ -60,8 +61,8 @@ call g:AddPackage({ 'repo': 'yuki-ycino', 'package': 'fzf-preview.vim', 'enable'
 "===================================
 
 call g:AddPackage({ 'repo': 'dense-analysis', 'package': 'ale' })
-call g:AddPackage({ 'repo': 'neoclide', 'package': 'coc.nvim', 'enable': 1, 'config': { 'branch': 'release' } })
-call g:AddPackage({ 'repo': 'neovim', 'package': 'nvim-lsp', 'enable': 0 })
+call g:AddPackage({ 'repo': 'neoclide', 'package': 'coc.nvim', 'enable': !s:builtin_lsp_enabled, 'config': { 'branch': 'release' } })
+call g:AddPackage({ 'repo': 'neovim', 'package': 'nvim-lsp', 'enable': s:builtin_lsp_enabled })
 
 " ==============================
 "                             ||
