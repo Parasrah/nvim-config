@@ -4,6 +4,7 @@
   "diagnostic.infoSign": "i",
   "diagnostic.warningSign": "⚠",
   "diagnostic.errorSign": "✗",
+  "coc.preferences.listOfWorkspaceEdit": "none",
   "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnInsertLeave": false,
   "npm.binPath": "npm",

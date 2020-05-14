@@ -29,3 +29,5 @@ exec "so" g:files.packages
 exec "so" g:files.settings
 exec "so" g:files.commands
 exec "so" g:files.keymaps
+
+luafile $NVIMCONFIG/lua/init.lua

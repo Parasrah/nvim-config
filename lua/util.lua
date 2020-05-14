@@ -1,18 +1,12 @@
---- Utilities
----
---- The following are utilities used for my neovim configuration
---- Many are either re-exports from the "fun" library or
---- abstractions around it. It uses a similar currying pattern
---- to RamdaJS
+--- Utilities ---
 
-local exports = {}
-local fun = require('fun')
+local ex = {}
 
 ------------------------------
---         Currying         --
+--         currying         --
 ------------------------------
 
-exports.curry2 = function(fn)
+function ex.curry2(fn)
     return function(a)
         return function(b)
             return fn(a, b)
@@ -21,59 +15,97 @@ exports.curry2 = function(fn)
 end
 
 ------------------------------
---          Simple          --
+--        re-exports        --
 ------------------------------
 
-exports.length = fun.length
-
-exports.totable = fun.totable
-
-exports.tomap = fun.tomap
-
-exports.deep = fun.deepcopy
-
-exports.head = fun.head
-
-exports.nth = exports.curry2(fun.nth)
-
-exports.take = exports.curry2(fun.take_n)
-
-exports.drop = exports.curry2(fun.drop_n)
-
-exports.map = exports.curry2(fun.map)
-
-exports.filter = exports.curry2(fun.filter)
-
-exports.intersperse = exports.curry2(fun.intersperse)
+ex.deepcopy = vim.deepcopy
 
 ------------------------------
---          Complex         --
+--        functional        --
 ------------------------------
 
-exports.reduce = function(transform)
-    return function(list)
-        if exports.length(list) == 0 then
-            return nil
+function ex.split()
+
+end
+
+function ex.min(a)
+    return function(b)
+        if a < b then
+            return a
+        else
+            return b
         end
-        local accum = exports.pipe({
-            exports.head,
-            exports.deep,
-        })(list)
-        return fun.foldl(transform, accum, exports.drop(1)(list))
     end
 end
 
-------------------------------
---           Custom         --
-------------------------------
+function ex.max(a)
+    return function(b)
+        if a > b then
+            return a
+        else
+            return b
+        end
+    end
+end
 
-exports.identity = function(me)
+function ex.zip(a)
+    return function(b)
+        local keys = {}
+
+    end
+end
+
+function ex.unique(list)
+    local rtn = {}
+end
+
+function ex.map(transform)
+    return function(tbl)
+        local mapped = {}
+        for k, v in pairs(tbl) do
+            mapped.k = transform(ex.deepcopy(v))
+        end
+    end
+end
+
+function ex.foreach(fn)
+    return function(tbl)
+        for _, v in pairs(tbl) do
+            fn(v)
+        end
+    end
+end
+
+function ex.length(input)
+    local input_type = type(input)
+    if input_type == 'string' then
+        return string.len(input)
+    elseif input_type == 'table' then
+    else
+
+    end
+end
+
+function ex.reduce(transform)
+    return function(list)
+        if ex.length(list) == 0 then
+            return nil
+        end
+        local accum = ex.pipe({
+            ex.head,
+            ex.deep,
+        })(list)
+        return fun.foldl(transform, accum, ex.drop(1)(list))
+    end
+end
+
+function ex.identity(me)
     return function()
         return me
     end
 end
 
-exports.pipe = function(transforms)
+function ex.pipe(transforms)
     return function(arg)
         local result = arg
         for _, t in ipairs(transforms) do
@@ -83,7 +115,7 @@ exports.pipe = function(transforms)
     end
 end
 
-exports.shallow = function(orig)
+function ex.shallow(orig)
     -- from http://lua-users.org/wiki/CopyTable
     local orig_type = type(orig)
     local copy
@@ -98,25 +130,51 @@ exports.shallow = function(orig)
     return copy
 end
 
-exports.join = function(sep)
+function ex.join(sep)
     return function(list)
-        if exports.length(list) == 1 then
-            return exports.head(list)
+        if ex.length(list) == 1 then
+            return ex.head(list)
         end
-        return exports.pipe({
-            exports.intersperse(sep),
-            exports.reduce(function(x, y) return x .. y end),
+        return ex.pipe({
+            ex.intersperse(sep),
+            ex.reduce(function(x, y) return x .. y end),
         })(list)
     end
 end
 
 ------------------------------
---          Exports         --
+--          testing         --
 ------------------------------
 
-setmetatable(exports, {
-    __call = function(t, override)
-        local loaded_id = 'lua_utils_loaded'
+function ex.checker(mod)
+    return function(name)
+        local check = {}
+
+        function check.eq(actual, expected)
+            local msg = mod .. ':test_' .. name .. 'eq(' .. actual .. ',' .. expected .. ') failed'
+            assert(actual == expected, msg)
+        end
+
+        return check
+    end
+end
+
+function ex.create_test(name, ex)
+    return function()
+        local mod_checker = checker('util')
+        for k, v in pairs(ex) do
+            v(mod_checker(k))
+        end
+    end
+end
+
+------------------------------
+--          general         --
+------------------------------
+
+function ex.export_call(name)
+    return function(t, override)
+        local loaded_id = 'lua_' .. name .. '_loaded'
         local api = vim.api
         if api.nvim_eval('exists("g:' .. loaded_id .. '")') == 0 then
             api.nvim_set_var(loaded_id, 1)
@@ -136,7 +194,29 @@ setmetatable(exports, {
                 rawset(_G, k, v)
             end
         end
-    end,
+    end
+end
+
+function ex.find_workspace(indicators)
+    local cwd = api.nvim_command('pwd')
+    local root_indicators = {'/', 'C:\\'}
+
+    function find_workspace(dir)
+        local file_str = api.nvim_command('globpath(' .. dir .. ')')
+        local files = ex.split('\n')
+
+        return find_workspace(dir)
+    end
+
+    return find_workspace(cwd)
+end
+
+------------------------------
+--          exports         --
+------------------------------
+
+setmetatable(ex, {
+    __call = ex.export_call('util')
 })
 
-return exports
+return ex

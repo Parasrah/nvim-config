@@ -62,13 +62,9 @@ endif
 
 " ------------------------------ "
 
-" Location list navigation
+" -- Quickfix navigation
 nnoremap <silent> <C-h> :cprevious<cr>
 nnoremap <silent> <C-l> :cnext<cr>
-
-" -- Quickfix navigation
-nnoremap <silent> <C-k> :lprevious<cr>
-nnoremap <silent> <C-j> :lnext<cr>
 
 " Fuzzy File Search
 if g:IsLoaded('fzf-preview.vim')
@@ -111,6 +107,19 @@ nnoremap <silent> <leader>o go
 nnoremap <silent> <leader>s gs
 
 " ----------------------------- "
+"             Linting           "
+" ----------------------------- "
+
+if g:IsLoaded('ale')
+    nmap <silent> <C-j> <Plug>(ale_next)
+    nmap <silent> <C-k> <Plug>(ale_previous)
+    nmap <silent> <leader>fo <Plug>(ale_fix)
+elseif
+    nnoremap <silent> <C-k> :lprevious<cr>
+    nnoremap <silent> <C-j> :lnext<cr>
+endif
+
+" ----------------------------- "
 "          Autocomplete         "
 " ----------------------------- "
 
@@ -133,10 +142,6 @@ if g:IsLoaded('coc.nvim')
 
     " Remap for rename current word
     nmap <silent> <leader>rn <Plug>(coc-rename)
-
-    " Remap for format selected region
-    vmap <silent> <leader>fo <Plug>(coc-format-selected)
-    nmap <silent> <leader>fo <Plug>(coc-format)
 
     " Code Action
     vmap <silent> <leader>. <Plug>(coc-codeaction-selected)

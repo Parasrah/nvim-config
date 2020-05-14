@@ -36,6 +36,7 @@ command! Packages call s:OpenPackages()
 command! FileTypes call s:OpenFileTypes()
 command! Snippets call s:OpenSnippets()
 command! Status call s:OpenStatus()
+command! Test call g:Test()
 
 " ----------------------------- "
 "             Help              "

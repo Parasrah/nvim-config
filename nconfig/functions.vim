@@ -30,12 +30,12 @@ endfunction
 "              Lua              "
 "------------------------------ "
 
-function g:TestUtils()
+function g:Test()
     try
-        call luaeval('require("test_util")')
+        call luaeval("require'tests.util'()")
     catch
         if v:exception != ""
-            echoerr "tests failed: " . v:exception
+            echoerr v:exception
         endif
     endtry
 endfunction
