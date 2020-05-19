@@ -90,6 +90,8 @@ if g:IsLoaded('ale')
     let g:ale_disable_lsp = 1
     let g:ale_linters_explicit = 1
     let g:ale_virtualtext_cursor = 0
+    let g:ale_echo_cursor = 1
+    let g:ale_set_loclist = 0
     let g:ale_linters = {}
 endif
 
