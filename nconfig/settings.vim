@@ -36,6 +36,7 @@ filetype plugin indent on
 " Workspace
 autocmd VimEnter * set noshowmode
 autocmd VimEnter * set formatoptions+=or
+autocmd VimEnter * set hidden " fix hacky netrw
 
 " Terminal
 autocmd TermClose * if &ft != 'fzf' | call feedkeys('<cr>')
