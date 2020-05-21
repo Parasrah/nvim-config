@@ -79,8 +79,10 @@ endif
 
 nnoremap <silent> <leader>l $
 vnoremap <silent> <leader>l $
+onoremap <silent> <leader>l $
 nnoremap <silent> <leader>h ^
 vnoremap <silent> <leader>h ^
+onoremap <silent> <leader>h ^
 
 " ----------------------------- "
 "              git              "
