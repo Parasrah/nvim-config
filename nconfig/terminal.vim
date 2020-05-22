@@ -25,6 +25,12 @@ tnoremap <C-v><esc> <esc>
 command! Term bo :sp term://bash
 command! Tarm tabnew term://bash
 
+function! s:NormalEscape()
+    return ":nohls\<cr>\<esc>"
+endfunction
+
+noremap <silent><expr> <esc> <SID>NormalEscape()
+
 function! s:VSetSearch(cmdtype)
   let temp = @s
   norm! gv"sy
