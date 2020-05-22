@@ -1,8 +1,9 @@
 " General
 nnoremap Y y$
 
-" <esc>
-tnoremap <leader>[ <C-\><C-n>
+" Use esc to exit terminal mode
+tnoremap <esc> <C-\><C-n>
+tnoremap <C-v><esc> <esc>
 
 " ----------------------------- "
 "          Window Swap          "

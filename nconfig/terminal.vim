@@ -20,8 +20,8 @@ set showtabline=1
 set ignorecase
 set smartcase
 
-tnoremap <leader>[ <C-\><C-n>
-
+tnoremap <esc> <C-\><C-n>
+tnoremap <C-v><esc> <esc>
 command! Term bo :sp term://bash
 command! Tarm tabnew term://bash
 
