@@ -105,7 +105,6 @@ nnoremap <silent> <leader>gw :<C-u>Gwrite<cr>
 
 " TODO: carry count through to operation
 nnoremap <silent> <leader>i gi
-nnoremap <silent> <leader>o go
 nnoremap <silent> <leader>s gs
 
 " ----------------------------- "
