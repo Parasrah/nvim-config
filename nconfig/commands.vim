@@ -26,6 +26,12 @@ function! s:OpenSnippets()
     exec 'FZF!'
 endfunction
 
+function! s:OpenCompiler()
+    exec 'tabnew'
+    exec 'lcd' g:configDir.'/compiler'
+    exec 'FZF!'
+endfunction
+
 function! s:OpenStatus()
     exec 'tabnew' g:files.status
     exec 'lcd' g:nestedConfigDir
@@ -35,6 +41,7 @@ command! Config call s:OpenConfig()
 command! Packages call s:OpenPackages()
 command! FileTypes call s:OpenFileTypes()
 command! Snippets call s:OpenSnippets()
+command! Compiler call s:OpenCompiler()
 command! Status call s:OpenStatus()
 command! Test call g:Test()
 
