@@ -103,9 +103,7 @@ nnoremap <silent> <leader>gw :<C-u>Gwrite<cr>
 "         Remap Defaults        "
 "------------------------------ "
 
-" TODO: carry count through to operation
 nnoremap <silent> <leader>i gi
-nnoremap <silent> <leader>s gs
 
 " ----------------------------- "
 "             Linting           "
