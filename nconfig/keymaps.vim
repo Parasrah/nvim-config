@@ -106,6 +106,12 @@ nnoremap <silent> <leader>gw :<C-u>Gwrite<cr>
 nnoremap <silent> <leader>i gi
 
 " ----------------------------- "
+"             Building          "
+" ----------------------------- "
+
+nnoremap <leader>d :<C-u>Dispatch<cr>
+
+" ----------------------------- "
 "             Linting           "
 " ----------------------------- "
 
