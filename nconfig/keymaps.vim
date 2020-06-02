@@ -6,7 +6,7 @@ tnoremap <esc> <C-\><C-n>
 tnoremap <C-v><esc> <esc>
 
 " ----------------------------- "
-"          Window Swap          "
+"          window swap          "
 " ----------------------------- "
 
 nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
@@ -19,7 +19,7 @@ cnoremap <expr> <C-P> wildmenumode() ? "\<C-P>" : "\<Up>"
 cnoremap <expr> <C-N> wildmenumode() ? "\<C-N>" : "\<Down>"
 
 " ----------------------------- "
-"             Escape            "
+"             escape            "
 " ----------------------------- "
 
 function! s:NormalEscape()
@@ -29,7 +29,7 @@ endfunction
 noremap <silent><expr> <esc> <SID>NormalEscape()
 
 " ----------------------------- "
-"          Star Search          "
+"          star search          "
 "------------------------------ "
 
 " case sensitive * search
@@ -48,8 +48,8 @@ function! s:VSetSearch(cmdtype)
   let @s = temp
 endfunction
 
-xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
-xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
+xnoremap * :<c-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<c-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
 
 " recursively vimgrep for word under cursor or selection if you hit leader-star
 " TODO: change this to use grep
@@ -57,7 +57,7 @@ if maparg('<leader>*', 'n') == ''
   nmap <leader>* :execute 'noautocmd vimgrep /\V' . substitute(escape(expand("<cword>"), '\'), '\n', '\\n', 'g') . '/ **'<CR>
 endif
 if maparg('<leader>*', 'v') == ''
-  vmap <leader>* :<C-u>call <SID>VSetSearch()<CR>:execute 'noautocmd vimgrep /' . @/ . '/ **'<CR>
+  vmap <leader>* :<c-u>call <SID>VSetSearch()<CR>:execute 'noautocmd vimgrep /' . @/ . '/ **'<CR>
 endif
 
 " ------------------------------ "
@@ -68,9 +68,9 @@ nnoremap <silent> <C-l> :cnext<cr>
 
 " Fuzzy File Search
 if g:IsLoaded('fzf-preview.vim')
-    nnoremap <silent> <C-p> :<C-u>FzfPreviewFromResources git<cr>
+    nnoremap <silent> <C-p> :<c-u>FzfPreviewFromResources git<cr>
 elseif g:IsLoaded('fzf')
-    nnoremap <silent> <C-p> :<C-u>FZF<cr>
+    nnoremap <silent> <C-p> :<c-u>FZF<cr>
 endif
 
 " ----------------------------- "
@@ -88,31 +88,32 @@ onoremap <silent> <leader>h ^
 "              git              "
 "------------------------------ "
 
-nnoremap <silent> <leader>gb :<C-u>Gblame<cr>
-nnoremap <silent> <leader>gd :<C-u>Gdiffsplit!<cr>
-nnoremap <silent> <leader>gm :<C-u>Git mergetool<cr>
-nnoremap <silent> <leader>gl :<C-u>0Gclog<cr>
-nnoremap <silent> <leader>gf :<C-u>Git fetch<cr>
-nnoremap <silent> <leader>gps :<C-u>Git push<cr>
-nnoremap <silent> <leader>gpl :<C-u>Git pull<cr>
-nnoremap <silent> <leader>gs :<C-u>G<cr>
-nnoremap <silent> <leader>g? :<C-u>Help fugitive<cr>
-nnoremap <silent> <leader>gw :<C-u>Gwrite<cr>
+nnoremap <silent> <leader>gb :<c-u>Gblame<cr>
+nnoremap <silent> <leader>gd :<c-u>Gdiffsplit!<cr>
+nnoremap <silent> <leader>gm :<c-u>Git mergetool<cr>
+nnoremap <silent> <leader>gf :<c-u>Git fetch<cr>
+nnoremap <silent> <leader>gps :<c-u>Git push<cr>
+nnoremap <silent> <leader>gpl :<c-u>Git pull<cr>
+nnoremap <silent> <leader>gs :<c-u>G<cr>
+nnoremap <silent> <leader>g? :<c-u>Help fugitive<cr>
+nnoremap <silent> <leader>gw :<c-u>Gwrite<cr>
+autocmd! BufEnter * if empty(&filetype) | execute 'nnoremap <silent> <leader>gl :<c-u>Gclog! -50<cr>'
+autocmd! BufRead,BufNewFile * if !empty(&filetype) | execute 'nnoremap <silent> <leader>gl :<c-u>0Gclog! -20<cr>'
 
 " ----------------------------- "
-"         Remap Defaults        "
+"         remap defaults        "
 "------------------------------ "
 
 nnoremap <silent> <leader>i gi
 
 " ----------------------------- "
-"             Building          "
+"             building          "
 " ----------------------------- "
 
-nnoremap <leader>d :<C-u>Dispatch<cr>
+nnoremap <leader>d :<c-u>Dispatch<cr>
 
 " ----------------------------- "
-"             Linting           "
+"             linting           "
 " ----------------------------- "
 
 if g:IsLoaded('ale')
@@ -125,7 +126,7 @@ elseif
 endif
 
 " ----------------------------- "
-"          Autocomplete         "
+"          autocomplete         "
 " ----------------------------- "
 
 if g:IsLoaded('coc.nvim')
@@ -141,9 +142,9 @@ if g:IsLoaded('coc.nvim')
     " goto implementation
     nmap <silent> gi <Plug>(coc-implementation)
     " goto document symbol
-    nnoremap <silent> go  :<C-u>CocList outline<cr>
+    nnoremap <silent> go  :<c-u>CocList outline<cr>
     " goto workspace symbol
-    nnoremap <silent> gs  :<C-u>CocList -I symbols<cr>
+    nnoremap <silent> gs  :<c-u>CocList -I symbols<cr>
 
     " Remap for rename current word
     nmap <silent> <leader>rn <Plug>(coc-rename)

@@ -44,7 +44,7 @@ call g:AddPackage({ 'repo': 'tpope', 'package': 'vim-dadbod' })
 call g:AddPackage({ 'repo': 'tpope', 'package': 'vim-unimpaired' })
 call g:AddPackage({ 'repo': 'tpope', 'package': 'vim-projectionist' })
 " testing out with it off to see if I actually need it
-call g:AddPackage({ 'repo': 'raimondi', 'package': 'delimitmate', 'enable': 0 })
+call g:AddPackage({ 'repo': 'raimondi', 'package': 'delimitmate', 'enable': 1 })
 call g:AddPackage({ 'repo': 'editorconfig', 'package': 'editorconfig-vim' })
 
 " Text Objects

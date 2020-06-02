@@ -1,5 +1,5 @@
 " ----------------------------- "
-"              Lua              "
+"              lua              "
 "------------------------------ "
 
 function g:Test()
@@ -13,7 +13,7 @@ function g:Test()
 endfunction
 
 " ----------------------------- "
-"          Environment          "
+"          environment          "
 "------------------------------ "
 
 " Detect the current OS (windows/linux/wsl)
@@ -37,7 +37,7 @@ function! g:IsTUI()
 endfunction
 
 " ----------------------------- "
-"             Search            "
+"             search            "
 "------------------------------ "
 
 let s:searchGroups = {
@@ -79,7 +79,7 @@ function! g:Find(extension)
 endfunction
 
 " ----------------------------- "
-"          Indentation          "
+"          indentation          "
 "------------------------------ "
 
 function! g:IndentTwo()
@@ -101,7 +101,7 @@ function! g:IndentEight()
 endfunction
 
 " ----------------------------- "
-"            Minpac             "
+"            minpac             "
 " ----------------------------- "
 
 function! g:AddPackage(info)

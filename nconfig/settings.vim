@@ -42,7 +42,7 @@ autocmd VimEnter * set hidden " fix hacky netrw
 autocmd TermClose * if &ft != 'fzf' | call feedkeys('<cr>')
 
 " ----------------------------- "
-"             Grep              "
+"             grep              "
 "------------------------------ "
 
 if executable('rg')
@@ -50,7 +50,7 @@ if executable('rg')
 endif
 
 " ----------------------------- "
-"         Text Objects          "
+"         text objects          "
 "------------------------------ "
 
 if g:IsLoaded('vim-textobj-user')
@@ -73,16 +73,16 @@ if g:IsLoaded('vim-textobj-user')
 endif
 
 " ----------------------------- "
-"          Delimitmate          "
+"          delimitmate          "
 "------------------------------ "
 
 if g:IsLoaded('delimitmate')
-    let g:delimitMate_expand_cr = 1
+    let g:delimitMate_expand_cr = 2
     let g:delimitMate_expand_space = 1
 endif
 
 " ----------------------------- "
-"              Ale              "
+"              ale              "
 "------------------------------ "
 
 if g:IsLoaded('ale')
@@ -97,14 +97,14 @@ if g:IsLoaded('ale')
 endif
 
 " ----------------------------- "
-"             Emmet             "
+"             emmet             "
 "------------------------------ "
 
 " to prevent emmet conflicting w/ completion
 let g:user_emmet_leader_key = '<C-l>'
 
 " ----------------------------- "
-"            Polyglot           "
+"            polyglot           "
 "------------------------------ "
 
 if g:IsLoaded('vim-polyglot')
@@ -114,7 +114,7 @@ if g:IsLoaded('vim-polyglot')
 endif
 
 " ----------------------------- "
-"          Editorconfig         "
+"          editorconfig         "
 "------------------------------ "
 
 let g:EditorConfig_max_line_indicator = 'none'
@@ -122,7 +122,7 @@ let g:EditorConfig_max_line_indicator = 'none'
 let g:EditorConfig_disable_rules = ['insert_final_newline', 'trim_trailing_whitespace']
 
 " ----------------------------- "
-"              CoC              "
+"              coc              "
 "------------------------------ "
 
 if g:IsLoaded('coc.nvim')
@@ -157,7 +157,7 @@ if g:IsLoaded('coc.nvim')
 endif
 
 " ----------------------------- "
-"           OmniSharp           "
+"           omnisharp           "
 "------------------------------ "
 
 if g:IsLoaded('omnisharp-vim')
@@ -177,7 +177,7 @@ if g:IsLoaded('omnisharp-vim')
 endif
 
 " ----------------------------- "
-"            Status             "
+"            status             "
 "------------------------------ "
 
 if g:IsLoaded('vim-airline')
@@ -258,7 +258,7 @@ endif
 
 
 " ----------------------------- "
-"            Echodoc            "
+"            echodoc            "
 "------------------------------ "
 
 let g:echodoc#enable_at_startup = 0
@@ -273,7 +273,7 @@ if has('nvim')
 endif
 
 " ----------------------------- "
-"            Macros             "
+"            macros             "
 "------------------------------ "
 
 " Macro trick https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim
@@ -284,7 +284,7 @@ function! ExecuteMacroOverVisualRange()
 endfunction
 
 " ----------------------------- "
-"            Themes             "
+"            themes             "
 "------------------------------ "
 
 function! s:ThemeOneDark()

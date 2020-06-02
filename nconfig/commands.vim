@@ -46,7 +46,7 @@ command! Status call s:OpenStatus()
 command! Test call g:Test()
 
 " ----------------------------- "
-"             Help              "
+"             help              "
 "------------------------------ "
 
 function! s:Help(topic)
@@ -57,14 +57,14 @@ endfunction
 command! -nargs=1 Help call s:Help(<q-args>)
 
 " ----------------------------- "
-"             Term              "
+"             term              "
 "------------------------------ "
 
 command! Term bo :17sp term://bash
 command! Tarm tabnew term://bash
 
 " ----------------------------- "
-"             Grep              "
+"             grep              "
 "------------------------------ "
 
 command! -nargs=1 JS grep <q-args> -g "**/*.{js,jsx,html}"

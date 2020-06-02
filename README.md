@@ -25,6 +25,7 @@ I currently use the following languages regularly:
 
 # Roadmap
 
+- [ ] leverage tags in config
 - [ ] custom statusline using lua
 - [ ] move over to builtin nvim language client
 
