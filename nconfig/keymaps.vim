@@ -67,22 +67,9 @@ nnoremap <silent> <C-h> :cprevious<cr>
 nnoremap <silent> <C-l> :cnext<cr>
 
 " Fuzzy File Search
-if g:IsLoaded('fzf-preview.vim')
-    nnoremap <silent> <C-p> :<c-u>FzfPreviewFromResources git<cr>
-elseif g:IsLoaded('fzf')
+if g:IsLoaded('fzf')
     nnoremap <silent> <C-p> :<c-u>FZF<cr>
 endif
-
-" ----------------------------- "
-"          navigation           "
-"------------------------------ "
-
-nnoremap <silent> <leader>l $
-vnoremap <silent> <leader>l $
-onoremap <silent> <leader>l $
-nnoremap <silent> <leader>h ^
-vnoremap <silent> <leader>h ^
-onoremap <silent> <leader>h ^
 
 " ----------------------------- "
 "              git              "

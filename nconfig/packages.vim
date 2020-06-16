@@ -68,6 +68,7 @@ call g:AddPackage({ 'repo': 'junegunn', 'package': 'fzf', 'config': { 'do': '!./
 "                             ||
 "===============================
 
+" this is the one I would most like to get rid of
 call g:AddPackage({ 'repo': 'dense-analysis', 'package': 'ale' }) " 😞
 
 " ==============================
@@ -77,7 +78,8 @@ call g:AddPackage({ 'repo': 'dense-analysis', 'package': 'ale' }) " 😞
 "===============================
 
 call g:AddPackage({ 'repo': 'neovim', 'package': 'nvim-lsp', 'enable': s:builtin_lsp_enabled })
-call g:AddPackage({ 'repo': 'neoclide', 'package': 'coc.nvim', 'enable': !s:builtin_lsp_enabled, 'config': { 'branch': 'release' } }) " 🔪
+call g:AddPackage({ 'repo': 'neoclide', 'package': 'coc.nvim', 'enable': !s:builtin_lsp_enabled, 'config': { 'do': '!yarn install --frozen-lockfile' } }) " 🔪
+" try to get omnisharp LSP working
 call g:AddPackage({ 'repo': 'omnisharp', 'package': 'omnisharp-vim', 'enable': 1 }) " 😞 - also see echodoc
 
 " ==============================
