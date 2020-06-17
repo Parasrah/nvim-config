@@ -68,7 +68,7 @@ nnoremap <silent> <C-l> :cnext<cr>
 
 " Fuzzy File Search
 if g:IsLoaded('fzf')
-    nnoremap <silent> <C-p> :<c-u>FZF<cr>
+    nnoremap <silent> <C-p>f :<c-u>FZF<cr>
 endif
 
 " ----------------------------- "
@@ -106,7 +106,7 @@ nnoremap <leader>d :<c-u>Dispatch<cr>
 if g:IsLoaded('ale')
     nmap <silent> <C-j> <Plug>(ale_next)
     nmap <silent> <C-k> <Plug>(ale_previous)
-    nmap <silent> <leader>fo <Plug>(ale_fix)
+    nmap <silent> <leader>f <Plug>(ale_fix)
 elseif
     nnoremap <silent> <C-k> :lprevious<cr>
     nnoremap <silent> <C-j> :lnext<cr>

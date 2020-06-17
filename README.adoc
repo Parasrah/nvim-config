@@ -1,0 +1,32 @@
+= Neovim Configuration
+
+Hi, this is my configuration for Neovim, a popular text editor seeking feature
+parity with vim while adopting a different approach to development. You can
+read more about it https://neovim.io[here] if you're interested.
+
+== Update - June 16, 2020
+
+I am no longer actively using neovim, despite how great it and the *neovim*
+community are, as I now use an alternative modal editor, Kakoune.
+
+== Languages
+
+I program in a variety of languages, and have tried to build a config that
+works for all of them while prioritising:
+
+* reliability
+* speed
+* playing well with vim features
+
+That said I am a strong proponent of Language Server Protocol (and linting).
+
+I currently use the following languages regularly:
+
+* Elixir
+* Elm
+* Nix
+* Lua
+* Javascript
+* Typescript
+* C#
+* Rust

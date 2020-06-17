@@ -38,7 +38,7 @@ if exists('g:OmniSharp_loaded')
         \ <Plug>(omnisharp_documentation)
 
     nmap <buffer> <silent>
-        \ <leader>fo
+        \ <leader>f
         \ <Plug>(omnisharp_code_format)
 
     nmap <buffer> <silent>
